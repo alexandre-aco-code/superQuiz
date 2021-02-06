@@ -3,16 +3,25 @@
 
     <ul>
 
-        <p>Bravo ! Vous avez fini la catégorie.</p>
+        
+
+        <p>Bravo ! Vous avez fini la catégorie N°<span class="golden-text"><?= $tplVars['topics'][$_GET['topic'] - 1]["Id"]; ?></span> : <?= $tplVars['topics'][$_GET['topic'] - 1]["Name"]; ?></p>
+
+
+        <!-- <?= var_dump($_GET['topic']); ?>
+
+        <?= var_dump($current_topic); ?>
+
+        <?= var_dump($tplVars['topics'][$current_topic]); ?> -->
 
 
 
         <!-- <p>Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']["ScoreByTopic"]; ?></span> / <span class="purple-text">5</span> points</p> -->
 
-        <p>Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']; ?></span> / <span class="purple-text">5</span> points</p>
+        <p class="results">Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']; ?></span> / <span class="purple-text">5</span> points</p>
 
         <p>Sauvegarde des scores... Veuillez ne pas éteindre la console s'il vous plait...</p>
-        <p>Non je plaisante. C'est Sauvegardé !</p>
+        <p>Non je plaisante. <?= $tplVars['scoreStateMessage']; ?></p>
 
         <div class="hidden_div">
             <p>IndexQuestion :</p>

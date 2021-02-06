@@ -43,10 +43,40 @@ abstract class Model {
 
 
 
-    
+
+    public function insert(array $data): int
+    {
+        $sql = "INSERT INTO $this->table SET ";
+
+        $columns = array_keys($data);
+        $sqlColumns = [];
+
+        foreach ($columns as $column) {
+            $sqlColumns[] = "$column = :$column";
+        }
+
+        $sql .= implode(",", $sqlColumns);
+
+
+        var_dump($sql);
+        // die();
+
+        $query = $this->db->prepare($sql);
+
+        $query->execute($data);
+
+        return $this->db->lastInsertId();
+    }
+
+
+
+
+
+
+
     // public function insert(array $data): int
     // {
-    //     $sql = "INSERT INTO $this->table SET ";
+    //     $sql = "INSERT INTO $this->table VALUES ";
 
     //     $columns = array_keys($data);
     //     $sqlColumns = [];
@@ -55,6 +85,7 @@ abstract class Model {
     //         $sqlColumns[] = "$column = :$column";
     //     }
 
+    //     // $sql .= "ON DUPLICATE KEY UPDATE";
     //     $sql .= implode(",", $sqlColumns);
 
 
@@ -68,30 +99,7 @@ abstract class Model {
     //     return $this->db->lastInsertId();
     // }
 
-    public function insert(array $data): int
-    {
-        $sql = "INSERT INTO $this->table VALUES ";
 
-        $columns = array_keys($data);
-        $sqlColumns = [];
-
-        foreach ($columns as $column) {
-            $sqlColumns[] = "$column = :$column";
-        }
-
-        $sql .= "ON DUPLICATE KEY UPDATE";
-        $sql .= implode(",", $sqlColumns);
-
-
-        var_dump($sql);
-        // die();
-
-        $query = $this->db->prepare($sql);
-
-        $query->execute($data);
-
-        return $this->db->lastInsertId();
-    }
 
 
 

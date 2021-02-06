@@ -43,11 +43,43 @@ class Topic extends Controller
                 }
 
 
+
+    // AJOUT DU SCORE
+
+
+                $modelName = new \Models\Score;
+
+                // var_dump($modelName);
+
+                $id = \Session::getId();
+
+                // var_dump($id);
+
+                $scoresByTopic = $modelName->findScoreByUser($id);
+
+                // var_dump($scoreByTopic);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
                 //rajout des topics dans $this->tplVars
                 
                 $this->tplVars = $this->tplVars + [
-                    'topicCreatedBy' => $userList
+                    'topicCreatedBy' => $userList,
+                    'scoresByTopic' => $scoresByTopic
                     // 'topicCreatedAt' => $topics
                 ];
                 

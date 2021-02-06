@@ -808,6 +808,11 @@ footer small {
   padding: 0;
 }
 
+.results {
+  margin: 3rem 0;
+  font-size: 2rem;
+}
+
 .about ul {
   padding-left: 30px;
   margin: 0;

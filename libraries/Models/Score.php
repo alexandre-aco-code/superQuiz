@@ -5,7 +5,7 @@ namespace Models;
 class Score extends Model {
     //pour utiliser Model, on doit définir une propriété protected $table
     //qui contient le nom de la table principale
-    protected $table = T_SCORE;
+    public $table = T_SCORE;
 
     public function findScoreByTopic(int $id)
     {
@@ -16,7 +16,7 @@ class Score extends Model {
 
         // var_dump($query->fetch(\PDO::FETCH_ASSOC));
 
-        return $query->fetch(\PDO::FETCH_ASSOC);
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 
@@ -34,7 +34,7 @@ class Score extends Model {
 
         // var_dump($query->fetch(\PDO::FETCH_ASSOC));
 
-        return $query->fetch(\PDO::FETCH_ASSOC);
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
 
@@ -70,6 +70,51 @@ class Score extends Model {
     //         return false;
     //     }
     // }
+
+
+    public function updateScoreByTopic($data): int
+    {
+
+
+        // $scoreByUserAndByTopic = $scoreByUserAndByTopic + [
+        //     'Id_Topic' => $_GET['topic'],
+        //     'Id_User' => $_GET['id'],
+        //     'ScoreByTopic' => $scoreOfTheTopic
+        // ];
+
+        // var_dump($data);
+        // var_dump($data['Id_Topic']);
+        // var_dump($data['Id_User']);
+        // var_dump($data['ScoreByTopic']);
+
+        $sql = "UPDATE $this->table SET ScoreByTopic = :score WHERE Id_User =:id AND Id_Topic = :topic";
+
+        // var_dump($sql);
+
+        $query = $this->db->prepare($sql);
+
+        $query->execute([':score' => $data['ScoreByTopic'], ':id' => $data['Id_User'], ':topic' => $data['Id_Topic']]);
+
+        // return $query->fetchAll(\PDO::FETCH_ASSOC);
+        return true;
+    }
+
+
+
+
+
+    public function findScores(int $id, int $topic)
+    {
+
+        $query = $this->db->prepare("SELECT * FROM $this->table WHERE Id_User = :id AND Id_Topic = :topic");
+
+        $query->execute([':id' => $id, ':topic' => $topic]);
+
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+
+
 
 
     

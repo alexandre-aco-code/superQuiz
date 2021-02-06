@@ -54,12 +54,40 @@ class Results extends Controller
 
 
             //LA COMMANDE SQL 
+            $scoreExistence = [];
 
-            $this->model->insert($scoreByUserAndByTopic);
+
+            // var_dump($scoreExistence);
+
+            $scoreExistence = $this->model->findScores($_GET['id'],$_GET['topic']);
+
+            // var_dump('$scoreExistence');
+            // var_dump($scoreExistence);
+            
+            // var_dump('$scoreByUserAndByTopic');
+            // var_dump($scoreByUserAndByTopic);
+
+            $scoreStateMessage = '';
+
+            if ($scoreExistence == []) {
+
+                $this->model->insert($scoreByUserAndByTopic);
+
+                $scoreStateMessage = 'Votre score a bien été sauvegardé';
+
+            } else {
+
+                $this->model->updateScoreByTopic($scoreByUserAndByTopic);
+
+                $scoreStateMessage = 'Votre score a bien été mis à jour!';
+
+            }
+
 
 
             $this->tplVars = $this->tplVars + [
-                'scoreByTopic' => $scoreOfTheTopic
+                'scoreByTopic' => $scoreOfTheTopic,
+                'scoreStateMessage' => $scoreStateMessage
                 // 'topicCreatedAt' => $topics
             ];
 

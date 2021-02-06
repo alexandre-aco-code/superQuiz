@@ -35,6 +35,11 @@ class User extends Model
         
         return intval($infosUser['Admin']);
     }
+
+
+
+
+    
     
     //renvoie les coordonnées de l'utilisateur
     public function getAddress(int $id): array

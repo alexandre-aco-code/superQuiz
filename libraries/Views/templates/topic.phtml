@@ -10,19 +10,42 @@
 
             <li><a href="http://localhost:8090/projets-web/projet-Quiz/projet-Quiz/index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><button><i class="fas fa-sun"></i> <?= $topic['Name']; ?></button></a></li>
 
+
+            <!-- Affichage des détails du topic, date et créateur -->
+
             <!-- permet de choper la date, en enlevant l'heure -->
             <?php $date = explode(" ", $topic['CreatedAt']); ?>
+            
 
             <p><cite>Topic créé le <?= $date[0]; ?> par <?= $tplVars['topicCreatedBy'][$key] ?> </cite></p>
-    
+
+
+            <!-- Affichage du score par topic  -->
+
+            <?php
+
+            // var_dump($tplVars['scoresByTopic']);
+
+            if ( !isset($tplVars['scoresByTopic'][$key]['ScoreByTopic']) )
+                $score = 0;
+                else 
+                $score = $tplVars['scoresByTopic'][$key]['ScoreByTopic'];
+            ?>
+
+            <p class="results">Score : <span class="golden-text"><?= $score; ?></span> / <span class="purple-text">5</span> points</p>
+
+            <!-- <?= var_dump($tplVars['scoresByTopic'][$key]['ScoreByTopic']); ?> -->
+
 
 
 
         <?php endforeach; ?>
-        <p>De futurs topics seront à venir... :)</p>
 
 
     </ul>
+
+
+    <p>De futurs topics seront à venir... :)</p>
 
 
 </section>
