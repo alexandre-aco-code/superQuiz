@@ -1,0 +1,52 @@
+<section class="quiz box score">
+    <h1>Score</h1>
+
+    <ul>
+
+        <p>Bravo ! Vous avez fini la catégorie.</p>
+
+
+
+        <!-- <p>Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']["ScoreByTopic"]; ?></span> / <span class="purple-text">5</span> points</p> -->
+
+        <p>Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']; ?></span> / <span class="purple-text">5</span> points</p>
+
+        <p>Sauvegarde des scores... Veuillez ne pas éteindre la console s'il vous plait...</p>
+        <p>Non je plaisante. C'est Sauvegardé !</p>
+
+        <div class="hidden_div">
+            <p>IndexQuestion :</p>
+            <p id="indexQuestion"><?= $_GET['indexQuestion']; ?></p>
+            <p>Score question :</p>
+            <p id="scoreQuestion"></p>
+            <p>Score topic :</p>
+            <p id="scoreTopic"></p>
+        </div>
+
+
+        <!-- 
+        <p>Score Général : <span class="golden-text">*</span> / <span class="purple-text">20</span> points</p>
+
+        <p>Classement : <span class="golden-text">*</span> / <span class="purple-text">40</span> personnes</p> -->
+
+
+
+        <?php
+        $topic_courant = intval($_GET['topic']);
+        $topic_suivant = $topic_courant + 1;
+
+
+        // pour compter le nombre de topics
+        // var_dump(count($tplVars['topics']));
+
+        ?>
+
+
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant ?>&indexQuestion=1"><button>Recommencer</button></a>
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_suivant ?>&indexQuestion=1"><button>Topic Suivant</button></a>
+
+
+    </ul>
+
+
+</section>

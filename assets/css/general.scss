@@ -1,0 +1,119 @@
+/* *****************************************************************
+FONTS
+***************************************************************** */
+
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Exo:400,400italic,500,600,700,800,900,300,200,100);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
+
+/*
+	font-family: 'PT Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-family: 'Raleway', sans-serif;
+	font-family: 'Exo',
+	sans-serif;
+	font-family: 'Roboto',
+	sans-serif;
+	font-family: 'Fira Code',
+	'Ubuntu Monospace',
+	monospace;
+	
+*/
+
+/* *****************************************************************
+VARS
+***************************************************************** */
+
+$max-width: 1100px;
+$font-titles: 'Lato',
+sans-serif;
+$font-text: 'Raleway',
+sans-serif;
+$font-link: 'Exo',
+sans-serif;
+$size-text: 2rem;
+$line-height: 2.0rem;
+$size-title-1: 3.6rem;
+$size-title-2: 2.4rem;
+$size-title-3: 2rem;
+$size-fontawesome-header:3rem;
+$size-fontawesome-header-extended-menu:2rem;
+$height-header: 100px;
+$height-footer: 100px;
+$color-title-1: #e71d73;
+$color-title-span:yellow;
+$color-title-2: #e71d73;
+$color-title-3: #e71d73;
+$color-title: #333;
+$color-text: #555;
+$color-header:#92801a;
+$color-header-text: #e2f7ff;
+$color-header-link: #fff;
+$color-header-link-hover: #ca9e67;
+$color-header-link-selected: #e71d73;
+//#063768;
+$color-header-link-extended-menu: $color-header;
+$color-body: #fff;
+$color-main:#ca9d6777;
+$color-quiz:#eee;
+$color-article:#eee;
+$color-aside:#eee;
+$color-golden-text:#ca9e67;
+$color-purple-text:#e71d73;
+$color-link-text: #fff;
+$color-link-bg: green;
+$color-link-hover: red;
+$color-button-text: #fff;
+$color-button-bg: #e71d73;
+$color-button-hover: linear-gradient(217deg, rgba(255, 0, 0, .8), rgba(255, 0, 0, 0) 70.71%),
+linear-gradient(127deg, rgba(0, 255, 0, .8), rgba(0, 255, 0, 0) 70.71%),
+linear-gradient(336deg, rgba(0, 0, 255, .8), rgba(0, 0, 255, 0) 70.71%);
+$color-button-active:#ca9e67;
+$color-menu: #e2f7ff;
+$color-menu-link: #e71d73;
+$color-bad-answer: red;
+$color-good-answer: green;
+// #92B901
+$color-footer:$color-header;
+$color-footer-title: black;
+$color-footer-text: black;
+$color-footer-link: yellow;
+$color-footer-link-hover: red;
+$border-sm: 1px solid #eee;
+$border-md: 1px solid #ddd;
+$border-lg: 2px solid #ccc;
+$shadow-sm: 0 0 1px rgba(0, 0, 0, 0.2);
+$shadow-md: 0 0 3px rgba(0, 0, 0, 0.3);
+$shadow-lg: 0 0 5px rgba(0, 0, 0, 0.4);
+$shadow-xl: 0 10px 20px rgba(0, 0, 0, 0.5);
+
+
+/* *****************************************************************
+TOOLS
+***************************************************************** */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+}

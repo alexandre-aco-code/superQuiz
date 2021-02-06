@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>QuiZ by ACo</title>
+	<link rel="icon" type="image/svg+xml" href="<?= $tplVars['WWW_URL']; ?>assets/images/logo-2.svg">
+	<link rel="stylesheet" href="<?= $tplVars['WWW_URL']; ?>assets/css/normalize.css">
+	<link rel="stylesheet" href="<?= $tplVars['WWW_URL']; ?>assets/css/style.css">
+</head>
+
+<body id="top">
+	<main class="main container erreur">
+
+		<section class="quiz box">
+
+			<h1>Oups les Amis, une erreur est survenue !</h1>
+
+			<h3>Détails de l'erreur (N'hésitez pas à envoyer un screenshot de ce message à l'administrateur aconnaone@gmail.com)</h3>
+			<p><strong>Code : </strong> <?= $tplVars["code"]; ?></p>
+			<p><strong>Message : </strong><em><?= $tplVars["message"]; ?></em></p>
+
+			<a href="index.php">Retour à l'accueil du site</a>
+
+		</section>
+
+	</main>
+</body>
+
+</html>

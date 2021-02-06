@@ -1,0 +1,28 @@
+<section class="quiz box topic">
+    <h1>Liste des Catégories</h1>
+
+    <ul>
+
+        <?php foreach ($tplVars['topics'] as $key => $topic) : ?>
+
+
+
+
+            <li><a href="http://localhost:8090/projets-web/projet-Quiz/projet-Quiz/index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><button><i class="fas fa-sun"></i> <?= $topic['Name']; ?></button></a></li>
+
+            <!-- permet de choper la date, en enlevant l'heure -->
+            <?php $date = explode(" ", $topic['CreatedAt']); ?>
+
+            <p><cite>Topic créé le <?= $date[0]; ?> par <?= $tplVars['topicCreatedBy'][$key] ?> </cite></p>
+    
+
+
+
+        <?php endforeach; ?>
+        <p>De futurs topics seront à venir... :)</p>
+
+
+    </ul>
+
+
+</section>

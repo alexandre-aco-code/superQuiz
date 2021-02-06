@@ -1,0 +1,844 @@
+/* import des polices, variables, tools */
+/* *****************************************************************
+FONTS
+***************************************************************** */
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Exo:400,400italic,500,600,700,800,900,300,200,100);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
+/*
+	font-family: 'PT Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-family: 'Raleway', sans-serif;
+	font-family: 'Exo',
+	sans-serif;
+	font-family: 'Roboto',
+	sans-serif;
+	font-family: 'Fira Code',
+	'Ubuntu Monospace',
+	monospace;
+	
+*/
+/* *****************************************************************
+VARS
+***************************************************************** */
+/* *****************************************************************
+TOOLS
+***************************************************************** */
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900);
+@import url(https://fonts.googleapis.com/css?family=Exo:400,400italic,500,600,700,800,900,300,200,100);
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* import des animations css sympas */
+/* Animations */
+/* *****************************************************************
+FONTS
+***************************************************************** */
+/*
+	font-family: 'PT Sans', sans-serif;
+	font-family: 'Lato', sans-serif;
+	font-family: 'Raleway', sans-serif;
+	font-family: 'Exo',
+	sans-serif;
+	font-family: 'Roboto',
+	sans-serif;
+	font-family: 'Fira Code',
+	'Ubuntu Monospace',
+	monospace;
+	
+*/
+/* *****************************************************************
+VARS
+***************************************************************** */
+/* *****************************************************************
+TOOLS
+***************************************************************** */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes slidein {
+  from {
+    -webkit-transform: translateY(-100vh);
+            transform: translateY(-100vh);
+  }
+  to {
+    -webkit-transform: translateY(0vh);
+            transform: translateY(0vh);
+  }
+}
+
+@keyframes slidein {
+  from {
+    -webkit-transform: translateY(-100vh);
+            transform: translateY(-100vh);
+  }
+  to {
+    -webkit-transform: translateY(0vh);
+            transform: translateY(0vh);
+  }
+}
+
+@-webkit-keyframes animated_div {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    left: -1700px;
+    background: #0004ff;
+  }
+  70% {
+    background: #f700ff;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    left: 0px;
+    background: green;
+  }
+}
+
+@keyframes animated_div {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    left: -1700px;
+    background: #0004ff;
+  }
+  70% {
+    background: #f700ff;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    left: 0px;
+    background: green;
+  }
+}
+
+/* Le corps du document */
+html {
+  min-height: 100vh;
+}
+
+body {
+  padding: 0;
+  min-height: 100vh;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 2rem;
+  background-color: #fff;
+  font-family: "Raleway", sans-serif;
+}
+
+body h1,
+body h2,
+body h3,
+body h4 {
+  font-family: "Lato", sans-serif;
+}
+
+body h1 {
+  font-size: 3.6rem;
+  color: #e71d73;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+body h1 span {
+  color: yellow;
+}
+
+body h2 {
+  font-size: 2.4rem;
+  color: #e71d73;
+  margin: 0.5rem;
+  line-height: 4rem;
+  margin-top: 0;
+}
+
+body h3 {
+  font-size: 2rem;
+  color: #e71d73;
+  margin: 1rem;
+}
+
+body h3 span {
+  display: block;
+  margin: 2rem;
+  font-size: 3rem;
+}
+
+body a {
+  text-decoration: none;
+}
+
+body .golden-text {
+  color: #ca9e67;
+  font-weight: 900;
+}
+
+body .purple-text {
+  color: #e71d73;
+  font-weight: 900;
+}
+
+/* HEADER */
+header {
+  background-color: #92801a;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+header .selected {
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  background-color: #e71d73;
+}
+
+header .display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+}
+
+header .display a {
+  display: inline-block;
+  color: #fff;
+}
+
+header .display a:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+header .display a img {
+  display: block;
+  min-width: 350px;
+  height: auto;
+  margin-left: 5rem;
+}
+
+header .display nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+header .display nav ul,
+header .display nav li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+header .display nav > ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header .display nav > ul > li {
+  position: relative;
+  border-right: 1px solid grey;
+}
+
+header .display nav > ul > li:hover {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+  -webkit-transition: .05s ease;
+  transition: .05s ease;
+}
+
+header .display nav > ul > li:first-child {
+  border-left: 1px solid grey;
+}
+
+header .display nav > ul > li > ul {
+  position: absolute;
+  display: none;
+}
+
+header .display nav > ul > li > ul li {
+  max-width: 10em;
+}
+
+header .display nav > ul > li > ul li i {
+  font-size: 2rem;
+  float: left;
+}
+
+header .display nav > ul > li > ul li + li {
+  border-top: 1px solid #444;
+}
+
+header .display nav > ul > li:hover > ul {
+  display: block;
+  background-color: #92801a;
+}
+
+header .display nav a {
+  min-width: 10em;
+  padding: 1em 2em;
+  font-family: "Exo", sans-serif;
+}
+
+header .display nav a:hover {
+  text-decoration: none;
+  color: pink;
+  background: #ca9e67;
+}
+
+header .display nav a:hover i {
+  -webkit-animation: spin 5s linear infinite;
+          animation: spin 5s linear infinite;
+}
+
+header .display nav a i {
+  font-size: 3rem;
+  vertical-align: middle;
+  margin: 0.5rem 0;
+}
+
+header h1 {
+  vertical-align: middle;
+}
+
+header .score {
+  background: blue;
+}
+
+/* MAIN */
+main {
+  background-color: #ca9d6777;
+  /* Style de chaque input */
+  /* Les modals */
+  /* Close Button */
+  /* Formulaire */
+  /* modal SignUp */
+  /* modal Login */
+}
+
+main .alert-section {
+  position: absolute;
+  width: 250px;
+}
+
+main .alert-section img {
+  width: 100px;
+}
+
+main .alert-danger {
+  background-color: red;
+}
+
+main .alert-success {
+  background-color: green;
+}
+
+main .display__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem 0;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+main .box {
+  width: 100%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #eee;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid #EEE;
+  border-radius: 30px;
+}
+
+main aside {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .avancement {
+  display: block;
+  color: purple;
+  font-size: 3rem;
+  margin: 1rem;
+}
+
+main .identification img {
+  width: 100px;
+}
+
+main .commentary_box {
+  width: 100%;
+  height: 75%;
+}
+
+main .commentary_box fieldset {
+  background-color: white;
+}
+
+main .commentary_box .commentary__content {
+  margin: 2rem auto 0;
+}
+
+main .commentary_box .commentary__author {
+  text-align: right;
+  margin: 0 auto 1rem;
+  font-size: 1.1rem;
+}
+
+main .quiz {
+  width: 70%;
+  background-color: #eee;
+}
+
+main p a, main p span {
+  color: #ca9e67;
+}
+
+main article {
+  background-color: #eee;
+  padding: 1em;
+}
+
+main .detail-categorie p {
+  text-align: left;
+}
+
+main img {
+  width: 500px;
+  text-align: center;
+  margin: 1rem;
+}
+
+main section + section {
+  margin-top: 2em;
+}
+
+main input[type="text"],
+main input[type="password"],
+main input[type="search"],
+main input[type="email"],
+main input[type*="date"],
+main select,
+main textarea {
+  display: inline-block;
+  padding: 0.5em 1em;
+  font-size: 1.6rem;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+
+main select,
+main textarea {
+  width: 100%;
+}
+
+main textarea {
+  display: block;
+  min-height: 10em;
+}
+
+main button {
+  display: inline-block;
+  padding: 0.5em;
+  margin: 1rem;
+  width: 500px;
+  height: 75px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #e71d73;
+  border: 2px solid #ccc;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+main button:focus, main button:hover {
+  color: black;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-transition: .05s ease;
+  transition: .05s ease;
+}
+
+main button:active {
+  -webkit-transform: scale(0.99995);
+          transform: scale(0.99995);
+  -webkit-transition: -webkit-transform .005s;
+  transition: -webkit-transform .005s;
+  transition: transform .005s;
+  transition: transform .005s, -webkit-transform .005s;
+}
+
+main .progress {
+  color: #555;
+}
+
+main #goodAnswer.goodSelected {
+  background-color: green;
+  font-size: 2rem;
+}
+
+main #badAnswer.errorSelected {
+  background-color: grey;
+}
+
+main .modal-bg {
+  position: fixed;
+  background-color: rgba(128, 128, 128, 0.6);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: none;
+}
+
+main .modal-content {
+  background-color: white;
+  width: 50%;
+  padding: 2em;
+  border: 1px solid #888;
+  margin: auto;
+  -webkit-box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
+          box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
+  -webkit-animation: slidein 0.5s ease;
+          animation: slidein 0.5s ease;
+}
+
+main .modal-content p {
+  margin-bottom: 4rem;
+}
+
+main .close {
+  float: right;
+  color: #aaa;
+  float: right;
+  font-size: 52px;
+  font-weight: bold;
+}
+
+main .close:hover,
+main .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main form img {
+  width: 2000px;
+  display: block;
+  text-align: center;
+  margin: 1rem 0.2rem 0rem;
+  overflow: auto;
+}
+
+main .display_flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main label {
+  display: block;
+  margin: auto;
+  width: 90%;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+main input {
+  width: 90%;
+  margin-bottom: 2rem;
+  display: inline-block;
+}
+
+main #modalSignUp:target {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #modalLogin:target {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .hidden_div {
+  display: none;
+}
+
+main .height_animated_div {
+  height: 50px;
+}
+
+main .animated_div {
+  display: none;
+  width: 130px;
+  height: 57px;
+  margin: 0 auto;
+  background: green;
+  color: #ffffff;
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  -webkit-animation: animated_div 2s ease;
+          animation: animated_div 2s ease;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+main .animated_div i {
+  margin: 0.2rem;
+}
+
+main .animated_div i:first-child {
+  color: #ca9e67;
+}
+
+main .animated_div i:nth-child(3) {
+  color: #e71d73;
+}
+
+main .active {
+  display: block;
+}
+
+main .commentary_box_quotes {
+  text-align: left;
+  height: 300px;
+  overflow: auto;
+}
+
+main blockquote {
+  margin-left: 1em;
+  margin-top: 2rem;
+  padding: 1em 0;
+}
+
+main blockquote p {
+  background-image: url(../images/client.png);
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+main blockquote cite {
+  background-image: url(../images/quote.png);
+  background-repeat: no-repeat;
+  display: block;
+  color: #e71d73;
+  font-size: 1.4rem;
+  padding-left: 40px;
+  font-weight: bold;
+}
+
+main .navigation__questions a {
+  color: #e71d73;
+}
+
+main .navigation__questions i {
+  vertical-align: middle;
+  font-size: 5rem;
+  margin: 2rem 1rem;
+  color: #e71d73;
+}
+
+/* FOOTER */
+footer {
+  background-color: #92801a;
+  font-family: "Exo", sans-serif;
+  height: 100px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+footer div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+footer div p:first-child {
+  margin-top: 1rem;
+}
+
+footer div p {
+  margin: 0;
+}
+
+footer small {
+  text-align: right;
+}
+
+/* CSS de la Page erreur */
+.error {
+  background-color: grey;
+}
+
+/* CSS de la Page topic */
+.topic ul {
+  list-style-type: none;
+}
+
+.topic ul li {
+  margin-top: 2rem;
+}
+
+.topic ul p {
+  text-align: right;
+  margin: 0 5rem 0 0;
+}
+
+.goldenBook {
+  background-color: white;
+}
+
+.score ul {
+  padding: 0;
+}
+
+.about ul {
+  padding-left: 30px;
+  margin: 0;
+}
+
+.about li {
+  padding: 0;
+  margin: 2rem;
+  text-align: left;
+}
+
+.about .bdd {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* https://blog.smarchal.com/sass-et-media-queries */
+#content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  #content {
+    width: 668px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #content {
+    width: 1024px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

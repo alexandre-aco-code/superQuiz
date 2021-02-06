@@ -1,0 +1,41 @@
+/* Animations */ 
+@import 'general';
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes slidein {
+    from {
+        transform: translateY(-100vh);
+    }
+
+    to {
+        transform: translateY(0vh);
+    }
+}
+
+@keyframes animated_div {
+
+    0% {
+        transform: rotate(0deg);
+        left: -1700px;
+        background: rgb(0, 4, 255);
+    }
+
+    70% {
+        background: rgb(247, 0, 255);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        left: 0px;
+        background: $color-good-answer;
+    }
+}
