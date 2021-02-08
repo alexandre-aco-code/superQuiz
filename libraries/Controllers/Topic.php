@@ -61,19 +61,6 @@ class Topic extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
                 
                 //rajout des topics dans $this->tplVars
                 

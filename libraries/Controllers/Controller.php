@@ -61,7 +61,7 @@ abstract class Controller {
     //rajout des commentaries dans $this->tplVars
 
     $commentariesModel = new \Models\Commentary();
-    $commentaries = $commentariesModel->findAll();
+    $commentaries = $commentariesModel->findAllAuthorizedCommentaries();
     $userModel = new \Models\User();
     $userList = [];
 

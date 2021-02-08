@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Questionnaire de folie !</title>
+    <title>QuiZ By ACo</title>
 </head>
 
 <body>
 
-    <!-- HEADER -->
+<!-- HEADER -->
     <header class="header">
         <div class="container display">
 
@@ -25,36 +25,41 @@
                 <img src="assets/images/logo-2.svg" alt="logo-quiz-fait-par-moi" />
             </a>
 
-            <!-- Menu de navigation -->
 
+
+
+            <!-- MENU DE NAVIGATION -->
             <nav>
                 <ul>
+
+
+                    <!-- MENU DE NAVIGATION : EXPLORER -->
                     <li class="selected">
                         <a href="<?= $tplVars['WWW_URL']; ?>index.php">
                             <i class="fab fa-wpexplorer"></i><br>
                             Explorer</a>
                         <ul>
                             <li class="selected"><a href="<?= $tplVars['WWW_URL']; ?>index.php">Accueil</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary">Votre avis</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index">Livre d'Or</a></li>
                             <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about">A propos de Quiz by ACo</a></li>
                         </ul>
                     </li>
+
+
+                    <!-- MENU DE NAVIGATION : TOPICS -->
                     <li>
                         <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1">
                             <i class="fas fa-seedling"></i><br>
                             Topics
                         </a>
                         <ul>
-
-
-
-
                             <?php foreach ($tplVars['topics'] as $topic) : ?>
                                 <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><i class="fas fa-sun"></i><?= $topic['Name']; ?></a></li>
                             <?php endforeach; ?>
-
                         </ul>
                     </li>
+
+                    <!-- MENU DE NAVIGATION : CLASSEMENT -->
                     <li>
                         <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings">
                             <i class="fas fa-poll-h"></i><br>
@@ -64,6 +69,8 @@
                             <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1">Mes résultats par Topic</a></li>
                         </ul>
                     </li>
+
+                    <!-- MENU DE NAVIGATION : MON COMPTE -->
                     <li><a href="#">
                             <i class="fas fa-user-circle"></i><br>
                             Mon Compte</a>
@@ -84,7 +91,7 @@
         </div>
     </header>
 
-    <!-- MAIN -->
+<!-- MAIN -->
     <main class="main">
 
 
@@ -130,12 +137,8 @@
             <aside>
 
 
-                <!-- ZONE POUR LE PROFIL DE l'USER !!! -->
-
-
+                <!-- ASIDE BOX 1 POUR LE PROFIL DE l'USER -->
                 <div class="identification box">
-
-
                     <h2>Profil</h2>
                     <?php
                     //si je suis connecté, j'affiche image + pseudo + score
@@ -145,41 +148,36 @@
                         <img src="<?= $_SESSION['user']['AvatarURL']; ?> alt=" profil picture">
 
                         <?php
+                            $text1 = "Je vois que l'on se porte bien, bienvenue";
+                            $text2 = "Je vois qu'on pousse à la salle, bienvenue";
+                            $text3 = "Très belle dégaine, bienvenue";
+                            $text4 = "Quel regard, bienvenue";
+                            $text5 = "Votre mine est radieuse, bienvenue";
 
-                        $text1 = "Je vois que l'on se porte bien, bienvenue";
-                        $text2 = "Je vois qu'on pousse à la salle, bienvenue";
-                        $text3 = "Très belle dégaine, bienvenue";
-                        $text4 = "Quel regard, bienvenue";
-                        $text5 = "Votre mine est radieuse, bienvenue";
+                            $variable = rand(1, 5);
 
-                        $variable = rand(1, 5);
-
-                        switch ($variable) {
-                            case 1:
-                                $text = $text1;
-                                break;
-                            case 2:
-                                $text = $text2;
-                                break;
-                            case 3:
-                                $text = $text3;
-                                break;
-                            case 4:
-                                $text = $text4;
-                                break;
-                            case 5:
-                                $text = $text5;
-                                break;
-                        }
+                            switch ($variable) {
+                                case 1:
+                                    $text = $text1;
+                                    break;
+                                case 2:
+                                    $text = $text2;
+                                    break;
+                                case 3:
+                                    $text = $text3;
+                                    break;
+                                case 4:
+                                    $text = $text4;
+                                    break;
+                                case 5:
+                                    $text = $text5;
+                                    break;
+                            }
                         ?>
+
                         <h3><?= $text ?><span class="golden-text"><?= $_SESSION['user']['Pseudo']; ?></span></h3>
 
-
-                        <!-- score catégorie, faire un truc style $(quiz.score) / $(quiz.questions.length) ? -->
-
-
-
-
+                        <!-- AVANCEMENT DE L'UTILISATEUR -->
                         <p><span class="golden-text">A</span>vancement dans le sit<span class="purple-text">e</span> (mis à jour à la fin d'un topic) :</p>
                         <p class="avancement"><?= $tplVars['progressionUser']; ?> %</p>
 
@@ -191,64 +189,35 @@
                     <?php
                     endif;
                     ?>
-
-
-
                 </div>
 
 
 
 
-
-
-                <!-- ZONE POUR LES COMMENTAIRES !!! -->
-
+                <!-- ASIDE BOX 2 POUR LES COMMENTAIRES  -->
                 <div class="commentary_box box">
                     <h2>Commentaires</h2>
                     <p>Aidez moi à améliorer le site, mettez votre avis dans l'espace Explorer/Votre Avis ;)</p>
                     <div class="commentary_box_quotes">
-
-
-
-
-
                         <?php foreach ($tplVars['commentaries'] as $key => $commentary) : ?>
-
                             <blockquote>
                                 <cite>"<?= $commentary["Content"]; ?>"</cite>
 
                                 <!-- permet de choper la date, en enlevant l'heure -->
                                 <?php $date = explode(" ", $commentary['Created_at']); ?>
-
                                 <p class="commentary__author">le <?= $date[0]; ?> par <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
-
                             </blockquote>
-
-                            <!-- <p class="commentary__content"><cite><?= $commentary["Content"]; ?></cite></p> -->
-
-
-
-
                         <?php endforeach; ?>
                     </div>
-
-
                 </div>
-
             </aside>
 
-
-
-
-
-
             <!-- LE PAGE CONTENT -->
-
             <?= $pageContent ?>
 
-
-
         </div>
+
+
 
 
 
@@ -258,8 +227,7 @@
 
         <!-- LES MODALES-->
 
-        <!-- Modal pour s'inscrire' -->
-
+        <!-- Modale pour s'inscrire' -->
         <div class="modal-bg" id="modalSignUp">
             <div class="modal-content">
                 <a href="index.php" class="close">&times;</a>
@@ -269,27 +237,13 @@
                     <p><?= $message; ?></p>
                 <?php endif; ?>
 
-
-
-
-                <!-- <?= var_dump(htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES)); ?> -->
-                <!-- <?= var_dump($tplVars['WWW_URL'] . "libraries/controllers/user.php"); ?> -->
-                <!-- action="<?= $tplVars['WWW_URL']; ?>libraries/controllers/user.php" -->
-
-
-
                 <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create" method="POST">
-
                     <label for="email"><i class="fas fa-envelope"></i> Email (aucun spam garanti)</label>
                     <input type="email" name="email" id="email" placeholder="email" />
-
                     <label for="pseudo"><i class="fas fa-male"></i> Pseudo</label>
                     <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" />
-
                     <label for="password"><i class="fas fa-lock"></i> Mot de passe (sera crypté en interne pour une bonne sécurité)</label>
                     <input type="text" name="password" id="password" placeholder="password" />
-
-
                     <label for="email"><i class="fas fa-camera-retro"></i> Votre Avatar (pour vous reconnaître)</label>
                     <div class="display_flex">
                         <input type="radio" name="avatar" value="0" id="avatar1" /><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNTczMzk1MjU1MV5BMl5BanBnXkFtZTcwNDk2MzAyMg@@._V1_UY256_CR2,0,172,256_AL_.jpg" alt="WillSmith">
@@ -297,46 +251,32 @@
                         <input type="radio" name="avatar" value="2" id="avatar3" /><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOWViYjUzOWMtMzRkZi00MjNkLTk4M2ItMTVkMDg5MzE2ZDYyXkEyXkFqcGdeQXVyODQwNjM3NDA@._V1_UY256_CR36,0,172,256_AL_.jpg" alt="AdamDriver">
                         <input type="radio" name="avatar" value="3" id="avatar4" /><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNjk5NjE5NTczMV5BMl5BanBnXkFtZTcwODI0OTM0NA@@._V1_UY256_CR4,0,172,256_AL_.jpg" alt="Effy">
                         <input type="radio" name="avatar" value="4" id="avatar5" /><img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOTU2MTI0NTIyNV5BMl5BanBnXkFtZTcwMTA4Nzc3OA@@._V1_UX172_CR0,0,172,256_AL_.jpg" alt="ChrisHemsworth">
-
                     </div>
-
                     <button type="submit">S'inscrire!</button>
                 </form>
             </div>
         </div>
-
-
-
-
 
         <!-- Modale pour login -->
         <div class="modal-bg" id="modalLogin">
             <div class="modal-content">
                 <a href="index.php" class="close">&times;</a>
                 <p>Merci de renseigner vos identifiants <span class="golden-text">Q</span>ui<span class="purple-text">Z</span>!</p>
-
                 <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login" method="POST">
-
                     <label for="email"><i class="fas fa-envelope"></i> Email</label>
                     <input type="email" name="email" id="email" placeholder="email" />
-
                     <label for="password"><i class="fas fa-lock"></i> Mot de passe</label>
                     <input type="text" name="password" id="password" placeholder="password" />
-
-
                     <button type="submit">Se Connecter</button>
                 </form>
             </div>
         </div>
 
-
-
-
     </main>
 
 
 
-    <!-- FOOTER -->
+<!-- FOOTER -->
     <footer class="footer">
         <div class="container signature">
             <p>Projet réalisé par : <a href="https://www.linkedin.com/in/alexandre-connangle-6221a558/">Alexandre Code</a>.</p>
@@ -349,12 +289,9 @@
 
 
     <!-- SCRIPTS -->
-
     <script src="assets/js/navbar.js"></script>
     <script src="assets/js/answers.js"></script>
     <script src="assets/js/notifications.js"></script>
-
-
 
 </body>
 

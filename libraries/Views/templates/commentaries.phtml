@@ -12,21 +12,22 @@
                 <!-- permet de choper la date, en enlevant l'heure -->
                 <?php $date = explode(" ", $commentary['Created_at']); ?>
 
-                <p>créé le <?= $date[0]; ?> par <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
+                <p>écrit le <?= $date[0]; ?> par <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
 
             </blockquote>
 
-            <!-- <p><cite><?= $commentary["Content"]; ?></cite></p> -->
 
 
         <?php endforeach; ?>
 
         <!-- faire une session pour mettre un ocmmentaire -->
 
-        <form action="">
-            <label for="">Mettez votre mot ;) il faudra qu'il soit validé par un admin pour apparaitre.
-            </label>
-            <input type="zonetext">
+        <form method="post" action="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=commentarySent">
+            <!-- <label for="">Mettez votre mot ;) il faudra qu'il soit validé par un admin pour apparaitre.
+            </label> -->
+            <!-- <input type="textarea"> -->
+            <textarea name="commentary" id="commentary" cols="30" rows="10"></textarea>
+            <button type="Submit">Envoyer</button>
         </form>
 
 
