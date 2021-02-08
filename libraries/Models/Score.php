@@ -7,6 +7,46 @@ class Score extends Model {
     //qui contient le nom de la table principale
     public $table = T_SCORE;
 
+
+
+
+    // public function initialisationScores(int $id) {
+
+    //     $sql = "UPDATE $this->table SET ScoreByTopic = '0' WHERE Id_User =:id ;
+
+    //     -- // var_dump($sql);
+
+    //     $query = $this->db->prepare($sql);
+
+    //     $query->execute([':id' => $id]);
+
+    //     -- // return $query->fetchAll(\PDO::FETCH_ASSOC);
+    //     return true;
+
+    // }
+
+
+    // public function initialisationScores(int $id) {
+
+    //     $sql = "INSERT INTO $this->table SET ScoreByTopic = '0' WHERE Id_User =: id";
+
+    //     var_dump($sql);
+
+    //     $query = $this->db->prepare($sql);
+
+    //     $query->execute(['id' => $id]);
+
+    //     return true;
+        
+    // }
+
+
+
+
+
+
+    
+
     public function findScoreByTopic(int $id)
     {
 

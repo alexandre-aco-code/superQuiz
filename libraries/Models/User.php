@@ -136,8 +136,41 @@ class User extends Model
         
         //utiliser la méthode insert du model
         if ($this->insert($insertUser) >0) {
-            //l'insertion a fonctionné
+
+            
             return true;
+
+
+            //l'insertion a fonctionné
+
+
+
+
+            // var_dump('creation du user OK, maintenant on essaie de créer les scores');
+
+            // $scoreModel = new \Models\Score;
+
+            // if (null !== \Session::getId()) {
+            //     $user = \Session::getId();
+
+            //     var_dump($user);
+
+
+            //     if ($scoreModel->initialisationScores($user) > 0) {
+
+            //         var_dump('les scores ont bien été initialisés');
+
+            //         // L'initiasation des scores à 0 a fonctionné
+            //     } else {
+            //         //on a eu une erreur
+            //         return false;
+            //     }
+            // } else {
+            //     var_dump('non identifié');
+            //     //on a eu une erreur
+            //     return false;
+            // }
+            
         }
         else {
             //on a eu une erreur
@@ -178,7 +211,7 @@ class User extends Model
 
 
 
-// je vais chercher l'avatar de l'user
+        // je vais chercher l'avatar de l'user
         $avatar = new Avatar();
         $avatarURL = $avatar->getAvatar($myUser['Avatar_Id']);
         
@@ -197,6 +230,34 @@ class User extends Model
         return true;
         
     }
+
+
+    public function getGlobalRankings() {
+
+
+        $query = $this->db->prepare(
+            "SELECT *, SUM(s.ScoreByTopic) AS TotalScore 
+            FROM $this->table AS u 
+            LEFT JOIN score AS s ON u.Id = s.Id_User 
+            INNER JOIN avatars AS a ON u.Avatar_Id = a.Id 
+            GROUP BY u.Id
+            ORDER BY TotalScore DESC"
+            );
+
+        $query->execute();
+
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+
+
+    }
+
+
+
+
+
+
+
+
 }
 
 ?>

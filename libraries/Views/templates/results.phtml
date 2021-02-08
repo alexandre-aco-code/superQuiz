@@ -42,7 +42,13 @@
 
         <?php
         $topic_courant = intval($_GET['topic']);
-        $topic_suivant = $topic_courant + 1;
+                                                                                    $numberOfTopics = count($tplVars['topics']);
+
+        if ($topic_courant = $numberOfTopics) {
+            $topic_suivant = $topic_courant;
+        } else {
+            $topic_suivant = $topic_courant + 1;
+        }
 
 
         // pour compter le nombre de topics

@@ -30,7 +30,7 @@
             <nav>
                 <ul>
                     <li class="selected">
-                        <a href="#toolbar">
+                        <a href="<?= $tplVars['WWW_URL']; ?>index.php">
                             <i class="fab fa-wpexplorer"></i><br>
                             Explorer</a>
                         <ul>
@@ -42,7 +42,7 @@
                     <li>
                         <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1">
                             <i class="fas fa-seedling"></i><br>
-                            Catégories
+                            Topics
                         </a>
                         <ul>
 
@@ -56,12 +56,12 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#toc">
+                        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings">
                             <i class="fas fa-poll-h"></i><br>
-                            Score</a>
+                            Classement</a>
                         <ul>
-                            <li><a href="#">Classement ( Mondial )</a></li>
-                            <li><a href="#">Mes résultats</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings">Classement Mondial bien sûr</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1">Mes résultats par Topic</a></li>
                         </ul>
                     </li>
                     <li><a href="#">
@@ -177,7 +177,11 @@
 
                         <!-- score catégorie, faire un truc style $(quiz.score) / $(quiz.questions.length) ? -->
 
-                        <p><span class="golden-text">A</span>vancée dans le sit<span class="purple-text">e</span> (mis à jour quand un topic est terminé) :<br><span class="avancement">XXX %</span></p>
+
+
+
+                        <p><span class="golden-text">A</span>vancement dans le sit<span class="purple-text">e</span> (mis à jour à la fin d'un topic) :</p>
+                        <p class="avancement"><?= $tplVars['progressionUser']; ?> %</p>
 
 
                     <?php
@@ -201,7 +205,7 @@
 
                 <div class="commentary_box box">
                     <h2>Commentaires</h2>
-                    <p>Aidez moi à améliorer le site, mettez votre avis ;)</p>
+                    <p>Aidez moi à améliorer le site, mettez votre avis dans l'espace Explorer/Votre Avis ;)</p>
                     <div class="commentary_box_quotes">
 
 
@@ -279,11 +283,12 @@
                     <label for="email"><i class="fas fa-envelope"></i> Email (aucun spam garanti)</label>
                     <input type="email" name="email" id="email" placeholder="email" />
 
+                    <label for="pseudo"><i class="fas fa-male"></i> Pseudo</label>
+                    <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" />
+
                     <label for="password"><i class="fas fa-lock"></i> Mot de passe (sera crypté en interne pour une bonne sécurité)</label>
                     <input type="text" name="password" id="password" placeholder="password" />
 
-                    <label for="pseudo"><i class="fas fa-male"></i> Pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" />
 
                     <label for="email"><i class="fas fa-camera-retro"></i> Votre Avatar (pour vous reconnaître)</label>
                     <div class="display_flex">

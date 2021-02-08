@@ -214,4 +214,40 @@ class User extends Controller
             \Http::redirectBack();
         }
     }
+
+
+
+
+
+
+/// LA PAGE RANKINGS BASEE SUR LES SCORES DES USERS
+
+    public function rankings()
+    {
+
+
+        if ($_GET['task'] == 'rankings') {
+
+            // CHOPER LA LISTE DES USERS
+
+            $userAndScoreList = $this->model->getGlobalRankings();
+
+            // var_dump($userAndScoreList);
+
+
+
+
+            $this->tplVars = $this->tplVars + [
+                    'userAndScoreList' => $userAndScoreList
+                ];
+
+
+
+            \Renderer::show("rankings", $this->tplVars);
+        } else {
+            throw new \Exception('Impossible d\'afficher la page Rankings !');
+        }
+    
+    }
+
 }

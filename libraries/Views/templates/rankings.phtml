@@ -1,0 +1,42 @@
+<section class="quiz box">
+
+    <h1>Les classements</h1>
+
+
+    <!-- <p>L'avancement en % du site correspond au <code>( questions répondues justes par l'utilisateur / nombre de questions totales ) * 100</code>.</p> -->
+
+    <table>
+
+
+        <thead>
+            <tr>
+                <th>Rang</th>
+                <th>Avancement dans le site</th>
+                <th>Pseudo</th>
+                <th>Avatar</th>
+                <th>LastConnectedDate</th>
+            </tr>
+
+        </thead>
+        <tbody>
+
+            <!-- <?php foreach ($tplVars['userAndScoreList'] as $key => $user) : ?> -->
+
+            <tr>
+                <td><?= $key + 1; ?></td>
+                <td><?= $user['TotalScore']; ?></td>
+                <td><?= $user['Pseudo']; ?></td>
+                <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
+                <td><?= $user['LastConnectedDate']; ?></td>
+            </tr>
+
+            <!-- <?php endforeach; ?> -->
+
+
+        </tbody>
+
+
+    </table>
+
+
+</section>

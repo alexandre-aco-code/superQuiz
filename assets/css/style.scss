@@ -106,6 +106,8 @@ header {
     background-color: $color-header;
     box-shadow: $shadow-lg;
 
+    
+
     .selected {
         transition: background-color 0.5s;
         background-color: $color-header-link-selected;
@@ -264,12 +266,20 @@ main {
 
     .box {
         width:100%;
-        margin: 2rem auto;
+        margin: 1rem auto;
         padding: 2rem;
         background-color: $color-aside;
-        box-shadow: $shadow-xl;
         border: 2px solid #EEE;
         border-radius: 30px;
+        box-shadow: 20px 20px rgba(0, 0, 0, .15);
+        transition: all .4s ease;
+
+        &:hover {
+            // border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+            box-shadow: 10px 10px rgba(0, 0, 0, .25);
+        }
+
+
     }
 
     aside {
@@ -280,10 +290,18 @@ main {
     }
 
     .avancement {
-        display: block;
-        color: purple;
+
+        // background: $color-purple-text;
+        background: radial-gradient(circle at 100px 100px, $color-purple-text, rgba(0, 0, 0, 0.89));
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        border: 2px solid white;
+        color: white;
         font-size: 3rem;
-        margin: 1rem;
+        font-weight:4rem;
+        margin:2rem auto;
+        padding-top:3.5rem;
     }
     
     .identification {
@@ -590,8 +608,7 @@ main {
 
 
     blockquote {
-        margin-left: 1em;
-        margin-top:2rem;
+        margin:1rem auto;
         padding: 1em 0;
     }
 
@@ -740,6 +757,35 @@ footer {
 
 }
 
+// page Rankings 
+
+code {
+    background-color: #fff;
+}
+
+table {
+    border-collapse: collapse;
+    width:100%;
+
+    
+    th,
+    td {
+        border: 1px solid #ddd;
+    }
+
+    thead {
+        text-align: center;
+        border-bottom: 2px solid #999;
+    }
+
+    tbody tr:nth-child(odd) td {
+        background-color: rgb(179, 230, 231);
+    }
+
+
+
+
+}
 
 
 

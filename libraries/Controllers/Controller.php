@@ -77,20 +77,40 @@ abstract class Controller {
 
     
 
-    //rajout des scores principaux dans $this->tplVars
+
+
+
+    // PARTIE POUR AJOUTER LAVANCEMENT EN % DANS LA ZONE PROFIL
+
 
     $score = new \Models\score();
 
 
-    // ICI JE BLOQUE
-    //mettre le user id a la place de 3
-    $scoreList = $score->findScoreByUser(3);
-
-    // var_dump($scoreList);
-    $scoreByTopic = [];
+    // mettre une condition si le score est NULL ??
+    $scoresOfUser = $score->findScoreByUser(\Session::getId());
 
 
 
+    $totalPoints = 0;
+    foreach ($scoresOfUser as $score) {
+        $totalPoints = $totalPoints + intval($score["ScoreByTopic"]);
+    }
+
+    $numberOfTopics = count($this->tplVars['topics']);
+
+    $progressionUser = number_format(($totalPoints / ($numberOfTopics * 5))*100);
+
+
+    $this->tplVars = $this->tplVars + ['progressionUser' => $progressionUser];
+
+
+
+
+
+
+
+
+    
 
     // $this->tplVars = $this->tplVars + [
     //         'score' => $scoreByTopic,

@@ -434,13 +434,20 @@ main .display__main {
 
 main .box {
   width: 100%;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 2rem;
   background-color: #eee;
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   border: 2px solid #EEE;
   border-radius: 30px;
+  -webkit-box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+          box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+main .box:hover {
+  -webkit-box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
 }
 
 main aside {
@@ -455,10 +462,16 @@ main aside {
 }
 
 main .avancement {
-  display: block;
-  color: purple;
+  background: radial-gradient(circle at 100px 100px, #e71d73, rgba(0, 0, 0, 0.89));
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  color: white;
   font-size: 3rem;
-  margin: 1rem;
+  font-weight: 4rem;
+  margin: 2rem auto;
+  padding-top: 3.5rem;
 }
 
 main .identification img {
@@ -717,8 +730,7 @@ main .commentary_box_quotes {
 }
 
 main blockquote {
-  margin-left: 1em;
-  margin-top: 2rem;
+  margin: 1rem auto;
   padding: 1em 0;
 }
 
@@ -827,6 +839,29 @@ footer small {
 .about .bdd {
   width: 100%;
   margin: 0 auto;
+}
+
+code {
+  background-color: #fff;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th,
+table td {
+  border: 1px solid #ddd;
+}
+
+table thead {
+  text-align: center;
+  border-bottom: 2px solid #999;
+}
+
+table tbody tr:nth-child(odd) td {
+  background-color: #b3e6e7;
 }
 
 /* https://blog.smarchal.com/sass-et-media-queries */
