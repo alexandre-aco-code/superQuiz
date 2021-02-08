@@ -759,6 +759,14 @@ footer {
 
 // page Rankings 
 
+.rankings {
+
+    img {
+        width:50px;
+    }
+
+}
+
 code {
     background-color: #fff;
 }
@@ -781,8 +789,6 @@ table {
     tbody tr:nth-child(odd) td {
         background-color: rgb(179, 230, 231);
     }
-
-
 
 
 }

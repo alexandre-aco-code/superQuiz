@@ -841,6 +841,10 @@ footer small {
   margin: 0 auto;
 }
 
+.rankings img {
+  width: 50px;
+}
+
 code {
   background-color: #fff;
 }
