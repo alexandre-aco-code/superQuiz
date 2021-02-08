@@ -24,12 +24,9 @@
 
             <?php
 
-            // var_dump($tplVars['scoresByTopic']);
-
-            
-
+            // Si le score est pâs défini dans la bdd, ca affiche que "ca n'a pas été joué" et non 0
             if (!isset($tplVars['scoresByTopic'][$key]['ScoreByTopic']))
-                $score = 0;
+                $score = 'Topic pas encore joué';
             else
                 $score = $tplVars['scoresByTopic'][$key]['ScoreByTopic'];
             ?>

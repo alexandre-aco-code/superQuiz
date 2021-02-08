@@ -44,40 +44,24 @@
             <aside class="col-md-3 p-3 d-none d-md-block bg-light">
 
 
-                <!-- <h4 class="my-4 text-muted"><i class="fa fa-home"></i> Accueil</h4> -->
                 <nav class="nav nav-pills flex-column">
                     <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index"><i class="fa fa-home"></i> Tableau de bord</a>
                 </nav>
 
-
-                <!-- <h4 class="my-4 text-muted"><i class="fa fa-globe"></i> Site web</h4> -->
                 <nav class="nav nav-pills flex-column">
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>" target="_blank"><i class="fa fa-globe"></i> Gestion des utilisateurs</a>
+                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Users&task=index" target="_blank"><i class="fa fa-globe"></i> Gestion des utilisateurs</a>
+                </nav>
+
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Topics&task=index">Gestion des topics</a>
+                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Questions&task=index">Gestion des questions</a>
                 </nav>
 
 
-                <!-- <h4 class="my-4 text-muted"><i class="fa fa-shopping-basket"></i> Boutique</h4> -->
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Brand&task=index">Gestion des topics</a>
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Tag&task=index">Gestion des questions</a>
-                </nav>  
-
-
-                    <!-- <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\ProductLine&task=index">Gestion des rayons</a>
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Product&task=index">Gestion des produits</a>
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Order">Gestion des commandes</a>
-                </nav>
-                <h4 class="my-4 text-muted"><i class="fa fa-cogs"></i> Paramètres</h4>
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\User&task=index">Gestion des utilisateurs</a>
-                </nav> -->
-                
             </aside>
 
 
             <main class="col-md-9 p-3">
-
-
 
                 <!-- page content -->
                 <?= $pageContent ?>

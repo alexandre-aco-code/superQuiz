@@ -16,13 +16,13 @@
         </thead>
         <tbody>
             <?php foreach ($tplVars['userAndScoreList'] as $key => $user) : ?>
-            <tr>
-                <td><?= $key + 1; ?></td>
-                <td><?= number_format(($user['TotalScore'] / ((count($tplVars['topics']) * 5)) * 100)); ?> %</td>
-                <td><?= $user['Pseudo']; ?></td>
-                <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
-                <td><?= $user['LastConnectedDate']; ?></td>
-            </tr>
+                <tr>
+                    <td><?= $key + 1; ?></td>
+                    <td class="avancement"><?= number_format(($user['TotalScore'] / ((count($tplVars['topics']) * 5)) * 100)); ?> %</td>
+                    <td><?= $user['Pseudo']; ?></td>
+                    <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
+                    <td><?= $user['LastConnectedDate']; ?></td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>

@@ -234,20 +234,18 @@ class User extends Model
 
     public function getGlobalRankings() {
 
-
         $query = $this->db->prepare(
             "SELECT *, SUM(s.ScoreByTopic) AS TotalScore 
             FROM $this->table AS u 
             LEFT JOIN score AS s ON u.Id = s.Id_User 
             INNER JOIN avatars AS a ON u.Avatar_Id = a.Id 
             GROUP BY u.Id
-            ORDER BY TotalScore DESC"
+            ORDER BY TotalScore DESC, u.LastConnectedDate ASC"
             );
 
         $query->execute();
 
         return $query->fetchAll(\PDO::FETCH_ASSOC);
-
 
     }
 
