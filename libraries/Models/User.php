@@ -12,9 +12,9 @@ class User extends Model
     /*
     Id, Admin, FirstName et LastName
     */
-    public function findAll_Id_Admin_Fn_Ln(): array
+    public function findAll_Id_Admin(): array
     {
-        $query = $this->db->prepare("SELECT Id, LastName, FirstName, Admin FROM $this->table");
+        $query = $this->db->prepare("SELECT Id, Pseudo, Email, Admin FROM $this->table");
         
         $query->execute();
         

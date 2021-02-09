@@ -4,7 +4,7 @@ namespace Controllers\Admin;
 
 class Dashboard extends \Controllers\Admin
 {
-    protected $pageTitle = "Dashboard";
+    protected $pageTitle = "Menu Administrateur";
 
     public function index()
     {

@@ -1,0 +1,44 @@
+<h1>Gestion des Utilisateurs</h1>
+
+<!-- list des users -->
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th>Admin</th>
+                <th class="text-right" width="20%">Changer le rôle</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- <?= var_dump($tplVars['list']); ?> -->
+
+            <!-- boucle sur les users -->
+            <?php foreach ($tplVars['list'] as $item) : ?>
+                <tr>
+                    <td><?= htmlspecialchars($item['Pseudo']); ?></td>
+                    <td><?= htmlspecialchars($item['Email']); ?></td>
+                    <td>
+                        <?php
+                        //afficher oui si admin sinon afficher non
+
+                        if (intval($item['Admin']) == 1) :
+                            echo 'Oui';
+                        else :
+                            echo 'Non';
+                        endif;
+                        ?>
+                    </td>
+                    <td class="text-right">
+                        <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Retirer</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=update&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <!-- boucle sur les users -->
+        </tbody>
+    </table>
+</div>
+<!-- list des users -->

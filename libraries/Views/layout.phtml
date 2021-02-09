@@ -13,7 +13,7 @@
 
 <body>
 
-<!-- HEADER -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container display">
 
@@ -78,7 +78,7 @@
                             <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create&topic=1&indexQuestion=1#modalSignUp">S'inscrire</a></li>
                             <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login&topic=1&indexQuestion=1#modalLogin">Se Connecter</a></li>
                             <li><a href="#">Mes informations</a></li>
-                            <li><a href="libraries/Views/layoutAdmin.html">Administrateur (BackOffice)</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank">Administrateur (BackOffice)</a></li>
                             <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php">Déconnexion</a></li>
                         </ul>
                     </li>
@@ -91,7 +91,7 @@
         </div>
     </header>
 
-<!-- MAIN -->
+    <!-- MAIN -->
     <main class="main">
 
 
@@ -148,31 +148,31 @@
                         <img src="<?= $_SESSION['user']['AvatarURL']; ?> alt=" profil picture">
 
                         <?php
-                            $text1 = "Je vois que l'on se porte bien, bienvenue";
-                            $text2 = "Je vois qu'on pousse à la salle, bienvenue";
-                            $text3 = "Très belle dégaine, bienvenue";
-                            $text4 = "Quel regard, bienvenue";
-                            $text5 = "Votre mine est radieuse, bienvenue";
+                        $text1 = "Je vois que l'on se porte bien, bienvenue";
+                        $text2 = "Je vois qu'on pousse à la salle, bienvenue";
+                        $text3 = "Très belle dégaine, bienvenue";
+                        $text4 = "Quel regard, bienvenue";
+                        $text5 = "Votre mine est radieuse, bienvenue";
 
-                            $variable = rand(1, 5);
+                        $variable = rand(1, 5);
 
-                            switch ($variable) {
-                                case 1:
-                                    $text = $text1;
-                                    break;
-                                case 2:
-                                    $text = $text2;
-                                    break;
-                                case 3:
-                                    $text = $text3;
-                                    break;
-                                case 4:
-                                    $text = $text4;
-                                    break;
-                                case 5:
-                                    $text = $text5;
-                                    break;
-                            }
+                        switch ($variable) {
+                            case 1:
+                                $text = $text1;
+                                break;
+                            case 2:
+                                $text = $text2;
+                                break;
+                            case 3:
+                                $text = $text3;
+                                break;
+                            case 4:
+                                $text = $text4;
+                                break;
+                            case 5:
+                                $text = $text5;
+                                break;
+                        }
                         ?>
 
                         <h3><?= $text ?><span class="golden-text"><?= $_SESSION['user']['Pseudo']; ?></span></h3>
@@ -276,7 +276,7 @@
 
 
 
-<!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container signature">
             <p>Projet réalisé par : <a href="https://www.linkedin.com/in/alexandre-connangle-6221a558/">Alexandre Code</a>.</p>

@@ -1,0 +1,29 @@
+<!-- list des topics -->
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-4">
+    <a class="btn btn-primary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=newForm"><i class="fa fa-plus"></i> Ajouter un topic</a>
+</div>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nom</th>
+                <th class="text-right" width="20%">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <!-- boucle sur les topics -->
+            <?php foreach ($tplVars['list'] as $item) : ?>
+                <tr>
+                    <td><?= htmlspecialchars($item['Name']); ?></td>
+                    <td class="text-right">
+                        <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Retirer</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=editForm&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <!-- boucle sur les topics -->
+            
+        </tbody>
+    </table>
+</div>

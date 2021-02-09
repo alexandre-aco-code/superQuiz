@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back Office Questionnaire</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="icon" type="image/png" href="https://thumbs.dreamstime.com/z/smiley-asiatique-5856320.jpg" />
+    <link rel="icon" type="image/png" href="https://tutos.ies-sud.fr/wp-content/uploads/2018/03/Picto_admin_reglages-1.png" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="assets/admin/css/normalize.css">
     <link rel="stylesheet" href="assets/admin/css/styleAdmin.scss">
@@ -15,27 +15,28 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-1" aria-controls="navbar-1" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <a class="navbar-brand" href="#">
-            <img src="<?= $tplVars['WWW_URL']; ?>assets/admin/images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            <i class="fas fa-cogs"></i>
             BackOffice du QuiZ by ACo
         </a>
         <div class="collapse navbar-collapse" id="navbar-1">
-            <h1 class="navbar-text h2"><?= $tplVars['page_title']; ?></h1>
-            <ul class="navbar-nav ml-auto mr-5">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbar-1-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img alt="Avatar de <?= \Session::getFirstName(); ?>" src="<?= $tplVars['WWW_URL']; ?>assets/admin/images/avatar.png" width="48"> <?= \Session::getFirstName(); ?>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbar-1-dropdown">
-                        <a class="dropdown-item" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=out"><i class="fa fa-power-off"></i> Déconnexion</a>
-                    </div>
+            <h1 class="navbar-text"><?= $tplVars['page_title']; ?></h1>
+            <a class="nav-link dropdown-toggle" href="#" id="navbar-1-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img alt="Avatar de <?= \Session::getFirstName(); ?>" src="<?= $_SESSION["user"]["AvatarURL"]; ?>assets/admin/images/avatar.png" width="48">
+                <p><?= \Session::getFirstName(); ?></p>
+            </a>
+
+            <p><?= \Session::getFirstName(); ?></p>
+
+            <a class="dropdown-item" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=out"><i class="fa fa-power-off"></i> Déconnexion</a>
+            <!-- <ul class="navbar-nav ml-auto mr-5">
+                <li class="nav-item">
+
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </nav>
+
 
 
 
@@ -43,20 +44,12 @@
         <div class="row">
             <aside class="col-md-3 p-3 d-none d-md-block bg-light">
 
-
                 <nav class="nav nav-pills flex-column">
                     <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index"><i class="fa fa-home"></i> Tableau de bord</a>
+                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\User&task=index"><i class="fas fa-address-card"></i> Gestion des utilisateurs</a>
+                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Topic&task=index"><i class="fa fa-globe"></i> Gestion des topics</a>
+                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Question&task=index"><i class="fab fa-algolia"></i> Gestion des questions</a>
                 </nav>
-
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Users&task=index" target="_blank"><i class="fa fa-globe"></i> Gestion des utilisateurs</a>
-                </nav>
-
-                <nav class="nav nav-pills flex-column">
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Topics&task=index">Gestion des topics</a>
-                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Questions&task=index">Gestion des questions</a>
-                </nav>
-
 
             </aside>
 
