@@ -103,7 +103,6 @@ class Admin extends Controller
     
     public function update(array $data)
     {
-      
         //si on arrive ici on va pouvoir insérer notre nouveau rayon
         $this->model->update($data);
         \Http::redirect(WWW_URL."index.php?controller=admin\\".$this->nameCrud."&task=index");

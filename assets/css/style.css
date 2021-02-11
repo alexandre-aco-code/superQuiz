@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* import des polices, variables, tools */
 /* *****************************************************************
 FONTS
@@ -185,7 +186,9 @@ img {
   }
 }
 
-/* Le corps du document */
+/* *****************************************************************
+BODY
+***************************************************************** */
 html {
   min-height: 100vh;
 }
@@ -209,6 +212,7 @@ body h4 {
 }
 
 body h1 {
+  vertical-align: middle;
   font-size: 3.6rem;
   color: #e71d73;
   text-align: center;
@@ -253,7 +257,9 @@ body .purple-text {
   font-weight: 900;
 }
 
-/* HEADER */
+/* *****************************************************************
+HEADER
+***************************************************************** */
 header {
   background-color: #92801a;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
@@ -385,19 +391,17 @@ header .display nav a i {
   margin: 0.5rem 0;
 }
 
-header h1 {
-  vertical-align: middle;
-}
-
 header .score {
   background: blue;
 }
 
-/* MAIN */
+/* *****************************************************************
+MAIN
+***************************************************************** */
 main {
   background-color: #ca9d6777;
+  /* Les Modales */
   /* Style de chaque input */
-  /* Les modals */
   /* Close Button */
   /* Formulaire */
   /* modal SignUp */
@@ -419,6 +423,32 @@ main .alert-danger {
 
 main .alert-success {
   background-color: green;
+}
+
+main aside {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .avancement {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  color: white;
+  font-size: 3rem;
+  font-weight: 4rem;
+  margin: 2rem auto;
+  padding-top: 3.5rem;
+}
+
+main .identification img {
+  width: 100px;
 }
 
 main .display__main {
@@ -450,51 +480,6 @@ main .box:hover {
           box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
 }
 
-main aside {
-  width: 25%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-main .avancement {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  color: white;
-  font-size: 3rem;
-  font-weight: 4rem;
-  margin: 2rem auto;
-  padding-top: 3.5rem;
-}
-
-main .identification img {
-  width: 100px;
-}
-
-main .commentary_box {
-  width: 100%;
-  height: 75%;
-}
-
-main .commentary_box fieldset {
-  background-color: white;
-}
-
-main .commentary_box .commentary__content {
-  margin: 2rem auto 0;
-}
-
-main .commentary_box .commentary__author {
-  text-align: right;
-  margin: 0 auto 1rem;
-  font-size: 1.1rem;
-}
-
 main .quiz {
   width: 70%;
   background-color: #eee;
@@ -521,32 +506,6 @@ main img {
 
 main section + section {
   margin-top: 2em;
-}
-
-main input[type="text"],
-main input[type="password"],
-main input[type="search"],
-main input[type="email"],
-main input[type*="date"],
-main select,
-main textarea {
-  display: inline-block;
-  padding: 0.5em 1em;
-  font-size: 1.6rem;
-  color: #333;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 0.5em;
-}
-
-main select,
-main textarea {
-  width: 100%;
-}
-
-main textarea {
-  display: block;
-  min-height: 10em;
 }
 
 main button {
@@ -598,6 +557,48 @@ main #badAnswer.errorSelected {
   background-color: grey;
 }
 
+main .hidden_div {
+  display: none;
+}
+
+main .height_animated_div {
+  height: 50px;
+}
+
+main .animated_div {
+  display: none;
+  width: 130px;
+  height: 57px;
+  margin: 0 auto;
+  background: green;
+  color: #ffffff;
+  position: relative;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  -webkit-animation: animated_div 2s ease;
+          animation: animated_div 2s ease;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+main .animated_div i {
+  margin: 0.2rem;
+}
+
+main .animated_div i:first-child {
+  color: #ca9e67;
+}
+
+main .animated_div i:nth-child(3) {
+  color: #e71d73;
+}
+
+main .active {
+  display: block;
+}
+
 main .modal-bg {
   position: fixed;
   background-color: rgba(128, 128, 128, 0.6);
@@ -622,6 +623,32 @@ main .modal-content {
 
 main .modal-content p {
   margin-bottom: 4rem;
+}
+
+main input[type="text"],
+main input[type="password"],
+main input[type="search"],
+main input[type="email"],
+main input[type*="date"],
+main select,
+main textarea {
+  display: inline-block;
+  padding: 0.5em 1em;
+  font-size: 1.6rem;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+}
+
+main select,
+main textarea {
+  width: 100%;
+}
+
+main textarea {
+  display: block;
+  min-height: 10em;
 }
 
 main .close {
@@ -679,46 +706,23 @@ main #modalLogin:target {
   display: flex;
 }
 
-main .hidden_div {
-  display: none;
+main .commentary_box {
+  width: 100%;
+  height: 75%;
 }
 
-main .height_animated_div {
-  height: 50px;
+main .commentary_box fieldset {
+  background-color: white;
 }
 
-main .animated_div {
-  display: none;
-  width: 130px;
-  height: 57px;
-  margin: 0 auto;
-  background: green;
-  color: #ffffff;
-  position: relative;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 10px;
-  -webkit-animation: animated_div 2s ease;
-          animation: animated_div 2s ease;
-  border-radius: 5px;
-  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+main .commentary_box .commentary__content {
+  margin: 2rem auto 0;
 }
 
-main .animated_div i {
-  margin: 0.2rem;
-}
-
-main .animated_div i:first-child {
-  color: #ca9e67;
-}
-
-main .animated_div i:nth-child(3) {
-  color: #e71d73;
-}
-
-main .active {
-  display: block;
+main .commentary_box .commentary__author {
+  text-align: right;
+  margin: 0 auto 1rem;
+  font-size: 1.1rem;
 }
 
 main .commentary_box_quotes {
@@ -759,7 +763,9 @@ main .navigation__questions i {
   color: #e71d73;
 }
 
-/* FOOTER */
+/* *****************************************************************
+FOOTER
+***************************************************************** */
 footer {
   background-color: #92801a;
   font-family: "Exo", sans-serif;
@@ -791,7 +797,10 @@ footer small {
   text-align: right;
 }
 
-/* CSS de la page Main */
+/* *****************************************************************
+DIFFERENTS PAGES
+***************************************************************** */
+/* CSS de la page Main ( page d'Accueil une fois connecté ) */
 .page-main p {
   text-align: left;
 }
@@ -922,21 +931,16 @@ table tbody tr:nth-child(3) td {
   background-color: #614e1a;
 }
 
+/* *****************************************************************
+RESPONSIVE
+***************************************************************** */
 /* https://blog.smarchal.com/sass-et-media-queries */
-#content {
-  width: 100%;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-  #content {
-    width: 668px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  #content {
-    width: 1024px;
+@media screen and (max-width: 1100px) {
+  main .display__main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */

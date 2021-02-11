@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,27 +11,18 @@
 </head>
 
 <body>
-
     <!-- HEADER -->
     <header class="header">
         <div class="container display">
 
-            <!-- Logo Quiz -->
-
-
-
+            <!-- Logo -->
             <a href="<?= $tplVars['WWW_URL']; ?>index.php">
                 <img src="assets/images/logo-2.svg" alt="logo-quiz-fait-par-moi" />
             </a>
 
-
-
-
             <!-- MENU DE NAVIGATION -->
             <nav>
                 <ul>
-
-
                     <!-- MENU DE NAVIGATION : EXPLORER -->
                     <li class="selected">
                         <a href="<?= $tplVars['WWW_URL']; ?>index.php">
@@ -95,8 +85,7 @@
     <main class="main">
 
 
-        <!-- faire apparaitre des flashs? -->
-
+        <!-- Faire apparaitre les flashs -->
         <div class="alert-section" id="zonedenotification">
 
             <?php if (\Session::hasFlashes('error')) : ?>
@@ -131,12 +120,9 @@
 
 
 
-
-
         <div class="container display__main">
             <aside>
-
-
+                
                 <!-- ASIDE BOX 1 POUR LE PROFIL DE l'USER -->
                 <div class="identification box">
                     <h2>Profil</h2>

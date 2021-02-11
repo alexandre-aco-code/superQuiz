@@ -28,7 +28,7 @@ class User extends \Controllers\Admin
     }
 
 
-    public function update(array $data = [])
+    public function updateAdminRole(array $data = [])
     {
         //controler que $_GET['id'] existe bien 
         if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
@@ -40,7 +40,11 @@ class User extends \Controllers\Admin
             }
 
             $data['Id'] = intval($_GET['id']);
-            //si on arrive ici on va pouvoir insérer notre nouveau rayon
+
+            
+
+
+
             parent::update($data);
         } else {
             throw new \Exception('Impossible de changer le rôle !');

@@ -7,54 +7,37 @@
 
 
 
-/* Le corps du document */
+/* *****************************************************************
+BODY
+***************************************************************** */
 html {
    min-height: 100vh;
 }
-
 body {
-    
     padding: 0;
-
-    // position: relative;
     min-height: 100vh;
-
-
-    // display: flex;
-    // /* crée un contexte flex pour ses enfants */
-    // flex-direction: column;
-    // /* affichage vertical */
-    // min-height: 100vh;
-    // /* toute la hauteur du viewport */
-    // padding: 1em;
-
-
     text-align: center;
     margin: 0;
     padding: 0;
     line-height: $line-height;
     background-color: $color-body;
     font-family: $font-text;
-
-
     h1,
     h2,
     h3,
     h4 {
         font-family: $font-titles;
     }
-
     h1 {
+        vertical-align: middle;
         font-size: $size-title-1;
         color: $color-title-1;
         text-align:center;
         margin-bottom: 3rem;
-
         span {
             color: $color-title-span;
         } 
     }
-
     h2 {
         font-size: $size-title-2;
         color: $color-title-2;
@@ -62,7 +45,6 @@ body {
         line-height: 4rem;
         margin-top: 0;
     }
-
     h3 {
         font-size: $size-title-3;
         color: $color-title-3;
@@ -73,62 +55,42 @@ body {
             font-size:3rem;
         }
     }
-
     a {
         text-decoration: none;
     }
-
     .golden-text {
         color:$color-golden-text;
         font-weight: 900 ;
     }
-
     .purple-text {
         color:$color-purple-text;
         font-weight: 900;
     }
 }
 
-// .container {
-//     min-height : 100%;
-// }
 
-
-
-
-
-
-
-
-/* HEADER */
-
+/* *****************************************************************
+HEADER
+***************************************************************** */
 header {
     background-color: $color-header;
     box-shadow: $shadow-lg;
-
-    
-
     .selected {
         transition: background-color 0.5s;
         background-color: $color-header-link-selected;
     }
-
-
     .display {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: $height-header;
-
         a {
             display: inline-block;
             color: $color-link-text;
-
             &:hover {
                 text-decoration: underline;
                 color: $color-link-hover;
             }
-
             img {
                 display: block;
                 min-width: 350px;
@@ -136,121 +98,92 @@ header {
                 margin-left:5rem;
             }
         }
-
-
         nav {
             display: flex;
             align-items: center;
             justify-content: space-around;
-
             ul,
             li {
                 padding: 0;
                 margin: 0;
                 list-style-type: none;
             }
-
             > ul {
                 display:flex;
                 justify-content: center;
-
             }
-
             > ul > li {
                 position:relative;
                 border-right: 1px solid grey;
-
                 &:hover {
                     transform: translateY(5px);
                     transition: .05s ease;
                 }
-
                 &:first-child {
                     border-left:1px solid grey;
                 }
-
                 & > ul {
                     position:absolute;
                     display:none;
                     li {
                         max-width:10em;
-
                         i {
                             font-size: $size-fontawesome-header-extended-menu;
                             float:left;
                         }
-                        
                     }
-
                     li + li{
                         border-top: 1px solid #444;
                     }
                 }
-
                 &:hover > ul {
                     display:block;
                     background-color: $color-header-link-extended-menu;
                 }
-
             }   
-
             a {
                 min-width: 10em;
                 padding: 1em 2em;
                 font-family: $font-link;
-
                 &:hover {
                     text-decoration: none;
                     color: pink;
                     background: $color-header-link-hover;
-
                     i {
                         animation: spin 5s linear infinite;
                     }
                 }
-
                 i{
                     font-size:$size-fontawesome-header;
                     vertical-align: middle;
                     margin:0.5rem 0;
                 }
             }
-
         }
-
     }
-
-    h1 {
-        vertical-align: middle;
-    }
-
     .score {
         background: blue;
     }
-
-
-
 }
 
 
 
 
-/* MAIN */
+/* *****************************************************************
+MAIN
+***************************************************************** */
 
 main {
-
     background-color: $color-main;
 
+    // Partie notifications tout en haut du main
     .alert-section {
         position: absolute;
-        // right:300px;
-        // padding:0 2rem 2rem;
         width:250px;
         img {
             width:100px;
         }
     }
-
     .alert-danger {
         background-color: red;
     }
@@ -258,14 +191,43 @@ main {
         background-color: green;
     }
 
+    // Partie Aside contenant Profil & Commentaires
+    aside {
+        width:25%;
+        display:flex;
+        flex-direction:column;
+    }
+    .avancement {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        color: white;
+        font-size: 3rem;
+        font-weight:4rem;
+        margin:2rem auto;
+        padding-top:3.5rem;
+    }
+    .identification {
+        img {
+            width:100px;
+        }
+    }
+
+
+
+
+
+
+
+    // Display principal
     .display__main {
         display: flex;
-        padding:1rem 0;
-        flex-direction:row-reverse;
+        padding: 1rem 0;
+        flex-direction: row-reverse;
     }
 
     .box {
-        width:100%;
+        width: 100%;
         margin: 1rem auto;
         padding: 2rem;
         background-color: $color-aside;
@@ -275,106 +237,142 @@ main {
         transition: all .4s ease;
 
         &:hover {
-            // border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
             box-shadow: 10px 10px rgba(0, 0, 0, .25);
         }
-
-
     }
-
-    aside {
-        width:25%;
-        display:flex;
-        flex-direction:column;
-
-    }
-
-    .avancement {
-
-        // background: $color-purple-text;
-        // background: radial-gradient(circle at 100px 100px, $color-purple-text, rgba(0, 0, 0, 0.89));
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        // border: 2px solid white;
-        color: white;
-        font-size: 3rem;
-        font-weight:4rem;
-        margin:2rem auto;
-        padding-top:3.5rem;
-    }
-    
-    .identification {
-        img {
-            width:100px;
-        }
-    }
-
-
-
-// COMMENTAIRES DANS LA PETITE BOX EN BAS A DROITE
-
-    .commentary_box {
-        width:100%;
-        height:75%;
-
-
-        fieldset {
-            background-color: white;
-        }
-
-        .commentary__content {
-            margin:2rem auto 0;
-        }
-
-        .commentary__author {
-            text-align: right;
-            margin:0 auto 1rem;
-            font-size:1.1rem;
-        }
-
-    }
-
-
-
-
-
     .quiz {
         width: 70%;
         background-color: $color-quiz;
     }
-
     p {
         a, span {
             color:$color-golden-text;
         }
     }
-
     article {
         background-color: $color-article;
         padding: 1em;
         // box-shadow: $shadow-xl;
     }
-
     .detail-categorie {
-
         p {
             text-align: left;
-
         }
     }
-
     img {
         width: 500px;
         text-align: center;
         margin: 1rem;
     }
-
     section+section {
         margin-top: 2em;
     }
+    button {
+        display: inline-block;
+        padding: 0.5em;
+        margin: 1rem;
+        width: 500px;
+        height: 75px;
+        border-radius: 5px;
+        color: $color-button-text;
+        background-color: $color-button-bg;
+        border: $border-lg;
+        box-shadow:$shadow-xl;
+        cursor: pointer;
+        user-select: none;
+        &:focus,
+        &:hover {
+            color: black; 
+            transform: translateY(-5px);
+            transition: .05s ease;
+        }
+        &:active {
+            transform: scale(.99995);
+            transition: transform .005s;
+        }
+    }
+    .progress {
+        color: #555;
+    }
+    #goodAnswer.goodSelected {
+        background-color: green;
+        font-size: 2rem;
+    }
+    #badAnswer.errorSelected {
+        background-color: grey;
+    }
+
+    .hidden_div {
+        display: none;
+    }
+
+    .height_animated_div {
+        height: 50px;
+    }
+
+    .animated_div {
+        display: none;
+        width: 130px;
+        height: 57px;
+        margin: 0 auto;
+        background: $color-good-answer;
+        color: #ffffff;
+        position: relative;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px;
+        animation: animated_div 2s ease;
+        border-radius: 5px;
+        box-shadow: $shadow-xl;
+
+        i {
+            margin: 0.2rem;
+        }
+
+        i:first-child {
+            color: $color-golden-text;
+        }
+
+        i:nth-child(3) {
+            color: $color-purple-text;
+        }
+    }
+
+    .active {
+        display: block;
+    }
 
 
+
+
+
+
+
+
+
+
+    /* Les Modales */
+    .modal-bg {
+        position:fixed;
+        background-color: rgba(grey, 0.6);
+        top:0;
+        left:0;
+        bottom:0;
+        right:0;
+        display:none;
+    }
+    .modal-content {
+        background-color: rgb(255, 255, 255);
+        width: 50%;
+        padding: 2em;
+        border: 1px solid #888;
+        margin: auto;
+        box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
+        animation: slidein 0.5s ease;
+        p {
+            margin-bottom:4rem;
+        }
+    }
     /* Style de chaque input */
     input[type="text"],
     input[type="password"],
@@ -391,133 +389,46 @@ main {
         border: 1px solid #ccc;
         border-radius: 0.5em;
     }
-
     select,
     textarea {
         width: 100%;
     }
-
     textarea {
         display: block;
         min-height: 10em;
     }
-
-
-    button {
-        display: inline-block;
-        padding: 0.5em;
-        margin: 1rem;
-        width: 500px;
-        height: 75px;
-        border-radius: 5px;
-        color: $color-button-text;
-        background-color: $color-button-bg;
-        // background-color: green;
-        border: $border-lg;
-        box-shadow:$shadow-xl;
-        cursor: pointer;
-        user-select: none;
-
-        &:focus,
-        &:hover {
-            color: black; 
-            transform: translateY(-5px);
-            // transform: scale(1.1);
-            // background: $color-button-hover;
-            transition: .05s ease;
-        }
-
-        &:active {
-            // background: $color-button-active;
-            transform: scale(.99995);
-            transition: transform .005s;
-        }
-
-        
-
-    }
-    .progress {
-        color: #555;
-    }
-
-    #goodAnswer.goodSelected {
-        background-color: green;
-        font-size: 2rem;
-    }
-
-    #badAnswer.errorSelected {
-        background-color: grey;
-    }
-
-
-
-
-
-
-
-
-
-
-    /* Les modals */
-
-    .modal-bg {
-        position:fixed;
-        background-color: rgba(grey, 0.6);
-        top:0;
-        left:0;
-        bottom:0;
-        right:0;
-        display:none;
-    }
-
-    .modal-content {
-        background-color: rgb(255, 255, 255);
-        width: 50%;
-        padding: 2em;
-        border: 1px solid #888;
-        margin: auto;
-        box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
-        animation: slidein 0.5s ease;
-        p {
-            margin-bottom:4rem;
-        }
-    }
-
     /* Close Button */
     .close {
-        float:right;
+        float: right;
         color: #aaa;
         float: right;
         font-size: 52px;
         font-weight: bold;
     }
-
     .close:hover,
     .close:focus {
         color: black;
         text-decoration: none;
         cursor: pointer;
     }
-
     /* Formulaire */
-
     form {
         img {
-            width:2000px;
-            display:block;
-            text-align:center;
-            margin:1rem 0.2rem 0rem;
-            overflow:auto;
+            width: 2000px;
+            display: block;
+            text-align: center;
+            margin: 1rem 0.2rem 0rem;
+            overflow: auto;
         }
     }
 
-    .display_flex{
-        display:flex;
+    .display_flex {
+        display: flex;
     }
 
     label {
         display: block;
-        margin:auto;
+        margin: auto;
         width: 90%;
         margin-top: 2rem;
         margin-bottom: 1rem;
@@ -525,99 +436,57 @@ main {
 
     input {
         width: 90%;
-        margin-bottom:2rem;
-        display:inline-block;
+        margin-bottom: 2rem;
+        display: inline-block;
     }
 
     /* modal SignUp */
-
     #modalSignUp:target {
-        display:flex;
+        display: flex;
     }
 
     /* modal Login */
-
     #modalLogin:target {
         display: flex;
     }
 
 
 
-    .hidden_div {
-        display:none;
-    }
 
 
 
-    .height_animated_div {
-        height:50px;
-    }
 
-
-
-    .animated_div {
-
-        display:none;
-        
-        width: 130px;
-        height: 57px;
-        margin: 0 auto;
-        background: $color-good-answer;
-        color: #ffffff;
-        position: relative;
-        font-weight: bold;
-        font-size: 20px;
-        padding: 10px;
-        animation: animated_div 2s ease;
-        border-radius: 5px;
-        box-shadow: $shadow-xl;
-
-        i{
-            margin:0.2rem;
+    // COMMENTAIRES DANS LA PETITE BOX EN BAS A DROITE
+    .commentary_box {
+        width: 100%;
+        height: 75%;
+        fieldset {
+            background-color: white;
         }
-
-        i:first-child{
-            color:$color-golden-text;
+        .commentary__content {
+            margin: 2rem auto 0;
         }
-
-        i:nth-child(3) {
-            color:$color-purple-text;
+        .commentary__author {
+            text-align: right;
+            margin: 0 auto 1rem;
+            font-size: 1.1rem;
         }
-
-        // button {
-        //     background-color: blue;
-        // }
-
-        // .inactive {
-        //     display:none;
-        // }
-
-        
     }
-
-    .active {
-        display: block;
-    }
-
-
+    // COMMENTAIRES en bas à droite ? 
     .commentary_box_quotes {
         text-align: left;
         height: 300px;
         overflow: auto;
     }
-
-
     blockquote {
         margin:1rem auto;
         padding: 1em 0;
     }
-
     blockquote p {
         background-image: url(../images/client.png);
         background-repeat: no-repeat;
         padding-left: 40px;
     }
-
     blockquote cite {
         background-image: url(../images/quote.png);
         background-repeat: no-repeat;
@@ -628,13 +497,10 @@ main {
         padding-left: 40px;
         font-weight: bold;
     }
-
     .navigation__questions {
         a {
             color: $color-purple-text;
-
         }
-        
         i {
             vertical-align: middle;
             font-size:5rem;
@@ -642,30 +508,22 @@ main {
             color:$color-purple-text;
         }
     }
-
-
-
-
 }
 
 
 
 
 
-
-
-/* FOOTER */
+/* *****************************************************************
+FOOTER
+***************************************************************** */
 
 footer {
     background-color: $color-footer;
     font-family: $font-link;
     height: $height-footer;
     box-shadow: $shadow-lg;
-
-    // position: absolute;
-    // bottom: 0;
     width: 100%;
-    
     div {
         display:flex;
         flex-direction: column;
@@ -675,35 +533,29 @@ footer {
         p {
             margin:0;
         }
-
     }
-
     small {
         text-align:right;
     }
-
-    
-
-
 }
 
-/* CSS de la page Main */
 
 
+
+/* *****************************************************************
+DIFFERENTS PAGES
+***************************************************************** */
+
+/* CSS de la page Main ( page d'Accueil une fois connecté ) */
 .page-main {
     p {
         text-align: left;
-
     }
 }
-
-
-
 .ceintures {
     width:50%;
     margin: 2rem auto;
     list-style: none;
-    
     li:nth-child(1){
         background-color: rgb(228, 224, 224);
     }
@@ -725,31 +577,20 @@ footer {
     li:nth-child(7){
         background-color: rgba(0, 0, 0, 0.603);
     }
-    
 }
 
-
-
 /* CSS de la Page erreur */
-
 .error {
     background-color: grey;
 }
 
-
 /* CSS de la Page topic */
-
 .topic {
     ul {
-
         list-style-type: none;
-
-
         li {
             margin-top:2rem;
-
         }
-
         p {
             text-align:right;
             margin:0 5rem 0 0;
@@ -757,33 +598,28 @@ footer {
     }
 }
 
-// COMMENTAIRES SUR LA PAGE DU LIVRE D'OR
+// CSS de la Page Livre d'Or - COMMENTAIRES SUR LA PAGE DU LIVRE D'OR
 .goldenBook {
     background-color: white;
 }
 
-// page results en fin de topic
-
+// CSS de la Page results en fin de topic
 .score {
     ul {
         padding:0;
     }
 }
-
 .results {
     margin: 3rem 0;
     font-size:2rem;
 }
 
-// page About
-
+// CSS de la Page About
 .about {
-
     ul {
         padding-left:30px;
         margin:0;
     }
-
     li {
         // text-decoration: none;
         // list-style-type: none;
@@ -791,67 +627,38 @@ footer {
         margin:2rem;
         text-align: left;
     }
-
     .bdd {
         width: 100%;
         margin:0 auto;
     }
-
 }
 
-// page Rankings 
-
+// CSS de la Page Rankings 
 .rankings {
-
     img {
         width:50px;
     }
-
-    // .little_avancement {
-
-    //     border-radius: 50%;
-    //     width: 50px;
-    //     height: 50px;
-    //     border: 2px solid white;
-    //     color: white;
-    //     font-size: 3rem;
-    //     font-weight:2rem;
-    //     margin:2rem auto;
-    //     padding-top:3.5rem;
-
-        
-    // }
-
 }
-
 code {
     background-color: #fff;
 }
-
 table {
     border-collapse: collapse;
     width:100%;
-
-    
     th,
     td {
         border: 1px solid #ddd;
-
         &.avancement {
             padding:1rem;
         }
-
     }
-
     thead {
         text-align: center;
         border-bottom: 2px solid #999;
     }
-
     tbody tr:nth-child(odd) td {
         background-color: rgb(179, 230, 231);
     }
-
     tbody tr:nth-child(1) td {
         background-color: #FFD700;
     }
@@ -861,16 +668,45 @@ table {
     tbody tr:nth-child(3) td {
         background-color: #614e1a;
     }
-    
+}
+
+
+
+/* *****************************************************************
+RESPONSIVE
+***************************************************************** */
+
+/* https://blog.smarchal.com/sass-et-media-queries */
+
+//Breakpoints
+$desktop:1100px;
+$tablet:900px;
+$phone:600px;
+
+
+// TABLET -> DESKTOP
+@media screen and (max-width: $desktop) {
+
+    main {
+
+        // Display principal
+        .display__main {
+            flex-direction: column;
+        }
+
+
+
+
+
+    }
 
 
 
 }
 
+// PHONE -> TABLET
+@media screen and (max-width:$tablet) {}
 
 
-
-
-
-
-@import 'reponsive';
+// LITTLE PHONE -> PHONE
+@media screen and (max-width: $phone) {}

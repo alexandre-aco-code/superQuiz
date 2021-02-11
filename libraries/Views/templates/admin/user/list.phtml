@@ -32,8 +32,8 @@
                         ?>
                     </td>
                     <td class="text-right">
-                        <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Retirer</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=update&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>
+                        <!-- <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Retirer</a> -->
+                        <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=updateAdminRole&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
