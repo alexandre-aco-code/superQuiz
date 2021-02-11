@@ -20,7 +20,7 @@ class Question extends \Controllers\Admin
 
         //liste des données
         $this->tplVars = $this->tplVars + [
-            // 'list' => $this->model->findAllQuestionsByTopic()
+            'list' => $this->model->findAll()
         ];
 
         //afficher la liste 

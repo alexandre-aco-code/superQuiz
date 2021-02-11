@@ -1,37 +1,17 @@
 <section class="quiz box goldenBook">
     <h2>Livre d'Or</h2>
-
     <div>
-
-
         <?php foreach ($tplVars['commentaries'] as $key => $commentary) : ?>
-
             <blockquote>
                 <cite>"<?= $commentary["Content"]; ?>"</cite>
-
-                <!-- permet de choper la date, en enlevant l'heure -->
-                <?php $date = explode(" ", $commentary['Created_at']); ?>
-
-                <p>écrit le <?= $date[0]; ?> par <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
-
+                <p>écrit le <?= $commentary['Created_at']; ?> par <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
             </blockquote>
-
-
-
         <?php endforeach; ?>
-
-        <!-- faire une session pour mettre un ocmmentaire -->
-
+        
+        <!-- Section pour mettre un ocmmentaire -->
         <form method="post" action="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=commentarySent">
-            <!-- <label for="">Mettez votre mot ;) il faudra qu'il soit validé par un admin pour apparaitre.
-            </label> -->
-            <!-- <input type="textarea"> -->
             <textarea name="commentary" id="commentary" cols="30" rows="10"></textarea>
             <button type="Submit">Envoyer</button>
         </form>
-
-
     </div>
-
-
 </section>

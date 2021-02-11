@@ -1,0 +1,56 @@
+<!-- list des commentaires -->
+<!-- <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-4">
+    <a class="btn btn-primary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=newForm"><i class="fa fa-plus"></i> Ajouter un produit</a>
+</div> -->
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Commentaire</th>
+                <th>Auteur</th>
+                <th>Date de publication</th>
+                <th>Afficher sur le site ?</th>
+                <!-- <th>Image</th> -->
+                <th class="text-right" width="20%">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- boucle sur les tags -->
+            <?php foreach ($tplVars['list'] as $item) : ?>
+                <tr>
+                    <!-- <td><?= var_dump($item); ?></td> -->
+                    <td><?= htmlspecialchars($item['Id']); ?></td>
+                    <td><?= htmlspecialchars($item['Content']); ?></td>
+                    <td><?= htmlspecialchars($item['Pseudo']); ?></td>
+                    <td><?= htmlspecialchars($item['Created_at']); ?></td>
+
+                    <td>
+                        <?php
+                        //afficher oui si admin sinon afficher non
+
+                        if (intval($item['Status']) == 1) :
+                            echo 'Oui';
+                        else :
+                            echo 'Non';
+                        endif;
+                        ?>
+                        <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=updateCommentStatus&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>
+                    </td>
+
+
+                    <!-- <td><?= htmlspecialchars($item['Status']); ?></td> -->
+                    <!-- <td><?= htmlspecialchars($item['Image']); ?></td> -->
+                    <td class="text-right">
+                        <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Supprimer</a>
+
+
+                        <!-- <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=updateAdminRole&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a> -->
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <!-- boucle sur les tags -->
+        </tbody>
+    </table>
+</div>
+<!-- list des tags -->

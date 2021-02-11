@@ -6,8 +6,12 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
-                <th>Nom</th>
-                <th>Rayon</th>
+                <th>Id</th>
+                <th>Topic</th>
+                <th>Question</th>
+                <th>Réponses</th>
+                <th>Bonne réponse</th>
+                <th>Image</th>
                 <th class="text-right" width="20%">Actions</th>
             </tr>
         </thead>
@@ -15,8 +19,13 @@
             <!-- boucle sur les tags -->
             <?php foreach ($tplVars['list'] as $item) : ?>
                 <tr>
-                    <td><?= htmlspecialchars($item['Name']); ?></td>
-                    <td><?= htmlspecialchars($item['Productline']); ?></td>
+                    <!-- <td><?= var_dump($item); ?></td> -->
+                    <td><?= htmlspecialchars($item['Id']); ?></td>
+                    <td><?= htmlspecialchars($item['Topic_Id']); ?></td>
+                    <td><?= htmlspecialchars($item['Question']); ?></td>
+                    <td><?= htmlspecialchars($item['Answers']); ?></td>
+                    <td><?= htmlspecialchars($item['IndexGoodAnswer']); ?></td>
+                    <td><?= htmlspecialchars($item['Image']); ?></td>
                     <td class="text-right">
                         <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Retirer</a>
                         <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=editForm&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>

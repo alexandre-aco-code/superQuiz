@@ -29,6 +29,7 @@
             <p><?= \Session::getFirstName(); ?></p>
 
             <a class="dropdown-item" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=out"><i class="fa fa-power-off"></i> Déconnexion</a>
+            <a class="dropdown-item" href="<?= $tplVars['WWW_URL']; ?>index.php"><i class="fa fa-power-off"></i> Revenir au site normal</a>
             <!-- <ul class="navbar-nav ml-auto mr-5">
                 <li class="nav-item">
 
@@ -49,6 +50,7 @@
                     <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\User&task=index"><i class="fas fa-address-card"></i> Gestion des utilisateurs</a>
                     <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Topic&task=index"><i class="fa fa-globe"></i> Gestion des topics</a>
                     <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Question&task=index"><i class="fab fa-algolia"></i> Gestion des questions</a>
+                    <a class="nav-item nav-link" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Commentary&task=index"><i class="fas fa-quote-right"></i> Gestion des commentaires</a>
                 </nav>
 
             </aside>

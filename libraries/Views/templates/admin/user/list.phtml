@@ -9,6 +9,7 @@
                 <th>Email</th>
                 <th>Admin</th>
                 <th class="text-right" width="20%">Changer le rôle</th>
+                <th class="text-right" width="20%">Supprimer</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,7 @@
                         <!-- <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Retirer</a> -->
                         <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=updateAdminRole&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>
                     </td>
+                    <td><a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Supprimer</a></td>
                 </tr>
             <?php endforeach; ?>
             <!-- boucle sur les users -->
