@@ -38,7 +38,36 @@
         </div>
     </nav>
 
+    <!-- Faire apparaitre les flashs -->
+    <div class="alert-section" id="zonedenotification">
 
+        <?php if (\Session::hasFlashes('error')) : ?>
+            <div class="alert alert-element alert-danger is-active">
+                <div class="icon">
+                    <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" /> -->
+                </div>
+                <div class="text">
+                    <?php foreach (\Session::getFlashes('error') as $message) : ?>
+                        <p><?= $message ?></p>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endif ?>
+
+        <?php if (\Session::hasFlashes('success')) : ?>
+            <div class="alert alert-element alert-success is-active">
+                <div class="icon">
+                    <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" /> -->
+                </div>
+                <div class="text">
+                    <?php foreach (\Session::getFlashes('success') as $message) : ?>
+                        <p><?= $message ?></p>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        <?php endif ?>
+
+    </div>
 
 
     <div class="container-fluid">

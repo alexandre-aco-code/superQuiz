@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="https://thumbs.dreamstime.com/z/smiley-asiatique-5856320.jpg" />
+    <link rel="icon" type="image/png" href="<?= $tplVars['WWW_URL']; ?>assets/images/quiz-icon-made-by-me.svg" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -17,7 +18,7 @@
 
             <!-- Logo -->
             <a href="<?= $tplVars['WWW_URL']; ?>index.php">
-                <img src="assets/images/logo-2.svg" alt="logo-quiz-fait-par-moi" />
+                <img src="assets/images/quiz-logo-made-by-me.svg" alt="quiz-logo-made-by-me"/>
             </a>
 
             <!-- MENU DE NAVIGATION -->
@@ -44,7 +45,7 @@
                         </a>
                         <ul>
                             <?php foreach ($tplVars['topics'] as $topic) : ?>
-                                <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><i class="fas fa-sun"></i><?= $topic['Name']; ?></a></li>
+                                <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><?= $topic['Name']; ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -122,7 +123,7 @@
 
         <div class="container display__main">
             <aside>
-                
+
                 <!-- ASIDE BOX 1 POUR LE PROFIL DE l'USER -->
                 <div class="identification box">
                     <h2>Profil</h2>

@@ -17,4 +17,15 @@ class Question extends Model {
         
     }
 
+    public function findAllQuestionsWithTopicName() {
+
+        $query = $this->db->prepare("SELECT *
+                                    FROM questions AS q
+                                    INNER JOIN topics AS t ON q.Topic_Id = t.Id");
+        $query->execute();
+
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+        
+    }
+
 }

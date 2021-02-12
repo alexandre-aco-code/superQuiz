@@ -3,7 +3,7 @@
 
     <ul>
 
-        
+
 
         <p>Bravo ! Vous avez fini la catégorie N°<span class="golden-text"><?= $tplVars['topics'][$_GET['topic'] - 1]["Id"]; ?></span> : <?= $tplVars['topics'][$_GET['topic'] - 1]["Name"]; ?></p>
 
@@ -42,7 +42,7 @@
 
         <?php
         $topic_courant = intval($_GET['topic']);
-                                                                                    $numberOfTopics = count($tplVars['topics']);
+        $numberOfTopics = count($tplVars['topics']);
 
         if ($topic_courant = $numberOfTopics) {
             $topic_suivant = $topic_courant;
@@ -57,7 +57,8 @@
         ?>
 
 
-        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant ?>&indexQuestion=1"><button>Recommencer</button></a>
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><button>Retour à la liste des Topics</button></a>
+        <!-- <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant ?>&indexQuestion=1"><button>Recommencer</button></a> -->
         <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_suivant ?>&indexQuestion=1"><button>Topic Suivant</button></a>
 
 

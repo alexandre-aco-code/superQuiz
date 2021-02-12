@@ -37,8 +37,6 @@ class Admin extends Controller
                 
             //afficher la liste 
             \Renderer::showAdmin(strtolower($this->nameCrud)."/list",$this->tplVars);
-
-        
     }
     
     public function newForm() 
@@ -50,8 +48,31 @@ class Admin extends Controller
                 
             //afficher la liste des rayons
             \Renderer::showAdmin(strtolower($this->nameCrud)."/new",$this->tplVars);
+    }
 
-        
+    public function editForm()
+    {
+        //controler que $_GET['id'] existe bien 
+        if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
+
+            //transmettre à $this->tplVars ces informations
+
+            $this->tplVars = $this->tplVars + [
+                'form' => $this->model->find(intval($_GET['id']))
+            ];
+
+
+
+            //titre de la page
+            $this->tplVars = $this->tplVars + [
+                'page_title' => $this->pageTitle
+            ];
+
+            //afficher la liste des rayons
+            \Renderer::showAdmin(strtolower($this->nameCrud) . "/edit", $this->tplVars);
+        } else {
+            throw new \Exception('Impossible d\'afficher la page !');
+        }
     }
     
     public function create(array $data)
@@ -73,38 +94,14 @@ class Admin extends Controller
     }
     
     
-    public function editForm() 
-    {
-            //controler que $_GET['id'] existe bien 
-        if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
-            
-            //transmettre à $this->tplVars ces informations
-            
-            $this->tplVars = $this->tplVars + [
-                    'form' => $this->model->find(intval($_GET['id']))
-                ];
-            
-            
-        
-        //titre de la page
-            $this->tplVars = $this->tplVars + [
-                    'page_title' => $this->pageTitle
-                ];
-                
-            //afficher la liste des rayons
-            \Renderer::showAdmin(strtolower($this->nameCrud)."/edit",$this->tplVars);
-        
-        }
-        else {
-            throw new \Exception('Impossible d\'afficher la page !');
-        }
-            
-    }
     
     public function update(array $data)
     {
-        //si on arrive ici on va pouvoir insérer notre nouveau rayon
+        //si on arrive ici on va pouvoir insérer notre nouveau elemnt
         $this->model->update($data);
+
+        \Session::addFlash('success', 'l\'insertion a réussie !');
+
         \Http::redirect(WWW_URL."index.php?controller=admin\\".$this->nameCrud."&task=index");
     }
     

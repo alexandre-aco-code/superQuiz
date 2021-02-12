@@ -11,11 +11,7 @@ class Commentary extends Controller
 
         
 
-
-        
-
         //affichage
-
         \Renderer::show("commentaries", $this->tplVars);
     }
 
@@ -29,9 +25,10 @@ class Commentary extends Controller
             $messageCommentarySentOrNot =
             htmlspecialchars($_POST['commentary'], ENT_QUOTES);
 
-            $data = ['User_Id' => \Session::getId(),
-                    'Content' => $messageCommentarySentOrNot
-                ];
+            $data = [
+                'User_Id' => \Session::getId(),
+                'Content' => $messageCommentarySentOrNot
+                    ];
 
             $this->model->insert($data);
 

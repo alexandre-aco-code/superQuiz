@@ -20,7 +20,7 @@ class Question extends \Controllers\Admin
 
         //liste des données
         $this->tplVars = $this->tplVars + [
-            'list' => $this->model->findAll()
+            'list' => $this->model->findAllQuestionsWithTopicName()
         ];
 
         //afficher la liste 
@@ -31,17 +31,21 @@ class Question extends \Controllers\Admin
 
     public function create(array $data = [])
     {
+
+        // var_dump($_POST);
+
+
         //tester les champs
         if (
-            empty($_POST['product_status']) ||
-            empty($_POST['shelf']) ||
-            empty($_POST['product_brand']) ||
-            empty($_POST['product_ref']) ||
-            empty($_POST['product_buyprice']) ||
-            empty($_POST['product_msrp']) ||
-            empty($_POST['product_price_eco']) ||
-            empty($_POST['product_desc_0']) ||
-            empty($_FILES['product_visuel']['name'])
+            empty($_POST['Topic']) ||
+            empty($_POST['IndexQuestion']) ||
+            empty($_POST['Question']) ||
+            empty($_POST['Answers']) ||
+            empty($_POST['IndexGoodAnswer']) ||
+            empty($_POST['Image']) 
+            // empty($_POST['product_price_eco']) ||
+            // empty($_POST['product_desc_0']) ||
+            // empty($_FILES['product_visuel']['name'])
         ) {
             //au moins un des champs est vide
             \Session::addFlash('error', 'champ(s) obligatoire(s) non rempli(s) !');
@@ -50,58 +54,47 @@ class Question extends \Controllers\Admin
         }
 
         //test particulier
-        //rayon 
-        if (!intval($_POST['shelf']) > 0) {
-            \Session::addFlash('error', 'rayon non défini !');
+        //IndexQuestion number
+        if (!intval($_POST['IndexQuestion']) > 0) {
+            \Session::addFlash('error', 'IndexQuestion doit etre un chiffre !');
             //rediriger l'utilisateur vers le formulaire 
             \Http::redirectBack();
         }
 
-        //marque 
-        if (!intval($_POST['product_brand']) > 0) {
-            \Session::addFlash('error', 'marque non définie !');
-            //rediriger l'utilisateur vers le formulaire 
-            \Http::redirectBack();
-        }
-
-
-        //upload du visuel principal
-        //test sur le format du fichier
-        $allowed_file_types = ['image/png'];
-
-        //tester si le type MIME du fichier ($_FILES['product_visuel']['type'] est dans le tableau $allowed_file_types 
-        if (!in_array($_FILES['product_visuel']['type'], $allowed_file_types)) {
-            //mauvais format de fichier  
-            \Session::addFlash('error', 'mauvais format de fichier !');
+        //IndexGoodAnswer number 
+        if (!intval($_POST['IndexGoodAnswer']) > 0) {
+            \Session::addFlash('error', 'IndexGoodAnswer doit etre un chiffre !');
             //rediriger l'utilisateur vers le formulaire 
             \Http::redirectBack();
         }
 
 
-        //test si le nom du produit existe déjà
-        if ($this->model->findByName($_POST['product_ref']) > 0) {
-            //doublon  
-            \Session::addFlash('error', 'ce produit existe déjà !');
-            //rediriger l'utilisateur vers le formulaire 
-            \Http::redirectBack();
-        }
+        // //test si la question existe déjà
+        // if ($this->model->findByName($_POST['product_ref']) > 0) {
+        //     //doublon  
+        //     \Session::addFlash('error', 'ce produit existe déjà !');
+        //     //rediriger l'utilisateur vers le formulaire 
+        //     \Http::redirectBack();
+        // }
 
         //traiter le formulaire
         //preparation un tableau
-        $data['Name'] = $_POST['product_ref'];
-        $data['Brand_Id'] = $_POST['product_brand'];
-        $data['ProductLine_Id'] = $_POST['shelf'];
-        $data['Buy_price'] = $_POST['product_buyprice'];
-        $data['MSRP'] = $_POST['product_msrp'];
-        $data['Eco_tax'] = $_POST['product_price_eco'];
-        $data['QuantityInStock'] = $_POST['product_stock'];
-        $data['Status'] = $_POST['product_status'];
-        $data['Primary_content'] = $_POST['product_desc_0'];
+        $data['Id'] = NULL;
+        $data['IndexQuestion'] = $_POST['IndexQuestion'];
+        $data['IndexGoodAnswer'] = $_POST['IndexGoodAnswer'];
+        $data['Question'] = $_POST['Question'];
+        $data['Answers'] = $_POST['Answers'];
+        $data['Image'] = $_POST['Image'];
+        $data['Topic_Id'] = $_POST['Topic'];
+        $data['ScoreValue'] = intval(1);
 
-        //si on arrive ici on va pouvoir insérer et récupérer l'id
-        $newId = $this->model->insert($data);
+        // var_dump($data);
+        // die();
 
-        if (!$newId > 0) {
+        //si on arrive ici on va pouvoir insérer la question
+        $newQuestion = $this->model->insert($data);
+
+        if (!$newQuestion > 0) {
             //l'insertion a échouée
             \Session::addFlash('error', 'l\'insertion a échouée !');
             //rediriger l'utilisateur vers le formulaire
@@ -109,58 +102,40 @@ class Question extends \Controllers\Admin
         }
 
         //gestion des tags
-        if (isset($_POST['product_tags'])) {
-            foreach ($_POST['product_tags'] as $tag) {
-                //lancer une insertion dans la table Tag_product
-                $this->model->insertTagProduct(intval($tag), $newId);
-            }
-        }
-
-        //finalisation de l'upload du visuel principal
-        $uploaddir = 'uploads/' . strtolower($this->nameCrud) . '/';
-        $uploadfile = $uploaddir . $newId . ".png";
-
-        if (!move_uploaded_file($_FILES['product_visuel']['tmp_name'], $uploadfile)) {
-            //erreur d'upload
-            \Session::addFlash('error', 'upload non valide !');
-            //rediriger l'utilisateur vers le formulaire 
-            \Http::redirectBack();
-        }
+        // if (isset($_POST['product_tags'])) {
+        //     foreach ($_POST['product_tags'] as $tag) {
+        //         //lancer une insertion dans la table Tag_product
+        //         $this->model->insertTagProduct(intval($tag), $newQuestion);
+        //     }
+        // }
 
         //mise à jour de la base de données
-        $data['Visuel'] = $newId . ".png";
-        $data['Id'] = $newId;
+        // $data['Visuel'] = $newQuestion . ".png";
+        // $data['Id'] = $newQuestion;
 
 
 
         parent::update($data);
+
     }
 
     //init list productline, tag, brand
     private function initSelectList()
     {
         //récupérer la liste des rayons (productlines)
-        $ProdLineModel = new \Models\ProductLine();
-        $this->tplVars = $this->tplVars + ['productlines' => $ProdLineModel->findAll()];
+        $questionModel = new \Models\Question();
+        $this->tplVars = $this->tplVars + ['questions' => $questionModel->findAll()];
 
         //récupérer la liste des marques
-        $BrandModel = new \Models\Brand();
-        $this->tplVars = $this->tplVars + ['brands' => $BrandModel->findAll()];
+        $topicModel = new \Models\Topic();
+        $this->tplVars = $this->tplVars + ['topics' => $topicModel->findAll()];
 
-        //récupérer la liste des tags
-        $TagModel = new \Models\Tag();
-        $this->tplVars = $this->tplVars + ['tags' => $TagModel->findAll()];
-
-        //récupération des tag du produit
-        if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
-            $this->tplVars = $this->tplVars + ['tagsProd' => $this->model->findAllTagByProd(intval($_GET['id']))];
-        }
     }
 
     public function newForm()
     {
         //titre de la page
-        $this->pageTitle = "Création d'un produit";
+        $this->pageTitle = "Création d'une question";
 
         //initialisation des selects list
         $this->initSelectList();
@@ -171,16 +146,16 @@ class Question extends \Controllers\Admin
     public function editForm()
     {
         //titre de la page
-        $this->pageTitle = "Edition d'un produit";
+        $this->pageTitle = "Edition d'une question";
 
         //initialisation des selects list
         $this->initSelectList();
 
         //recupération de la liste des diapos
-        $DiapModel = new \Models\Diap();
-        $this->tplVars = $this->tplVars + [
-            'diaps' => $DiapModel->findAllByProduct(intval($_GET['id']))
-        ];
+        // $DiapModel = new \Models\Diap();
+        // $this->tplVars = $this->tplVars + [
+        //     'diaps' => $DiapModel->findAllByProduct(intval($_GET['id']))
+        // ];
 
         parent::editForm();
     }

@@ -931,6 +931,12 @@ table tbody tr:nth-child(3) td {
   background-color: #614e1a;
 }
 
+.error-message {
+  background-color: grey;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
 /* *****************************************************************
 RESPONSIVE
 ***************************************************************** */

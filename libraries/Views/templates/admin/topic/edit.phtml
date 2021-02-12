@@ -1,15 +1,31 @@
-<form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=updateTopic" method="POST">
-<!-- <form action="<?= $tplVars['WWW_URL']; ?>index.php" method="POST"> -->
+<form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=updateTopic&id=<?= $_GET['id']; ?>" method="POST">
+    <!-- <form action="<?= $tplVars['WWW_URL']; ?>index.php" method="POST"> -->
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-4">
         <a class="btn btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=index"><i class="fa fa-times"></i> Annuler les modifications</a>
         <button class="btn btn-primary"><i class="fa fa-check"></i> Valider et enregistrer</button>
     </div>
 
+
+
+    <!-- <div>
+        <p>Before</p>
+        <p><?= var_dump($tplVars['list']) ?></p>
+    </div> -->
+
     <fieldset class="p-3 bg-light">
-        <div class="form-group row">
-            <label for="name" class="col-sm-3 col-form-label">Nom</label>
+        <!-- <div class="form-group row mb-2">
+            <label for="Id" class="col-sm-3 col-form-label"><?= $_GET['id']; ?></label>
+        </div> -->
+        <div class="form-group row mb-2">
+            <label for="Name" class="col-sm-3 col-form-label">Nom du Topic</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" id="name" name="name" value="">
+                <input type="text" class="form-control" id="Name" name="Name" value="">
+            </div>
+        </div>
+        <div class="form-group row mb-2">
+            <label for="Description" class="col-sm-3 col-form-label">Description du Topic</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="Description" name="Description" value="">
             </div>
         </div>
     </fieldset>

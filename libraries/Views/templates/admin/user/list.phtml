@@ -5,6 +5,7 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
+                <th>Id</th>
                 <th>Pseudo</th>
                 <th>Email</th>
                 <th>Admin</th>
@@ -19,6 +20,7 @@
             <!-- boucle sur les users -->
             <?php foreach ($tplVars['list'] as $item) : ?>
                 <tr>
+                    <td><?= htmlspecialchars($item['Id']); ?></td>
                     <td><?= htmlspecialchars($item['Pseudo']); ?></td>
                     <td><?= htmlspecialchars($item['Email']); ?></td>
                     <td>
