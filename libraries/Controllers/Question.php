@@ -20,6 +20,11 @@ class Question extends Controller {
                 $indexQuestion = intval($_GET['indexQuestion']) - 1;
 
 
+                //On récupère les infos du topic pour les afficher ensuite.
+                $topicList = new \Models\Topic();
+                $topic = $topicList->find($_GET['topic']);
+
+
                 // rajout du nom du topic et des questions dans TplVars.
                 $this->tplVars = $this->tplVars + [
                     'indexQuestion' => $questionList[$indexQuestion]['IndexQuestion'],
@@ -29,7 +34,8 @@ class Question extends Controller {
                     'answers' => $questionList[$indexQuestion]['Answers'],
                     'image' => $questionList[$indexQuestion]['Image'],
                     'Topic_Id' => $questionList[$indexQuestion]['Topic_Id'],
-                    'QuestionsCountInThisTopic' => count($questionList)
+                    'QuestionsCountInThisTopic' => count($questionList),
+                    'topic' => $topic
 
                 ];
 
@@ -47,4 +53,11 @@ class Question extends Controller {
         }
 
     }
+
+    public function endGame() {
+
+        \Renderer::show("endGame", $this->tplVars);
+
+    }
+
 }

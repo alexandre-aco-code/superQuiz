@@ -64,6 +64,10 @@ body {
         color:$color-purple-text;
         font-weight: 900;
     }
+    ul {
+        margin:0;
+        padding:0;
+    }
 }
 
 
@@ -73,7 +77,9 @@ HEADER
 header {
     background-color: $color-header;
     box-shadow: $shadow-lg;
-    .selected {
+    height: $height-header;
+
+    .selected { // color when a link is selected
         transition: background-color 0.5s;
         background-color: $color-header-link-selected;
     }
@@ -81,7 +87,6 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: $height-header;
         a {
             display: inline-block;
             color: $color-link-text;
@@ -89,13 +94,13 @@ header {
                 text-decoration: underline;
                 color: $color-link-hover;
             }
-            img {
-                display: block;
-                min-width: 350px;
-                height: auto;
-                margin-left:5rem;
-            }
         }
+    }
+    img { // logo
+        display: block;
+        min-width: 350px;
+        height: auto;
+        margin-left: 5rem;
     }
     .administrator_link {
         background-color: red;
@@ -104,6 +109,9 @@ header {
         background: blue;
     }
     nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
         a {
             min-width: 10em;
             padding: 1em 2em;
@@ -125,9 +133,6 @@ header {
                 margin: 0.5rem 0;
             }
         }
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         ul,
         li {
             padding: 0;
@@ -676,34 +681,91 @@ RESPONSIVE
 /* https://blog.smarchal.com/sass-et-media-queries */
 
 //Breakpoints
-$desktop:1100px;
-$tablet:900px;
-$phone:600px;
+$tabletToDeskop:1000px;
+$phoneToTablet:800px;
+$littlephoneToPhone:650px; // FACULTATIF ?
 
 
 // TABLET -> DESKTOP
-@media screen and (max-width: $desktop) {
+@media screen and (max-width: $tabletToDeskop) {
+
+
+    header {
+        img {
+            min-width:300px;
+            margin-left: 3rem;
+        }
+        .display {
+            // flex-direction: column;
+        }
+        nav {
+            flex-direction: column;
+            a {
+                min-width:5em;
+                padding:1em 1em; 
+            }
+        }
+    }
 
     main {
 
         // Display principal
         .display__main {
-            flex-direction: column;
+            flex-direction: column-reverse;
         }
 
+        aside {
+            width:95%;
+            margin: 0 auto;
 
+            .commentary_box {
+                display:none;
+            }
+        }
 
+        .quiz {
+            width:95%;
+        }
 
+        button {
+            width: 250px;
+        }
 
     }
-
-
 
 }
 
 // PHONE -> TABLET
-@media screen and (max-width:$tablet) {}
+@media screen and (max-width:$phoneToTablet) {
+
+    header {
+        img {
+            min-width: 200px;
+            margin-left: 2rem;
+        }
+
+        .display {
+            // flex-direction: column;
+        }
+
+        nav {
+            flex-direction: column;
+
+            a {
+                min-width: 5em;
+                padding: 1em 1em;
+            }
+        }
+    }
 
 
-// LITTLE PHONE -> PHONE
-@media screen and (max-width: $phone) {}
+}
+
+
+// LITTLE PHONE -> PHONE ( NOT NECESSARY )
+// @media screen and (max-width: $littlephoneToPhone) {
+
+
+
+
+// }

@@ -1,0 +1,32 @@
+<section class="quiz box">
+    <h1>Informations de votre Compte</h1>
+
+    <!-- <?= var_dump($_SESSION['user']) ?> -->
+    <!-- <?= var_dump($tplVars['infosUser']) ?> -->
+
+    <form action="">
+
+        <label for="">Pseudo</label>
+        <input type="text" value="<?= $tplVars['infosUser']['Pseudo']; ?>">
+
+        <label for="">Password</label>
+        <input type="text" value="<?= $tplVars['infosUser']['Password']; ?>">
+
+        <label for="">Email</label>
+        <input type="text" value="<?= $tplVars['infosUser']['Email']; ?>">
+
+        <label for="">Avatar_Id</label>
+        <input type="text" value="<?= $tplVars['infosUser']['Avatar_Id']; ?>">
+
+        <label for="">AvatarURL</label>
+        <input type="text" value="<?= $_SESSION['user']['AvatarURL']; ?>">
+
+        <label for="">CreatedAt <?= $tplVars['infosUser']['CreatedAt']; ?></label>
+
+        <button type="submit">Modifier</button>
+
+    </form>
+
+
+
+</section>

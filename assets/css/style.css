@@ -257,6 +257,11 @@ body .purple-text {
   font-weight: 900;
 }
 
+body ul {
+  margin: 0;
+  padding: 0;
+}
+
 /* *****************************************************************
 HEADER
 ***************************************************************** */
@@ -264,6 +269,7 @@ header {
   background-color: #92801a;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  height: 100px;
 }
 
 header .selected {
@@ -282,7 +288,6 @@ header .display {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100px;
 }
 
 header .display a {
@@ -295,7 +300,7 @@ header .display a:hover {
   color: red;
 }
 
-header .display a img {
+header img {
   display: block;
   min-width: 350px;
   height: auto;
@@ -940,12 +945,56 @@ table tbody tr:nth-child(3) td {
 RESPONSIVE
 ***************************************************************** */
 /* https://blog.smarchal.com/sass-et-media-queries */
-@media screen and (max-width: 1100px) {
-  main .display__main {
+@media screen and (max-width: 1000px) {
+  header img {
+    min-width: 300px;
+    margin-left: 3rem;
+  }
+  header nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  header nav a {
+    min-width: 5em;
+    padding: 1em 1em;
+  }
+  main .display__main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  main aside {
+    width: 95%;
+    margin: 0 auto;
+  }
+  main aside .commentary_box {
+    display: none;
+  }
+  main .quiz {
+    width: 95%;
+  }
+  main button {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  header img {
+    min-width: 200px;
+    margin-left: 2rem;
+  }
+  header nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header nav a {
+    min-width: 5em;
+    padding: 1em 1em;
   }
 }
 /*# sourceMappingURL=style.css.map */

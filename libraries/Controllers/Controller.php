@@ -53,11 +53,6 @@ abstract class Controller {
 
 
 
-
-
-
-
-
     //rajout des commentaries dans $this->tplVars
 
     $commentariesModel = new \Models\Commentary();
@@ -82,23 +77,19 @@ abstract class Controller {
 
     // PARTIE POUR AJOUTER LAVANCEMENT EN % DANS LA ZONE PROFIL
 
-
     $score = new \Models\score();
 
-
-    // mettre une condition si le score est NULL ??
     $scoresOfUser = $score->findScoreByUser(\Session::getId());
-
-
 
     $totalPoints = 0;
     foreach ($scoresOfUser as $score) {
         $totalPoints = $totalPoints + intval($score["ScoreByTopic"]);
     }
 
-    $numberOfTopics = count($this->tplVars['topics']);
+    $questionList = new \Models\Question();
+    $numberOfQuestions = count($questionList->findAll());
 
-    $progressionUser = number_format(($totalPoints / ($numberOfTopics * 5))*100);
+    $progressionUser = number_format(($totalPoints / ($numberOfQuestions))*100);
 
 
     $this->tplVars = $this->tplVars + ['progressionUser' => $progressionUser];
@@ -109,22 +100,9 @@ abstract class Controller {
 
 
 
-
-    
-
-    // $this->tplVars = $this->tplVars + [
-    //         'score' => $scoreByTopic,
-    //         'avancementSite' => $avancementSite
-    //     ];
-
-
-
-
-
-
     
     //topic 1 par défault :
-    $topic['ID'] = 1;
+    // $topic['ID'] = 1;
     
 
     }

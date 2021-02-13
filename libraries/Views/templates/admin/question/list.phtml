@@ -6,9 +6,9 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
             <tr>
-                <!-- <th>Id</th> -->
                 <th>IndexQuestion</th>
                 <th>Topic</th>
+                <th>Id</th>
                 <th>Question</th>
                 <th>Réponses</th>
                 <th>Bonne réponse</th>
@@ -23,9 +23,9 @@
             <?php foreach ($tplVars['list'] as $item) : ?>
                 <tr>
                     <!-- <td><?= var_dump($item); ?></td> -->
-                    <!-- <td><?= htmlspecialchars($item['Id']); ?></td> -->
                     <td><?= htmlspecialchars($item['IndexQuestion']); ?></td>
                     <td><?= htmlspecialchars($item['Name']); ?></td>
+                    <td><?= htmlspecialchars($item['Id']); ?></td>
                     <td><?= htmlspecialchars($item['Question']); ?></td>
                     <td><?= htmlspecialchars($item['Answers']); ?></td>
                     <td><?= htmlspecialchars($item['IndexGoodAnswer']); ?></td>

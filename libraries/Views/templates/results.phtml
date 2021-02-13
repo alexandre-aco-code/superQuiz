@@ -1,11 +1,11 @@
 <section class="quiz box score">
 
-    <?= var_dump(count($tplVars['topics'])); ?>
+    <!-- <?= var_dump($tplVars['topic']); ?> -->
 
     <h1>Résultats</h1>
     <ul>
-        <p>Bravo ! Vous avez fini la catégorie N°<span class="golden-text"><?= $tplVars['topics'][$_GET['topic'] - 1]["Id"]; ?></span> : <?= $tplVars['topics'][$_GET['topic'] - 1]["Name"]; ?></p>
-        <p class="results">Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']; ?></span> / <span class="purple-text"><?= count($tplVars['topics']); ?></span> points</p>
+        <p>Bravo ! Vous avez fini la catégorie : <span class="golden-text"><?= $tplVars['topic']["Name"]; ?></span></p>
+        <p class="results">Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']; ?></span> / <span class="purple-text"><?= count($tplVars['allQuestionsInTheTopic']); ?></span> points</p>
         <p>Sauvegarde des scores... Veuillez ne pas éteindre la console s'il vous plait...</p>
         <p>Non je plaisante. <?= $tplVars['scoreStateMessage']; ?></p>
 
@@ -23,18 +23,21 @@
         <?php
         $topic_courant = intval($_GET['topic']);
         $numberOfTopics = count($tplVars['topics']);
+        $task = "index";
 
-        if ($topic_courant = $numberOfTopics) {
+        if ($topic_courant == $numberOfTopics) {
             $topic_suivant = $topic_courant;
+            $task = "endGame";
         } else {
             $topic_suivant = $topic_courant + 1;
         }
+
         ?>
 
         <!-- LIENS RETOUR LISTE TOPICS & TOPIC SUIVANT -->
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=<?= $task ?>&topic=<?= $topic_suivant ?>&indexQuestion=1"><button>Topic Suivant</button></a>
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant ?>&indexQuestion=1&s=0"><button>Recommencer</button></a>
         <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><button>Retour à la liste des Topics</button></a>
-        <!-- <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant ?>&indexQuestion=1"><button>Recommencer</button></a> -->
-        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_suivant ?>&indexQuestion=1"><button>Topic Suivant</button></a>
 
     </ul>
 </section>

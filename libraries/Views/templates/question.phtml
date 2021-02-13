@@ -1,6 +1,6 @@
 <section class="quiz box">
 
-<!-- <?= var_dump($tplVars['QuestionsCountInThisTopic']); ?> -->
+<!-- <?= var_dump($tplVars['topic']); ?> -->
 
 
 	<!-- EN TETE DE LA QUESTION : NUMEROTATION, CATEGORIE ET DESCRIPTION -->
@@ -10,8 +10,8 @@
 		$topicCourant = intval($_GET['topic']);
 		$topicCourant = $topicCourant - 1;
 		?>
-		<p><span class="golden-text">C</span>atégori<span class="purple-text">e</span> : <a href="#" class="golden-text"><?= $tplVars['topics'][$topicCourant]['Name']; ?></a></p>
-		<p><span class="golden-text">D</span>escripti<span class="purple-text">f</span> : <span class="golden-text"><?= $tplVars['topics'][$topicCourant]['Description']; ?></span></p>
+		<p><span class="golden-text">C</span>atégori<span class="purple-text">e</span> : <a href="#" class="golden-text"><?= $tplVars['topic']['Name']; ?></a></p>
+		<p><span class="golden-text">D</span>escripti<span class="purple-text">f</span> : <span class="golden-text"><?= $tplVars['topic']['Description']; ?></span></p>
 	</div>
 
 	<!-- CORPS DE LA QUESTION -->

@@ -22,7 +22,7 @@ class User extends Model
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
     
-    //renvoie le rôle d'un utilisateur
+    //renvoie le rôle d'un utilisateur pour le backOffice
     public function getRole(int $id): int
     {
        $query = $this->db->prepare("SELECT Admin FROM $this->table WHERE Id = :id");
@@ -42,9 +42,9 @@ class User extends Model
     
     
     //renvoie les coordonnées de l'utilisateur
-    public function getAddress(int $id): array
+    public function getAllInfoOfAnUser(int $id): array
     {
-        $query = $this->db->prepare("SELECT LastName, FirstName, Address, City, ZipCode FROM $this->table WHERE Id = :id");
+        $query = $this->db->prepare("SELECT * FROM $this->table WHERE Id = :id");
         
         $query->execute([
             ':id' => $id,

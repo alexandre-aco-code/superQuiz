@@ -234,11 +234,15 @@ class User extends Controller
 
             // var_dump($userAndScoreList);
 
+            $questionList = new \Models\Question();
+            $numberOfQuestions = count($questionList->findAll());
+
 
 
 
             $this->tplVars = $this->tplVars + [
-                    'userAndScoreList' => $userAndScoreList
+                    'userAndScoreList' => $userAndScoreList,
+                    'numberOfQuestions' => $numberOfQuestions
                 ];
 
 
@@ -248,6 +252,31 @@ class User extends Controller
             throw new \Exception('Impossible d\'afficher la page Rankings !');
         }
     
+    }
+
+    public function infosUser() {
+
+        if (null !== \Session::getId() && !empty(\Session::getId())) {
+
+            $infosUser = $this->model->getAllInfoOfAnUser(\Session::getId());
+
+            // var_dump($infosUser);
+
+            $this->tplVars = $this->tplVars + [
+                'infosUser' => $infosUser
+            ];
+
+        
+
+
+
+
+            \Renderer::show("infoUser", $this->tplVars);
+
+        } else {
+            throw new \Exception('Impossible d\'afficher la page Rankings !');
+        }
+
     }
 
 }
