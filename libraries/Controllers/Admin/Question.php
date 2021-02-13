@@ -32,12 +32,9 @@ class Question extends \Controllers\Admin
     public function create(array $data = [])
     {
 
-        // var_dump($_POST);
-
-
         //tester les champs
         if (
-            empty($_POST['Topic']) ||
+            empty($_POST['Topic_Id']) ||
             empty($_POST['IndexQuestion']) ||
             empty($_POST['Question']) ||
             empty($_POST['Answers']) ||
@@ -61,6 +58,17 @@ class Question extends \Controllers\Admin
             \Http::redirectBack();
         }
 
+
+        //IndexQuestion on vérifie qu'il existe pas déjà dans le topic
+        if ($this->model->findQuestionsWithTopicIdAndIndexQuestion($_POST['Topic_Id'], $_POST['IndexQuestion'])) {
+            \Session::addFlash('error', 'la question avec le rang IndexQuestion existe déjà dans ce topic ! Changez le IndexQuestion');
+            //rediriger l'utilisateur vers le formulaire 
+            \Http::redirectBack();
+        }
+
+
+
+
         //IndexGoodAnswer number 
         if (!intval($_POST['IndexGoodAnswer']) > 0) {
             \Session::addFlash('error', 'IndexGoodAnswer doit etre un chiffre !');
@@ -68,14 +76,6 @@ class Question extends \Controllers\Admin
             \Http::redirectBack();
         }
 
-
-        // //test si la question existe déjà
-        // if ($this->model->findByName($_POST['product_ref']) > 0) {
-        //     //doublon  
-        //     \Session::addFlash('error', 'ce produit existe déjà !');
-        //     //rediriger l'utilisateur vers le formulaire 
-        //     \Http::redirectBack();
-        // }
 
         //traiter le formulaire
         //preparation un tableau
@@ -85,11 +85,8 @@ class Question extends \Controllers\Admin
         $data['Question'] = $_POST['Question'];
         $data['Answers'] = $_POST['Answers'];
         $data['Image'] = $_POST['Image'];
-        $data['Topic_Id'] = $_POST['Topic'];
+        $data['Topic_Id'] = $_POST['Topic_Id'];
         $data['ScoreValue'] = intval(1);
-
-        // var_dump($data);
-        // die();
 
         //si on arrive ici on va pouvoir insérer la question
         $newQuestion = $this->model->insert($data);
@@ -100,19 +97,6 @@ class Question extends \Controllers\Admin
             //rediriger l'utilisateur vers le formulaire
             \Http::redirectBack();
         }
-
-        //gestion des tags
-        // if (isset($_POST['product_tags'])) {
-        //     foreach ($_POST['product_tags'] as $tag) {
-        //         //lancer une insertion dans la table Tag_product
-        //         $this->model->insertTagProduct(intval($tag), $newQuestion);
-        //     }
-        // }
-
-        //mise à jour de la base de données
-        // $data['Visuel'] = $newQuestion . ".png";
-        // $data['Id'] = $newQuestion;
-
 
 
         parent::update($data);
@@ -153,9 +137,9 @@ class Question extends \Controllers\Admin
 
         //recupération de la liste des diapos
         // $DiapModel = new \Models\Diap();
-        // $this->tplVars = $this->tplVars + [
-        //     'diaps' => $DiapModel->findAllByProduct(intval($_GET['id']))
-        // ];
+        $this->tplVars = $this->tplVars + [
+            'list' => $this->model->findQuestionById(intval($_GET['id']))
+        ];
 
         parent::editForm();
     }
@@ -163,15 +147,14 @@ class Question extends \Controllers\Admin
     public function update(array $data = [])
     {
         //tester les champs
-        if (
-            empty($_POST['product_status']) ||
-            empty($_POST['shelf']) ||
-            empty($_POST['product_brand']) ||
-            empty($_POST['product_ref']) ||
-            empty($_POST['product_buyprice']) ||
-            empty($_POST['product_msrp']) ||
-            empty($_POST['product_price_eco']) ||
-            empty($_POST['product_desc_0'])
+        if
+        (
+            empty($_POST['Topic_Id']) ||
+            empty($_POST['IndexQuestion']) ||
+            empty($_POST['Question']) ||
+            empty($_POST['Answers']) ||
+            empty($_POST['IndexGoodAnswer']) ||
+            empty($_POST['Image']) 
         ) {
             //au moins un des champs est vide
             \Session::addFlash('error', 'champ(s) obligatoire(s) non rempli(s) !');
@@ -179,117 +162,33 @@ class Question extends \Controllers\Admin
             \Http::redirectBack();
         }
 
+
         //traiter le formulaire
         //preparation un tableau
-        $data['Name'] = $_POST['product_ref'];
-        $data['Brand_Id'] = $_POST['product_brand'];
-        $data['ProductLine_Id'] = $_POST['shelf'];
-        $data['Buy_price'] = $_POST['product_buyprice'];
-        $data['MSRP'] = $_POST['product_msrp'];
-        $data['Eco_tax'] = $_POST['product_price_eco'];
-        $data['QuantityInStock'] = $_POST['product_stock'];
-        $data['Status'] = $_POST['product_status'];
-        $data['Primary_content'] = $_POST['product_desc_0'];
-        $data['Description_title1'] = $_POST['product_desc_1_title'];
-        $data['Description_title2'] = $_POST['product_desc_2_title'];
-        $data['Description_content1'] = $_POST['product_desc_1_text'];
-        $data['Description_content2'] = $_POST['product_desc_2_text'];
         $data['Id'] = intval($_POST['id']);
+        $data['IndexQuestion'] = $_POST['IndexQuestion'];
+        $data['IndexGoodAnswer'] = $_POST['IndexGoodAnswer'];
+        $data['Question'] = $_POST['Question'];
+        $data['Answers'] = $_POST['Answers'];
+        $data['Image'] = $_POST['Image'];
+        $data['Topic_Id'] = $_POST['Topic_Id'];
+        $data['ScoreValue'] = intval(1);
 
 
-
-        //si upload modifier le fichier
-        if (!empty($_FILES['product_visuel']['name'])) {
-            //tentative d'upload
-            if ($this->uploadFile('product_visuel', intval($_POST['id']) . ".png")) {
-                //mise à jour de la base de données
-                $data['Visuel'] = intval($_POST['id']) . ".png";
-            }
+        //test particulier
+        //IndexQuestion number
+        if (!intval($_POST['IndexQuestion']) > 0) {
+            \Session::addFlash('error', 'IndexQuestion doit etre un chiffre !');
+            //rediriger l'utilisateur vers le formulaire 
+            \Http::redirectBack();
         }
 
-        //product_desc_1_file
-        if (!empty($_FILES['product_desc_1_file']['name'])) {
-            //tentative d'upload
-            if ($this->uploadFile('product_desc_1_file', intval($_POST['id']) . "_1.png")) {
-                //mise à jour de la base de données
-                $data['Description_visuel1'] = intval($_POST['id']) . "_1.png";
-            }
+        //IndexGoodAnswer number 
+        if (!intval($_POST['IndexGoodAnswer']) > 0) {
+            \Session::addFlash('error', 'IndexGoodAnswer doit etre un chiffre !');
+            //rediriger l'utilisateur vers le formulaire 
+            \Http::redirectBack();
         }
-
-        //product_desc_2_file
-        if (!empty($_FILES['product_desc_2_file']['name'])) {
-            //tentative d'upload
-            if ($this->uploadFile('product_desc_2_file', intval($_POST['id']) . "_2.png")) {
-                //mise à jour de la base de données
-                $data['Description_visuel2'] = intval($_POST['id']) . "_2.png";
-            }
-        }
-
-
-        //gestion des tags
-        //tout effacer dans la table tag_product
-        $this->model->deleteTagProduct(intval($_POST['id']));
-
-        if (isset($_POST['product_tags'])) {
-            foreach ($_POST['product_tags'] as $tag) {
-                //lancer une insertion dans la table Tag_product
-                $this->model->insertTagProduct(intval($tag), intval($_POST['id']));
-            }
-        }
-
-        //test si il ya des diapos à supprimer
-        if (isset($_POST['diap'])) {
-            //on a au moins une diapo à supprimer
-            $this->supDiapo($_POST['diap']);
-        }
-
-        //gestion du diaporama
-        //test si uplad diaporama demandé :
-        if (
-            !empty($_FILES['product_photo_1_mini']['name']) &&
-            !empty($_FILES['product_photo_1_max']['name'])
-        ) {
-            //upload des images avec des noms temporaires (on a pas encore l'Id)
-            $this->uploadFile('product_photo_1_mini', "test_min.png");
-            $this->uploadFile('product_photo_1_max', "test_max.png");
-
-            //lancer une requete dans Diaporama_photos
-            $diapModel = new \Models\Diap();
-
-            $diap = [];
-            $diap['Product_Id'] = intval($_POST['id']);
-
-            $diapId = $diapModel->insert($diap);
-
-            //renommer les fichiers
-            if (file_exists('uploads/' . strtolower($this->nameCrud) . '/test_min.png')) {
-                //copier le fichier dans le bon dossier avec le bon nom
-                copy('uploads/' . strtolower($this->nameCrud) . '/test_min.png', 'uploads/diaporamas/' . $diapId . '_min.png');
-                //supprimer le fichier temporaire
-                unlink('uploads/' . strtolower($this->nameCrud) . '/test_min.png');
-            }
-
-            if (file_exists('uploads/' . strtolower($this->nameCrud) . '/test_max.png')) {
-                //copier le fichier dans le bon dossier avec le bon nom
-                copy('uploads/' . strtolower($this->nameCrud) . '/test_max.png', 'uploads/diaporamas/' . $diapId . '_max.png');
-                //supprimer le fichier temporaire
-                unlink('uploads/' . strtolower($this->nameCrud) . '/test_max.png');
-            }
-
-            //mettre à jour la base de données
-            $diap = [];
-            $diap['Id'] = $diapId;
-            $diap['Photo_md'] = $diapId . '_min.png';
-            $diap['Photo_lg'] = $diapId . '_max.png';
-
-            $diapModel->update($diap);
-        }
-
-
-
-
-
-
 
 
         parent::update($data);

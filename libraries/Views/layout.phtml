@@ -69,7 +69,7 @@
                             <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create&topic=1&indexQuestion=1#modalSignUp">S'inscrire</a></li>
                             <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login&topic=1&indexQuestion=1#modalLogin">Se Connecter</a></li>
                             <li><a href="#">Mes informations</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank">Administrateur (BackOffice)</a></li>
+                            <li class="administrator_link"><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank">Administrateur (BackOffice)</a></li>
                             <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php">Déconnexion</a></li>
                         </ul>
                     </li>
@@ -92,7 +92,7 @@
             <?php if (\Session::hasFlashes('error')) : ?>
                 <div class="alert alert-element alert-danger is-active">
                     <div class="icon">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" />
+                        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" /> -->
                     </div>
                     <div class="text">
                         <?php foreach (\Session::getFlashes('error') as $message) : ?>
@@ -105,7 +105,7 @@
             <?php if (\Session::hasFlashes('success')) : ?>
                 <div class="alert alert-element alert-success is-active">
                     <div class="icon">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" />
+                        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" /> -->
                     </div>
                     <div class="text">
                         <?php foreach (\Session::getFlashes('success') as $message) : ?>

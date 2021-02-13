@@ -1,67 +1,47 @@
 <section class="quiz box">
 
-	<h1><span class="golden-text">Q</span>uestio<span class="purple-text">n</span> <span class="golden-text"><?= $_GET['indexQuestion']; ?></span> sur <span class="purple-text">5</span></h1>
+<!-- <?= var_dump($tplVars['QuestionsCountInThisTopic']); ?> -->
 
+
+	<!-- EN TETE DE LA QUESTION : NUMEROTATION, CATEGORIE ET DESCRIPTION -->
+	<h1><span class="golden-text">Q</span>uestio<span class="purple-text">n</span> <span class="golden-text"><?= $_GET['indexQuestion']; ?></span> sur <span class="purple-text"><?= $tplVars['QuestionsCountInThisTopic']; ?></span></h1>
 	<div class="detail-categorie">
-
 		<?php
 		$topicCourant = intval($_GET['topic']);
 		$topicCourant = $topicCourant - 1;
 		?>
-
 		<p><span class="golden-text">C</span>atégori<span class="purple-text">e</span> : <a href="#" class="golden-text"><?= $tplVars['topics'][$topicCourant]['Name']; ?></a></p>
-
 		<p><span class="golden-text">D</span>escripti<span class="purple-text">f</span> : <span class="golden-text"><?= $tplVars['topics'][$topicCourant]['Description']; ?></span></p>
-
 	</div>
 
+	<!-- CORPS DE LA QUESTION -->
 	<article>
-
 		<img src="<?= $tplVars['image']; ?>" alt="image de la question" />
-
 		<h2 class="question"><?= $tplVars['question']; ?></h2>
-
 		<div class="choices">
-
 			<?php
-
 			/* mettre les réponses contenues dans un string $tplVars['answers'], dans un array $allanswers */
-
 			$allanswers;
 			$allanswers = explode("- ", $tplVars['answers']);
-
 			?>
-
-
 			<?php foreach ($allanswers as $key => $answer) : ?>
-
 				<?php
 				// on assigne les classes good ou bad aux différentes réponses
-
 				if ($key === $tplVars['indexGoodAnswer']) {
 					$answerClass = 'goodAnswer';
 				} else {
 					$answerClass = 'badAnswer';
 				}
-
 				?>
-
 				<button class="answer" id="<?= $answerClass; ?>"><?= $answer; ?></button>
 			<?php endforeach; ?>
-
 		</div>
-
-
-
 		<div class="height_animated_div">
 			<div class="animated_div">
 				<span>CORRECT !<i class="fas fa-laugh-beam"></i><i class="fas fa-glass-cheers"></i><i class="fas fa-laugh-squint"></i></span>
 
 			</div>
 		</div>
-
-
-
 		<div class="hidden_div">
 			<p>IndexQuestion :</p>
 			<p id="indexQuestion"><?= $_GET['indexQuestion']; ?></p>
@@ -70,55 +50,31 @@
 			<p>Score topic :</p>
 			<p id="scoreTopic"></p>
 		</div>
-
 		<div class="navigation__questions">
-
 			<?php
-
 			$page_courante = intval($_GET['indexQuestion']);
 			$page_precedente;
 			$page_suivante;
 			$topic_courant = intval($_GET['topic']);
 			$controller = "question";
 
-			// pour compter le nombre de topics
-			// var_dump(count($tplVars['topics']));
-
-
-			// var_dump($tplVars);
-			// var_dump(count($tplVars['topics']));
-
-
-			// faire un truc pour que la limite soit pas de 5, mais le nombre de questions, genre question.length un truc du style
-
 			// si question > 5, et topic > 5, appeler une fonction endQuiz();
-
 			if ($page_courante > 1) {
 				$page_precedente = $page_courante - 1;
 			} else {
 				$page_precedente = 1;
 			}
-
-			if ($page_courante < 5) {
+			if ($page_courante < $tplVars['QuestionsCountInThisTopic']) {
 				$page_suivante = $page_courante + 1;
 			} else {
 				$controller = "results";
-				$page_suivante = 5;
+				$page_suivante = $tplVars['QuestionsCountInThisTopic'];
 			}
-
 			?>
 
 			<a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant; ?>&indexQuestion=<?= $page_precedente; ?>"><i class="fas fa-arrow-circle-left"></i> Question précédente</a>
 			<span> - </span>
-
 			<a id="nextQuestion" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=<?= $controller; ?>&task=index&topic=<?= $topic_courant; ?>&indexQuestion=<?= $page_suivante; ?>&id=<?= $_SESSION['user']['Id'] ?>">Question suivante <i class="fas fa-arrow-circle-right"></i></a>
-
-
-
-
-
-
 		</div>
-
 	</article>
 </section>

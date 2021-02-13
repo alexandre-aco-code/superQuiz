@@ -12,7 +12,7 @@ class Question extends Controller {
 
             $questionList = $this->model->findAllQuestionsByTopic(intval($_GET['topic']));
 
-            // var_dump($questionList);
+            // var_dump(count($questionList));
 
             if(!empty($questionList)) {
 
@@ -28,7 +28,8 @@ class Question extends Controller {
                     'question' => $questionList[$indexQuestion]['Question'],
                     'answers' => $questionList[$indexQuestion]['Answers'],
                     'image' => $questionList[$indexQuestion]['Image'],
-                    'Topic_Id' => $questionList[$indexQuestion]['Topic_Id']
+                    'Topic_Id' => $questionList[$indexQuestion]['Topic_Id'],
+                    'QuestionsCountInThisTopic' => count($questionList)
 
                 ];
 

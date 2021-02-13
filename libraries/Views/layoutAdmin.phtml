@@ -14,11 +14,8 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">
-            <i class="fas fa-cogs"></i>
-            BackOffice du QuiZ by ACo
-        </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex justify-content-between">
+        <a class="navbar-brand" href="#"><i class="fas fa-cogs"></i>BackOffice du QuiZ by ACo</a>
         <div class="collapse navbar-collapse" id="navbar-1">
             <h1 class="navbar-text"><?= $tplVars['page_title']; ?></h1>
             <a class="nav-link dropdown-toggle" href="#" id="navbar-1-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,11 +27,7 @@
 
             <a class="dropdown-item" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=out"><i class="fa fa-power-off"></i> Déconnexion</a>
             <a class="dropdown-item" href="<?= $tplVars['WWW_URL']; ?>index.php"><i class="fa fa-power-off"></i> Revenir au site normal</a>
-            <!-- <ul class="navbar-nav ml-auto mr-5">
-                <li class="nav-item">
 
-                </li>
-            </ul> -->
         </div>
     </nav>
 

@@ -302,7 +302,15 @@ header .display a img {
   margin-left: 5rem;
 }
 
-header .display nav {
+header .administrator_link {
+  background-color: red;
+}
+
+header .score {
+  background: blue;
+}
+
+header nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -313,14 +321,37 @@ header .display nav {
       justify-content: space-around;
 }
 
-header .display nav ul,
-header .display nav li {
+header nav a {
+  min-width: 10em;
+  padding: 1em 2em;
+  font-family: "Exo", sans-serif;
+}
+
+header nav a:hover {
+  text-decoration: none;
+  color: pink;
+  background: #ca9e67;
+}
+
+header nav a:hover i {
+  -webkit-animation: spin 5s linear infinite;
+          animation: spin 5s linear infinite;
+}
+
+header nav a i {
+  font-size: 3rem;
+  vertical-align: middle;
+  margin: 0.5rem 0;
+}
+
+header nav ul,
+header nav li {
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
 
-header .display nav > ul {
+header nav > ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -329,70 +360,43 @@ header .display nav > ul {
           justify-content: center;
 }
 
-header .display nav > ul > li {
+header nav > ul > li {
   position: relative;
   border-right: 1px solid grey;
 }
 
-header .display nav > ul > li:hover {
+header nav > ul > li:hover {
   -webkit-transform: translateY(5px);
           transform: translateY(5px);
   -webkit-transition: .05s ease;
   transition: .05s ease;
 }
 
-header .display nav > ul > li:first-child {
+header nav > ul > li:first-child {
   border-left: 1px solid grey;
 }
 
-header .display nav > ul > li > ul {
+header nav > ul > li > ul {
   position: absolute;
   display: none;
 }
 
-header .display nav > ul > li > ul li {
+header nav > ul > li > ul li {
   max-width: 10em;
 }
 
-header .display nav > ul > li > ul li i {
+header nav > ul > li > ul li i {
   font-size: 2rem;
   float: left;
 }
 
-header .display nav > ul > li > ul li + li {
+header nav > ul > li > ul li + li {
   border-top: 1px solid #444;
 }
 
-header .display nav > ul > li:hover > ul {
+header nav > ul > li:hover > ul {
   display: block;
   background-color: #92801a;
-}
-
-header .display nav a {
-  min-width: 10em;
-  padding: 1em 2em;
-  font-family: "Exo", sans-serif;
-}
-
-header .display nav a:hover {
-  text-decoration: none;
-  color: pink;
-  background: #ca9e67;
-}
-
-header .display nav a:hover i {
-  -webkit-animation: spin 5s linear infinite;
-          animation: spin 5s linear infinite;
-}
-
-header .display nav a i {
-  font-size: 3rem;
-  vertical-align: middle;
-  margin: 0.5rem 0;
-}
-
-header .score {
-  background: blue;
 }
 
 /* *****************************************************************
@@ -401,7 +405,6 @@ MAIN
 main {
   background-color: #ca9d6777;
   /* Les Modales */
-  /* Style de chaque input */
   /* Close Button */
   /* Formulaire */
   /* modal SignUp */
@@ -625,11 +628,7 @@ main .modal-content p {
   margin-bottom: 4rem;
 }
 
-main input[type="text"],
-main input[type="password"],
-main input[type="search"],
-main input[type="email"],
-main input[type*="date"],
+main input,
 main select,
 main textarea {
   display: inline-block;

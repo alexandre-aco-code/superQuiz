@@ -31,11 +31,6 @@ class Results extends Controller
 
             }
 
-            // var_dump($_GET['topic']);
-            // var_dump($_GET['id']);
-            // var_dump($scoreOfTheTopic);
-
-            // préparation du $data à envoyer dans model->insert
             $scoreByUserAndByTopic = [];
 
             $scoreByUserAndByTopic = $scoreByUserAndByTopic + [
@@ -43,13 +38,6 @@ class Results extends Controller
                 'Id_User' => $_GET['id'],
                 'ScoreByTopic' => $scoreOfTheTopic
             ];
-
-
-            // var_dump($scoreByUserAndByTopic);
-
-
-            // On vérifie que la table n'est pas déjà remplie
-            // Si elle est remplie on UPDATE, sinon on INSERT.
 
 
 

@@ -5,8 +5,6 @@
 @import 'animations';
 
 
-
-
 /* *****************************************************************
 BODY
 ***************************************************************** */
@@ -98,71 +96,77 @@ header {
                 margin-left:5rem;
             }
         }
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            ul,
-            li {
-                padding: 0;
-                margin: 0;
-                list-style-type: none;
-            }
-            > ul {
-                display:flex;
-                justify-content: center;
-            }
-            > ul > li {
-                position:relative;
-                border-right: 1px solid grey;
-                &:hover {
-                    transform: translateY(5px);
-                    transition: .05s ease;
-                }
-                &:first-child {
-                    border-left:1px solid grey;
-                }
-                & > ul {
-                    position:absolute;
-                    display:none;
-                    li {
-                        max-width:10em;
-                        i {
-                            font-size: $size-fontawesome-header-extended-menu;
-                            float:left;
-                        }
-                    }
-                    li + li{
-                        border-top: 1px solid #444;
-                    }
-                }
-                &:hover > ul {
-                    display:block;
-                    background-color: $color-header-link-extended-menu;
-                }
-            }   
-            a {
-                min-width: 10em;
-                padding: 1em 2em;
-                font-family: $font-link;
-                &:hover {
-                    text-decoration: none;
-                    color: pink;
-                    background: $color-header-link-hover;
-                    i {
-                        animation: spin 5s linear infinite;
-                    }
-                }
-                i{
-                    font-size:$size-fontawesome-header;
-                    vertical-align: middle;
-                    margin:0.5rem 0;
-                }
-            }
-        }
+    }
+    .administrator_link {
+        background-color: red;
     }
     .score {
         background: blue;
+    }
+    nav {
+        a {
+            min-width: 10em;
+            padding: 1em 2em;
+            font-family: $font-link;
+
+            &:hover {
+                text-decoration: none;
+                color: pink;
+                background: $color-header-link-hover;
+
+                i {
+                    animation: spin 5s linear infinite;
+                }
+            }
+
+            i {
+                font-size: $size-fontawesome-header;
+                vertical-align: middle;
+                margin: 0.5rem 0;
+            }
+        }
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        >ul {
+            display: flex;
+            justify-content: center;
+        }
+        >ul>li {
+            position: relative;
+            border-right: 1px solid grey;
+            &:hover {
+                transform: translateY(5px);
+                transition: .05s ease;
+            }
+            &:first-child {
+                border-left: 1px solid grey;
+            }
+            &>ul {
+                position: absolute;
+                display: none;
+                li {
+                    max-width: 10em;
+                    i {
+                        font-size: $size-fontawesome-header-extended-menu;
+                        float: left;
+                    }
+                }
+                li+li {
+                    border-top: 1px solid #444;
+                }
+            }
+            &:hover>ul {
+                display: block;
+                background-color: $color-header-link-extended-menu;
+            }
+        }
     }
 }
 
@@ -225,7 +229,6 @@ main {
         padding: 1rem 0;
         flex-direction: row-reverse;
     }
-
     .box {
         width: 100%;
         margin: 1rem auto;
@@ -235,7 +238,6 @@ main {
         border-radius: 30px;
         box-shadow: 20px 20px rgba(0, 0, 0, .15);
         transition: all .4s ease;
-
         &:hover {
             box-shadow: 10px 10px rgba(0, 0, 0, .25);
         }
@@ -301,15 +303,12 @@ main {
     #badAnswer.errorSelected {
         background-color: grey;
     }
-
     .hidden_div {
         display: none;
     }
-
     .height_animated_div {
         height: 50px;
     }
-
     .animated_div {
         display: none;
         width: 130px;
@@ -324,20 +323,16 @@ main {
         animation: animated_div 2s ease;
         border-radius: 5px;
         box-shadow: $shadow-xl;
-
         i {
             margin: 0.2rem;
         }
-
         i:first-child {
             color: $color-golden-text;
         }
-
         i:nth-child(3) {
             color: $color-purple-text;
         }
     }
-
     .active {
         display: block;
     }
@@ -373,12 +368,7 @@ main {
             margin-bottom:4rem;
         }
     }
-    /* Style de chaque input */
-    input[type="text"],
-    input[type="password"],
-    input[type="search"],
-    input[type="email"],
-    input[type*="date"],
+    input,
     select,
     textarea {
         display: inline-block;
@@ -425,7 +415,6 @@ main {
     .display_flex {
         display: flex;
     }
-
     label {
         display: block;
         margin: auto;
@@ -433,13 +422,12 @@ main {
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
-
     input {
         width: 90%;
         margin-bottom: 2rem;
         display: inline-block;
     }
-
+    
     /* modal SignUp */
     #modalSignUp:target {
         display: flex;
