@@ -189,9 +189,15 @@ main {
     .alert-section {
         position: absolute;
         width:250px;
-        img {
-            width:100px;
+        vertical-align: middle;
+        p {
+            height:50px;
+            font-weight: bold;
+            text-align: center;
         }
+        // img {
+        //     width:100px;
+        // }
     }
     .alert-danger {
         background-color: red;
@@ -200,31 +206,7 @@ main {
         background-color: green;
     }
 
-    // Partie Aside contenant Profil & Commentaires
-    aside {
-        width:25%;
-        display:flex;
-        flex-direction:column;
-    }
-    .avancement {
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-        color: white;
-        font-size: 3rem;
-        font-weight:4rem;
-        margin:2rem auto;
-        padding-top:3.5rem;
-    }
-    .identification {
-        img {
-            width:100px;
-        }
-    }
-
-
-
-
+    
 
 
 
@@ -247,6 +229,86 @@ main {
             box-shadow: 10px 10px rgba(0, 0, 0, .25);
         }
     }
+
+
+    // ASIDE = PROFIL + COMMENTAIRES
+    aside {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    // petite box profil en haut a droite
+    .identification {
+
+        img {
+            width: 100px;
+        }
+
+        
+    }
+
+    // petite box commentaires en bas a droite
+    .commentary_box {
+        width: 100%;
+        height: 550px;
+
+        fieldset {
+            background-color: white;
+        }
+
+        .commentary__content {
+            margin: 2rem auto 0;
+        }
+
+        .commentary__author {
+            text-align: right;
+            margin: 0 auto 1rem;
+            font-size: 1.1rem;
+        }
+
+        .commentary_box_quotes {
+            text-align: left;
+            height: 500px;
+            overflow: auto;
+        }
+
+        blockquote {
+            margin: 1rem auto;
+            padding: 1em 0;
+        }
+
+        blockquote p {
+            background-image: url(../images/client.png);
+            background-repeat: no-repeat;
+            padding-left: 40px;
+        }
+
+        blockquote cite {
+            background-image: url(../images/quote.png);
+            background-repeat: no-repeat;
+            display: block;
+            // color: #00748D;
+            color: $color-purple-text;
+            font-size: 1.4rem;
+            padding-left: 40px;
+            font-weight: bold;
+        }
+    }
+
+    //Avancement % à droite de la page mais aussi dans la page Classement.
+
+    .avancement {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        color: white;
+        font-size: 3rem;
+        font-weight: 4rem;
+        margin: 2rem auto;
+        padding-top: 3.5rem;
+    }
+
     .quiz {
         width: 70%;
         background-color: $color-quiz;
@@ -340,6 +402,18 @@ main {
     }
     .active {
         display: block;
+    }
+    .navigation__questions {
+        a {
+            color: $color-purple-text;
+        }
+
+        i {
+            vertical-align: middle;
+            font-size: 5rem;
+            margin: 2rem 1rem;
+            color: $color-purple-text;
+        }
     }
 
 
@@ -444,67 +518,7 @@ main {
     }
 
 
-
-
-
-
-
-    // COMMENTAIRES DANS LA PETITE BOX EN BAS A DROITE
-    .commentary_box {
-        width: 100%;
-        height: 75%;
-        fieldset {
-            background-color: white;
-        }
-        .commentary__content {
-            margin: 2rem auto 0;
-        }
-        .commentary__author {
-            text-align: right;
-            margin: 0 auto 1rem;
-            font-size: 1.1rem;
-        }
-    }
-    // COMMENTAIRES en bas à droite ? 
-    .commentary_box_quotes {
-        text-align: left;
-        height: 300px;
-        overflow: auto;
-    }
-    blockquote {
-        margin:1rem auto;
-        padding: 1em 0;
-    }
-    blockquote p {
-        background-image: url(../images/client.png);
-        background-repeat: no-repeat;
-        padding-left: 40px;
-    }
-    blockquote cite {
-        background-image: url(../images/quote.png);
-        background-repeat: no-repeat;
-        display: block;
-        // color: #00748D;
-        color:$color-purple-text;
-        font-size: 1.4rem;
-        padding-left: 40px;
-        font-weight: bold;
-    }
-    .navigation__questions {
-        a {
-            color: $color-purple-text;
-        }
-        i {
-            vertical-align: middle;
-            font-size:5rem;
-            margin:2rem 1rem;
-            color:$color-purple-text;
-        }
-    }
 }
-
-
-
 
 
 /* *****************************************************************
@@ -595,6 +609,27 @@ DIFFERENTS PAGES
 .goldenBook {
     background-color: white;
 }
+blockquote {
+    margin: 1rem auto;
+    padding: 1em 0;
+    text-align: left;
+}
+
+blockquote p {
+    background-image: url(../images/client.png);
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+blockquote cite {
+    background-image: url(../images/quote.png);
+    background-repeat: no-repeat;
+    display: block;
+    // color: #00748D;
+    color: $color-purple-text;
+    padding-left: 40px;
+    font-weight: bold;
+}
 
 // CSS de la Page results en fin de topic
 .score {
@@ -663,9 +698,7 @@ table {
     }
 }
 
-
 // CSS page error
-
 .error-message {
     background-color: grey;
     margin:0 auto;
@@ -678,25 +711,17 @@ table {
 RESPONSIVE
 ***************************************************************** */
 
-/* https://blog.smarchal.com/sass-et-media-queries */
-
 //Breakpoints
 $tabletToDeskop:1000px;
 $phoneToTablet:800px;
-$littlephoneToPhone:650px; // FACULTATIF ?
-
+$littlephoneToPhone:700px; // FACULTATIF ?
 
 // TABLET -> DESKTOP
 @media screen and (max-width: $tabletToDeskop) {
-
-
     header {
         img {
             min-width:300px;
             margin-left: 3rem;
-        }
-        .display {
-            // flex-direction: column;
         }
         nav {
             flex-direction: column;
@@ -706,66 +731,62 @@ $littlephoneToPhone:650px; // FACULTATIF ?
             }
         }
     }
-
     main {
-
         // Display principal
         .display__main {
             flex-direction: column-reverse;
         }
-
         aside {
             width:95%;
             margin: 0 auto;
+            flex-direction:row;
 
+            // .commentary_box {
+            //     display:none;
+            // }
+
+            .identification {
+                width:45%;
+            }
             .commentary_box {
-                display:none;
+                width:45%;
             }
         }
-
         .quiz {
             width:95%;
         }
-
         button {
             width: 250px;
         }
-
     }
-
 }
 
 // PHONE -> TABLET
 @media screen and (max-width:$phoneToTablet) {
-
     header {
         img {
-            min-width: 200px;
+            min-width: 250px;
             margin-left: 2rem;
         }
-
         .display {
             // flex-direction: column;
         }
-
         nav {
             flex-direction: column;
-
             a {
                 min-width: 5em;
                 padding: 1em 1em;
             }
         }
     }
-
-
 }
 
-
 // LITTLE PHONE -> PHONE ( NOT NECESSARY )
-// @media screen and (max-width: $littlephoneToPhone) {
-
-
-
-
-// }
+@media screen and (max-width: $littlephoneToPhone) {
+    header {
+        height: 150px;
+        .display {
+            flex-direction: column;
+        }
+    }
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 08 fév. 2021 à 14:51
+-- Généré le : Dim 14 fév. 2021 à 18:23
 -- Version du serveur :  10.4.14-MariaDB
 -- Version de PHP : 7.4.10
 
@@ -63,7 +63,8 @@ CREATE TABLE `commentary` (
 
 INSERT INTO `commentary` (`Id`, `User_Id`, `Content`, `Created_at`, `Status`) VALUES
 (1, 1, 'C\'est vraiment un super Quiz! ', '2021-01-28 10:38:37', 1),
-(2, 2, 'Tout à fait! Jamais vu aussi incroyable!', '2021-01-28 10:38:37', 1);
+(2, 2, 'Tout à fait! Jamais vu aussi incroyable!', '2021-01-28 10:38:37', 1),
+(5, 1, 'J&#039;écris un super commentaire avec Charly', '2021-02-11 12:18:52', 1);
 
 -- --------------------------------------------------------
 
@@ -131,19 +132,15 @@ CREATE TABLE `score` (
 
 INSERT INTO `score` (`Id_Topic`, `Id_User`, `ScoreByTopic`) VALUES
 (1, 1, 2),
-(1, 3, 2),
-(1, 7, 2),
-(2, 1, 2),
-(2, 3, 0),
-(2, 7, 1),
-(3, 1, 2),
-(3, 3, 4),
-(3, 7, 4),
-(4, 1, 2),
-(4, 3, 3),
-(4, 7, 3),
-(5, 3, 2),
-(5, 7, 3);
+(1, 3, 0),
+(2, 1, 5),
+(2, 3, 5),
+(3, 1, 0),
+(3, 3, 5),
+(4, 1, 3),
+(4, 3, 5),
+(5, 1, 2),
+(5, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -193,10 +190,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Id`, `Pseudo`, `Password`, `Email`, `Ranking`, `Admin`, `CreatedAt`, `LastConnectedDate`, `Avatar_Id`) VALUES
-(1, 'ACo', 'x4/PW9xcNL9OR0F/ksl7Pw==', 'aconnaone@gmail.com', 1, 1, '2021-01-28 10:36:30', '2021-02-04 18:57:12', 3),
+(1, 'ACo', 'x4/PW9xcNL9OR0F/ksl7Pw==', 'aconnaone@gmail.com', 1, 1, '2021-01-28 10:36:30', '2021-02-14 18:20:48', 3),
 (2, 'AmiralFusion', 'x4/PW9xcNL9OR0F/ksl7Pw==', 'florian.connangle@gmail.com', 1, 1, '2021-01-28 10:36:30', '2021-02-02 17:38:40', 4),
-(3, 'HelloToto', 'W9GAPUpbsmeJYTZWXl5qMg==', 'alexandre.connanglecode@gmail.com', 0, NULL, '2021-02-01 16:00:41', '2021-02-08 14:13:56', 3),
-(7, 'Luxurysystem', '4phzataTThdUhLtSe3WF+g==', 'aconnaone2@gmail.com', 0, NULL, '2021-02-07 19:47:41', '2021-02-07 19:47:53', 4);
+(3, 'HelloToto', 'W9GAPUpbsmeJYTZWXl5qMg==', 'alexandre.connanglecode@gmail.com', 0, NULL, '2021-02-01 16:00:41', '2021-02-14 18:18:38', 3),
+(8, 'Luxurysystem', '4phzataTThdUhLtSe3WF+g==', 'aconnaone2@gmail.com', 0, NULL, '2021-02-14 16:47:15', '2021-02-14 17:01:39', 2),
+(9, 'Chewbacca', 'x4/PW9xcNL9OR0F/ksl7Pw==', 'jefaisuntest@gmail.com', 0, NULL, '2021-02-14 16:52:21', '2021-02-14 16:52:28', 4);
 
 --
 -- Index pour les tables déchargées
@@ -258,25 +256,25 @@ ALTER TABLE `avatars`
 -- AUTO_INCREMENT pour la table `commentary`
 --
 ALTER TABLE `commentary`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT pour la table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Contraintes pour les tables déchargées

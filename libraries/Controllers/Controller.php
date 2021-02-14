@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use Session;
+
 /*
  * LES PROPRIETES :
  * ---------------------
@@ -63,10 +65,11 @@ abstract class Controller {
     foreach ($commentaries as $commentary) {
         array_push($userList, $userModel->getUser($commentary['User_Id'])['Pseudo']);
     }
+
     $this->tplVars = $this->tplVars + [
             'commentaryCreatedBy' => $userList
-            // 'commentaryCreatedAt' => $commentaries
         ];
+        
     $this->tplVars = $this->tplVars + ['commentaries' => $commentaries];
 
 
@@ -79,7 +82,12 @@ abstract class Controller {
 
     $score = new \Models\score();
 
-    $scoresOfUser = $score->findScoreByUser(\Session::getId());
+    if (\Session::isConnected()) {
+            $scoresOfUser = $score->findScoreByUser(\Session::getId());
+    } else {
+        $scoresOfUser = [];
+    }
+
 
     $totalPoints = 0;
     foreach ($scoresOfUser as $score) {
@@ -94,19 +102,5 @@ abstract class Controller {
 
     $this->tplVars = $this->tplVars + ['progressionUser' => $progressionUser];
 
-
-
-
-
-
-
-    
-    //topic 1 par défault :
-    // $topic['ID'] = 1;
-    
-
     }
-
-
-
 }

@@ -25,14 +25,14 @@
             <nav>
                 <ul>
                     <!-- MENU DE NAVIGATION : EXPLORER -->
-                    <li class="selected">
+                    <li>
                         <a href="<?= $tplVars['WWW_URL']; ?>index.php">
                             <i class="fab fa-wpexplorer"></i><br>
                             Explorer</a>
                         <ul>
-                            <li class="selected"><a href="<?= $tplVars['WWW_URL']; ?>index.php">Accueil</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index">Livre d'Or</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about">A propos de Quiz by ACo</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php"><i class="fab fa-wpexplorer"></i>Mode d'emploi</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index"><i class="fab fa-wpexplorer"></i>Livre d'Or</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about"><i class="fab fa-wpexplorer"></i>A propos de Quiz by ACo</a></li>
                         </ul>
                     </li>
 
@@ -45,7 +45,7 @@
                         </a>
                         <ul>
                             <?php foreach ($tplVars['topics'] as $topic) : ?>
-                                <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><?= $topic['Name']; ?></a></li>
+                                <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><i class="fas fa-seedling"></i> <?= $topic['Name']; ?></a></li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
@@ -56,21 +56,21 @@
                             <i class="fas fa-poll-h"></i><br>
                             Classement</a>
                         <ul>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings">Classement ( Mondial bien sûr )</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1">Mes résultats par Topic</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings"><i class="fas fa-poll-h"></i>Classement ( Mondial bien sûr )</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><i class="fas fa-poll-h"></i>Mes résultats par Topic</a></li>
                         </ul>
                     </li>
 
                     <!-- MENU DE NAVIGATION : MON COMPTE -->
-                    <li><a href="#">
-                            <i class="fas fa-user-circle"></i><br>
-                            Mon Compte</a>
+                    <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser">
+                                <i class="fas fa-user-circle"></i><br>
+                                Mon Compte</a>
                         <ul>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create&topic=1&indexQuestion=1#modalSignUp">S'inscrire</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login&topic=1&indexQuestion=1#modalLogin">Se Connecter</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser">Mes informations</a></li>
-                            <li class="administrator_link"><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank">Administrateur (BackOffice)</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php">Déconnexion</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create&topic=1&indexQuestion=1#modalSignUp"><i class="fas fa-user-circle"></i>S'inscrire</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login&topic=1&indexQuestion=1#modalLogin"><i class="fas fa-user-circle"></i>Se Connecter</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser"><i class="fas fa-user-circle"></i>Mes informations</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank"><i class="fas fa-puzzle-piece"></i>Administration BackOffice</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php"><i class="fas fa-power-off"></i>Déconnexion</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -91,9 +91,6 @@
 
             <?php if (\Session::hasFlashes('error')) : ?>
                 <div class="alert alert-element alert-danger is-active">
-                    <div class="icon">
-                        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" /> -->
-                    </div>
                     <div class="text">
                         <?php foreach (\Session::getFlashes('error') as $message) : ?>
                             <p><?= $message ?></p>
@@ -104,9 +101,6 @@
 
             <?php if (\Session::hasFlashes('success')) : ?>
                 <div class="alert alert-element alert-success is-active">
-                    <div class="icon">
-                        <!-- <img src="https://images-na.ssl-images-amazon.com/images/I/616t1av6pjL._AC_SL1200_.jpg" alt="notification icon" /> -->
-                    </div>
                     <div class="text">
                         <?php foreach (\Session::getFlashes('success') as $message) : ?>
                             <p><?= $message ?></p>
@@ -220,9 +214,10 @@
                 <a href="index.php" class="close">&times;</a>
                 <p>Inscrivez vous pour profiter au maximum du super <span class="golden-text">Q</span>ui<span class="purple-text">Z</span>!</p>
 
-                <?php if (!empty($message)) : ?>
+                <!-- <?php if (!empty($message)) : ?>
+                    <?= var_dump($_SESSION) ?>
                     <p><?= $message; ?></p>
-                <?php endif; ?>
+                <?php endif; ?> -->
 
                 <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create" method="POST">
                     <label for="email"><i class="fas fa-envelope"></i> Email (aucun spam garanti)</label>
@@ -276,7 +271,7 @@
 
 
     <!-- SCRIPTS -->
-    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/scoreColorisation.js"></script>
     <script src="assets/js/answers.js"></script>
     <script src="assets/js/notifications.js"></script>
 

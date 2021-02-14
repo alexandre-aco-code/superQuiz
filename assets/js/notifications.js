@@ -7,6 +7,6 @@ function masquernotification() {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    window.setTimeout(masquernotification, 3000);
+    window.setTimeout(masquernotification, 4000);
 
 });

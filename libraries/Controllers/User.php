@@ -115,11 +115,7 @@ class User extends Controller
     {
 
 
-        //quels controle on doit faire avant de lancer une insertion dans la base ?
-
         //vérifier la présence des champs obligatoire
-
-        var_dump($_POST);
 
         if (
             empty($_POST['pseudo']) ||
@@ -274,7 +270,10 @@ class User extends Controller
             \Renderer::show("infoUser", $this->tplVars);
 
         } else {
-            throw new \Exception('Impossible d\'afficher la page Rankings !');
+
+            \Session::addFlash('error', 'Pas de compte connecté !');
+            \Http::redirectBack();
+            // throw new \Exception('Impossible d\'afficher la page InfosUser !');
         }
 
     }

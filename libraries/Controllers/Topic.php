@@ -33,8 +33,12 @@ class Topic extends Controller
 
             // AJOUT DU SCORE
             $modelName = new \Models\Score;
-            $id = \Session::getId();
-            $scoresByTopic = $modelName->findScoreByUser($id);
+            if (\Session::isConnected()) {
+                $id = \Session::getId();
+                $scoresByTopic = $modelName->findScoreByUser($id);
+            } else {
+                $scoresByTopic = [];
+            }
                 
 
             //rajout des infos dans $this->tplVars

@@ -1,23 +1,5 @@
 <?php
 
-/**
- * CLASSE DE GESTION DE LA SESSION (Y COMPRIS LES MESSAGES D'ERREUR !)
- * ---------------------------------
- * Cette classe donne toutes les méthodes utiles pour travailler sur la session.
- *
- * Ses méthodes sont statiques de façon à ce qu'on n'ait pas besoin de créer un objet issu de cette classe pour en utiliser les méthodes comme par exemple :
- *
- * $session = new Session();
- * $session->addFlash('error', "un message d'erreur");
- *
- * On peut directement appeler les méthodes sur la classe elle-même :
- *
- * Session::addFlash('error', "un message d'erreur")
- *
- * C'est beaucoup plus simple / rapide / clair !
- *
- * Voilà l'utilité des méthodes déclarées comme static !
- */
 class Session
 {
 
