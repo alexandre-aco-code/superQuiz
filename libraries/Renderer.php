@@ -6,10 +6,10 @@ class Renderer {
 
         ob_start();
 
-        require("libraries/views/templates/$template.phtml");
+        require("libraries/Views/templates/$template.phtml");
         $pageContent = ob_get_clean();
 
-        require('libraries/views/layout.phtml');
+        require('libraries/Views/layout.phtml');
 
 
     }
@@ -19,10 +19,10 @@ class Renderer {
 
         ob_start();
 
-        require("libraries/views/templates/admin/$template.phtml");
+        require("libraries/Views/templates/admin/$template.phtml");
         $pageContent = ob_get_clean();
 
-        require("libraries/views/layoutAdmin.phtml");
+        require("libraries/Views/layoutAdmin.phtml");
         
     }
 
@@ -35,7 +35,7 @@ class Renderer {
     public static function showError(array $tplVars = [])
     {
 
-        require("libraries/views/templates/error.phtml");
+        require("libraries/Views/templates/error.phtml");
 
     }
 
