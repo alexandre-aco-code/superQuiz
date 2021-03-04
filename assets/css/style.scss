@@ -63,7 +63,7 @@ body {
     .purple-text {
         color:$color-purple-text;
         font-weight: 900;
-    }
+    }²
     ul {
         margin:0;
         padding:0;
@@ -252,6 +252,7 @@ main {
     .commentary_box {
         width: 100%;
         height: 550px;
+        overflow: auto;
 
         fieldset {
             background-color: white;
@@ -269,8 +270,8 @@ main {
 
         .commentary_box_quotes {
             text-align: left;
-            height: 500px;
-            overflow: auto;
+            // height: 500px;
+            // overflow: auto;
         }
 
         blockquote {
