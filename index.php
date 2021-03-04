@@ -8,7 +8,7 @@ define('WWW_URL', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
 
 // on prend les infos de configuration
 
-require_once("libraries/inc/configuration.php");
+require_once("configuration.php");
 
 
 

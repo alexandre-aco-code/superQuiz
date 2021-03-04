@@ -80,7 +80,7 @@ abstract class Controller {
 
     // PARTIE POUR AJOUTER LAVANCEMENT EN % DANS LA ZONE PROFIL
 
-    $score = new \Models\score();
+    $score = new \Models\Score();
 
     if (\Session::isConnected()) {
             $scoresOfUser = $score->findScoreByUser(\Session::getId());
