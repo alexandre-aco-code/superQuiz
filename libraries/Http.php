@@ -2,6 +2,7 @@
 /**
  * CLASSE QUI PERMET DE GERER LE PROTOCOLE HTTP
  * test
+ * je fais une super modif
  * ------------------------------
  * Le but de cette classe est de fournir des méthodes simples et efficaces concernant le protocole HTTP.
  */
