@@ -1,16 +1,16 @@
 /* import des polices, variables, tools */
-@import 'general';
+@import "general";
 
 /* import des animations css sympas */
-@import 'animations';
-
+@import "animations";
 
 /* *****************************************************************
 BODY
 ***************************************************************** */
 html {
-   min-height: 100vh;
+    min-height: 100vh;
 }
+
 body {
     padding: 0;
     min-height: 100vh;
@@ -20,56 +20,65 @@ body {
     line-height: $line-height;
     background-color: $color-body;
     font-family: $font-text;
+
     h1,
     h2,
     h3,
     h4 {
         font-family: $font-titles;
     }
+
     h1 {
         vertical-align: middle;
         font-size: $size-title-1;
         color: $color-title-1;
-        text-align:center;
+        text-align: center;
         margin-bottom: 3rem;
+
         span {
             color: $color-title-span;
-        } 
+        }
     }
+
     h2 {
         font-size: $size-title-2;
         color: $color-title-2;
-        margin:0.5rem;
+        margin: 0.5rem;
         line-height: 4rem;
         margin-top: 0;
     }
+
     h3 {
         font-size: $size-title-3;
         color: $color-title-3;
-        margin:1rem;
+        margin: 1rem;
+
         span {
-            display:block;
-            margin:2rem;
-            font-size:3rem;
+            display: block;
+            margin: 2rem;
+            font-size: 3rem;
         }
     }
+
     a {
         text-decoration: none;
     }
+
     .golden-text {
-        color:$color-golden-text;
-        font-weight: 900 ;
-    }
-    .purple-text {
-        color:$color-purple-text;
+        color: $color-golden-text;
         font-weight: 900;
-    }²
-    ul {
-        margin:0;
-        padding:0;
+    }
+
+    .purple-text {
+        color: $color-purple-text;
+        font-weight: 900;
+    }
+
+    ² ul {
+        margin: 0;
+        padding: 0;
     }
 }
-
 
 /* *****************************************************************
 HEADER
@@ -79,39 +88,49 @@ header {
     box-shadow: $shadow-lg;
     height: $height-header;
 
-    .selected { // color when a link is selected
+    .selected {
+        // color when a link is selected
         transition: background-color 0.5s;
         background-color: $color-header-link-selected;
     }
+
     .display {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         a {
             display: inline-block;
             color: $color-link-text;
+
             &:hover {
                 text-decoration: underline;
                 color: $color-link-hover;
             }
         }
     }
-    img { // logo
+
+    img {
+        // logo
         display: block;
         min-width: 350px;
         height: auto;
         margin-left: 5rem;
     }
+
     .administrator_link {
         background-color: red;
     }
+
     .score {
         background: blue;
     }
+
     nav {
         display: flex;
         align-items: center;
         justify-content: space-around;
+
         a {
             min-width: 10em;
             padding: 1em 2em;
@@ -133,50 +152,57 @@ header {
                 margin: 0.5rem 0;
             }
         }
+
         ul,
         li {
             padding: 0;
             margin: 0;
             list-style-type: none;
         }
-        >ul {
+
+        > ul {
             display: flex;
             justify-content: center;
         }
-        >ul>li {
+
+        > ul > li {
             position: relative;
             border-right: 1px solid grey;
+
             &:hover {
                 transform: translateY(5px);
-                transition: .05s ease;
+                transition: 0.05s ease;
             }
+
             &:first-child {
                 border-left: 1px solid grey;
             }
-            &>ul {
+
+            & > ul {
                 position: absolute;
                 display: none;
+
                 li {
                     max-width: 10em;
+
                     i {
                         font-size: $size-fontawesome-header-extended-menu;
                         float: left;
                     }
                 }
-                li+li {
+
+                li + li {
                     border-top: 1px solid #444;
                 }
             }
-            &:hover>ul {
+
+            &:hover > ul {
                 display: block;
                 background-color: $color-header-link-extended-menu;
             }
         }
     }
 }
-
-
-
 
 /* *****************************************************************
 MAIN
@@ -188,27 +214,23 @@ main {
     // Partie notifications tout en haut du main
     .alert-section {
         position: absolute;
-        width:250px;
+        width: 250px;
         vertical-align: middle;
+
         p {
-            height:50px;
+            height: 50px;
             font-weight: bold;
             text-align: center;
         }
-        // img {
-        //     width:100px;
-        // }
     }
+
     .alert-danger {
         background-color: red;
     }
+
     .alert-success {
         background-color: green;
     }
-
-    
-
-
 
     // Display principal
     .display__main {
@@ -216,20 +238,21 @@ main {
         padding: 1rem 0;
         flex-direction: row-reverse;
     }
+
     .box {
         width: 100%;
         margin: 1rem auto;
         padding: 2rem;
         background-color: $color-aside;
-        border: 2px solid #EEE;
+        border: 2px solid #eee;
         border-radius: 30px;
-        box-shadow: 20px 20px rgba(0, 0, 0, .15);
-        transition: all .4s ease;
+        box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+        transition: all 0.4s ease;
+
         &:hover {
-            box-shadow: 10px 10px rgba(0, 0, 0, .25);
+            box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
         }
     }
-
 
     // ASIDE = PROFIL + COMMENTAIRES
     aside {
@@ -240,12 +263,9 @@ main {
 
     // petite box profil en haut a droite
     .identification {
-
         img {
             width: 100px;
         }
-
-        
     }
 
     // petite box commentaires en bas a droite
@@ -270,8 +290,6 @@ main {
 
         .commentary_box_quotes {
             text-align: left;
-            // height: 500px;
-            // overflow: auto;
         }
 
         blockquote {
@@ -298,7 +316,6 @@ main {
     }
 
     //Avancement % à droite de la page mais aussi dans la page Classement.
-
     .avancement {
         border-radius: 50%;
         width: 100px;
@@ -314,29 +331,35 @@ main {
         width: 70%;
         background-color: $color-quiz;
     }
+
     p {
-        a, span {
-            color:$color-golden-text;
+        a,
+        span {
+            color: $color-golden-text;
         }
     }
+
     article {
         background-color: $color-article;
         padding: 1em;
-        // box-shadow: $shadow-xl;
     }
+
     .detail-categorie {
         p {
             text-align: left;
         }
     }
+
     img {
         width: 500px;
         text-align: center;
         margin: 1rem;
     }
-    section+section {
+
+    section + section {
         margin-top: 2em;
     }
+
     button {
         display: inline-block;
         padding: 0.5em;
@@ -347,36 +370,44 @@ main {
         color: $color-button-text;
         background-color: $color-button-bg;
         border: $border-lg;
-        box-shadow:$shadow-xl;
+        box-shadow: $shadow-xl;
         cursor: pointer;
         user-select: none;
+
         &:focus,
         &:hover {
-            color: black; 
+            color: black;
             transform: translateY(-5px);
-            transition: .05s ease;
+            transition: 0.05s ease;
         }
+
         &:active {
-            transform: scale(.99995);
-            transition: transform .005s;
+            transform: scale(0.99995);
+            transition: transform 0.005s;
         }
     }
+
     .progress {
         color: #555;
     }
+
     #goodAnswer.goodSelected {
         background-color: green;
         font-size: 2rem;
     }
+
     #badAnswer.errorSelected {
         background-color: grey;
     }
+
     .hidden_div {
         display: none;
     }
+
     .height_animated_div {
         height: 50px;
     }
+
     .animated_div {
         display: none;
         width: 130px;
@@ -391,19 +422,24 @@ main {
         animation: animated_div 2s ease;
         border-radius: 5px;
         box-shadow: $shadow-xl;
+
         i {
             margin: 0.2rem;
         }
+
         i:first-child {
             color: $color-golden-text;
         }
+
         i:nth-child(3) {
             color: $color-purple-text;
         }
     }
+
     .active {
         display: block;
     }
+
     .navigation__questions {
         a {
             color: $color-purple-text;
@@ -417,37 +453,31 @@ main {
         }
     }
 
-
-
-
-
-
-
-
-
-
     /* Les Modales */
     .modal-bg {
-        position:fixed;
+        position: fixed;
         background-color: rgba(grey, 0.6);
-        top:0;
-        left:0;
-        bottom:0;
-        right:0;
-        display:none;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: none;
     }
+
     .modal-content {
         background-color: rgb(255, 255, 255);
-        width: 50%;
+        width: 80%;
         padding: 2em;
         border: 1px solid #888;
         margin: auto;
         box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
         animation: slidein 0.5s ease;
+
         p {
-            margin-bottom:4rem;
+            margin-bottom: 4rem;
         }
     }
+
     input,
     select,
     textarea {
@@ -459,14 +489,17 @@ main {
         border: 1px solid #ccc;
         border-radius: 0.5em;
     }
+
     select,
     textarea {
         width: 100%;
     }
+
     textarea {
         display: block;
         min-height: 10em;
     }
+
     /* Close Button */
     .close {
         float: right;
@@ -475,12 +508,14 @@ main {
         font-size: 52px;
         font-weight: bold;
     }
+
     .close:hover,
     .close:focus {
         color: black;
         text-decoration: none;
         cursor: pointer;
     }
+
     /* Formulaire */
     form {
         img {
@@ -495,6 +530,7 @@ main {
     .display_flex {
         display: flex;
     }
+
     label {
         display: block;
         margin: auto;
@@ -502,12 +538,13 @@ main {
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
+
     input {
         width: 90%;
         margin-bottom: 2rem;
         display: inline-block;
     }
-    
+
     /* modal SignUp */
     #modalSignUp:target {
         display: flex;
@@ -517,10 +554,7 @@ main {
     #modalLogin:target {
         display: flex;
     }
-
-
 }
-
 
 /* *****************************************************************
 FOOTER
@@ -532,23 +566,24 @@ footer {
     height: $height-footer;
     box-shadow: $shadow-lg;
     width: 100%;
+
     div {
-        display:flex;
+        display: flex;
         flex-direction: column;
+
         p:first-child {
-            margin-top:1rem;
+            margin-top: 1rem;
         }
+
         p {
-            margin:0;
+            margin: 0;
         }
     }
+
     small {
-        text-align:right;
+        text-align: right;
     }
 }
-
-
-
 
 /* *****************************************************************
 DIFFERENTS PAGES
@@ -560,29 +595,37 @@ DIFFERENTS PAGES
         text-align: left;
     }
 }
+
 .ceintures {
-    width:50%;
+    width: 50%;
     margin: 2rem auto;
     list-style: none;
-    li:nth-child(1){
+
+    li:nth-child(1) {
         background-color: rgb(228, 224, 224);
     }
-    li:nth-child(2){
+
+    li:nth-child(2) {
         background-color: yellow;
     }
-    li:nth-child(3){
+
+    li:nth-child(3) {
         background-color: orange;
     }
-    li:nth-child(4){
+
+    li:nth-child(4) {
         background-color: green;
     }
-    li:nth-child(5){
+
+    li:nth-child(5) {
         background-color: rgba(0, 0, 255, 0.589);
     }
-    li:nth-child(6){
+
+    li:nth-child(6) {
         background-color: #632800;
     }
-    li:nth-child(7){
+
+    li:nth-child(7) {
         background-color: rgba(0, 0, 0, 0.603);
     }
 }
@@ -596,12 +639,14 @@ DIFFERENTS PAGES
 .topic {
     ul {
         list-style-type: none;
+
         li {
-            margin-top:2rem;
+            margin-top: 2rem;
         }
+
         p {
-            text-align:right;
-            margin:0 5rem 0 0;
+            text-align: right;
+            margin: 0 5rem 0 0;
         }
     }
 }
@@ -610,6 +655,7 @@ DIFFERENTS PAGES
 .goldenBook {
     background-color: white;
 }
+
 blockquote {
     margin: 1rem auto;
     padding: 1em 0;
@@ -635,65 +681,75 @@ blockquote cite {
 // CSS de la Page results en fin de topic
 .score {
     ul {
-        padding:0;
+        padding: 0;
     }
 }
+
 .results {
     margin: 3rem 0;
-    font-size:2rem;
+    font-size: 2rem;
 }
 
 // CSS de la Page About
 .about {
     ul {
-        padding-left:30px;
-        margin:0;
+        padding-left: 30px;
+        margin: 0;
     }
+
     li {
-        // text-decoration: none;
-        // list-style-type: none;
-        padding:0;
-        margin:2rem;
+        padding: 0;
+        margin: 2rem;
         text-align: left;
     }
+
     .bdd {
         width: 100%;
-        margin:0 auto;
+        margin: 0 auto;
     }
 }
 
-// CSS de la Page Rankings 
+// CSS de la Page Rankings
 .rankings {
     img {
-        width:50px;
+        width: 50px;
     }
 }
+
 code {
     background-color: #fff;
 }
+
 table {
     border-collapse: collapse;
-    width:100%;
+    width: 100%;
+
     th,
     td {
         border: 1px solid #ddd;
+
         &.avancement {
-            padding:1rem;
+            padding: 1rem;
         }
     }
+
     thead {
         text-align: center;
         border-bottom: 2px solid #999;
     }
+
     tbody tr:nth-child(odd) td {
         background-color: rgb(179, 230, 231);
     }
+
     tbody tr:nth-child(1) td {
-        background-color: #FFD700;
+        background-color: #ffd700;
     }
+
     tbody tr:nth-child(2) td {
-        background-color: #C0C0C0;
+        background-color: #c0c0c0;
     }
+
     tbody tr:nth-child(3) td {
         background-color: #614e1a;
     }
@@ -702,60 +758,61 @@ table {
 // CSS page error
 .error-message {
     background-color: grey;
-    margin:0 auto;
-    padding:5rem 0;
+    margin: 0 auto;
+    padding: 5rem 0;
 }
-
-
 
 /* *****************************************************************
 RESPONSIVE
 ***************************************************************** */
 
 //Breakpoints
-$tabletToDeskop:1000px;
-$phoneToTablet:800px;
-$littlephoneToPhone:700px; // FACULTATIF ?
+$tabletToDeskop: 1000px;
+$phoneToTablet: 800px;
+$littlephoneToPhone: 700px;
 
 // TABLET -> DESKTOP
 @media screen and (max-width: $tabletToDeskop) {
     header {
         img {
-            min-width:300px;
+            min-width: 300px;
             margin-left: 3rem;
         }
+
         nav {
             flex-direction: column;
+
             a {
-                min-width:5em;
-                padding:1em 1em; 
+                min-width: 5em;
+                padding: 1em 1em;
             }
         }
     }
+
     main {
         // Display principal
         .display__main {
             flex-direction: column-reverse;
         }
-        aside {
-            width:95%;
-            margin: 0 auto;
-            flex-direction:row;
 
-            // .commentary_box {
-            //     display:none;
-            // }
+        aside {
+            width: 95%;
+            margin: 0 auto;
+            flex-direction: row;
 
             .identification {
-                width:45%;
+                width: 45%;
             }
+
             .commentary_box {
-                width:45%;
+                width: 45%;
             }
         }
+
         .quiz {
-            width:95%;
+            width: 95%;
         }
+
         button {
             width: 250px;
         }
@@ -763,17 +820,16 @@ $littlephoneToPhone:700px; // FACULTATIF ?
 }
 
 // PHONE -> TABLET
-@media screen and (max-width:$phoneToTablet) {
+@media screen and (max-width: $phoneToTablet) {
     header {
         img {
             min-width: 250px;
             margin-left: 2rem;
         }
-        // .display {
-        //     flex-direction: column;
-        // }
+
         nav {
             flex-direction: column;
+
             a {
                 min-width: 5em;
                 padding: 1em 1em;
@@ -786,6 +842,7 @@ $littlephoneToPhone:700px; // FACULTATIF ?
 @media screen and (max-width: $littlephoneToPhone) {
     header {
         height: 150px;
+
         .display {
             flex-direction: column;
         }

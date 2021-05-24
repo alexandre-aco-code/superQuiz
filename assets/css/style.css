@@ -3,12 +3,9 @@
 /* *****************************************************************
 FONTS
 ***************************************************************** */
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900);
 @import url(https://fonts.googleapis.com/css?family=Exo:400,400italic,500,600,700,800,900,300,200,100);
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
 /*
 	font-family: 'PT Sans', sans-serif;
 	font-family: 'Lato', sans-serif;
@@ -28,12 +25,9 @@ VARS
 /* *****************************************************************
 TOOLS
 ***************************************************************** */
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900);
 @import url(https://fonts.googleapis.com/css?family=Exo:400,400italic,500,600,700,800,900,300,200,100);
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -257,8 +251,7 @@ body .purple-text {
   font-weight: 900;
 }
 
-body ²
-ul {
+body ² ul {
   margin: 0;
   padding: 0;
 }
@@ -374,8 +367,8 @@ header nav > ul > li {
 header nav > ul > li:hover {
   -webkit-transform: translateY(5px);
           transform: translateY(5px);
-  -webkit-transition: .05s ease;
-  transition: .05s ease;
+  -webkit-transition: 0.05s ease;
+  transition: 0.05s ease;
 }
 
 header nav > ul > li:first-child {
@@ -453,12 +446,12 @@ main .box {
   margin: 1rem auto;
   padding: 2rem;
   background-color: #eee;
-  border: 2px solid #EEE;
+  border: 2px solid #eee;
   border-radius: 30px;
   -webkit-box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
           box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
-  -webkit-transition: all .4s ease;
-  transition: all .4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
 
 main .box:hover {
@@ -542,7 +535,8 @@ main .quiz {
   background-color: #eee;
 }
 
-main p a, main p span {
+main p a,
+main p span {
   color: #ca9e67;
 }
 
@@ -588,17 +582,17 @@ main button:focus, main button:hover {
   color: black;
   -webkit-transform: translateY(-5px);
           transform: translateY(-5px);
-  -webkit-transition: .05s ease;
-  transition: .05s ease;
+  -webkit-transition: 0.05s ease;
+  transition: 0.05s ease;
 }
 
 main button:active {
   -webkit-transform: scale(0.99995);
           transform: scale(0.99995);
-  -webkit-transition: -webkit-transform .005s;
-  transition: -webkit-transform .005s;
-  transition: transform .005s;
-  transition: transform .005s, -webkit-transform .005s;
+  -webkit-transition: -webkit-transform 0.005s;
+  transition: -webkit-transform 0.005s;
+  transition: transform 0.005s;
+  transition: transform 0.005s, -webkit-transform 0.005s;
 }
 
 main .progress {
@@ -679,7 +673,7 @@ main .modal-bg {
 
 main .modal-content {
   background-color: white;
-  width: 50%;
+  width: 80%;
   padding: 2em;
   border: 1px solid #888;
   margin: auto;
@@ -948,11 +942,11 @@ table tbody tr:nth-child(odd) td {
 }
 
 table tbody tr:nth-child(1) td {
-  background-color: #FFD700;
+  background-color: #ffd700;
 }
 
 table tbody tr:nth-child(2) td {
-  background-color: #C0C0C0;
+  background-color: #c0c0c0;
 }
 
 table tbody tr:nth-child(3) td {

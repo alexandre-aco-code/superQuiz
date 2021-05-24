@@ -2,6 +2,13 @@
 
 class Renderer {
 
+    /**
+     * Permet d'afficher les pages du Site
+     * 
+     * @param string 
+     * @param array
+     * @return void
+     */
     public static function show(string $template, array $tplVars = []) {
 
         ob_start();
@@ -14,7 +21,13 @@ class Renderer {
 
     }
 
-
+    /**
+     * Permet d'afficher les pages Admin
+     * 
+     * @param string 
+     * @param array
+     * @return void
+     */
     public static function showAdmin(string $template, array $tplVars = []) {
 
         ob_start();
@@ -26,7 +39,7 @@ class Renderer {
         
     }
 
-/**
+    /**
      * La fonction showError() permet d'afficher une exception
      *
      * @param array $variables Le tableau associatif contenant les variables utilisées dans le template PHTML

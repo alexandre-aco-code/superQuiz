@@ -2,43 +2,39 @@
 
 class Session
 {
-
     /**
      * Rediriger l'utilisateur s'il n'est pas connecté
      *
-     * 
+     *
      * @return void
      */
-     
-     public static function redirectIfNotConnected()
-     {
-         if (!self::isConnected()) {
-             
-             \Http::redirect(WWW_URL."index.php?controller=user&task=loginForm");
-         }
-     }
-     
-     /**
+
+    public static function redirectIfNotConnected()
+    {
+        if (!self::isConnected()) {
+            \Http::redirect(
+                WWW_URL . "index.php?controller=user&task=loginForm"
+            );
+        }
+    }
+
+    /**
      * Rediriger l'utilisateur s'il n'est pas admin
      *
-     * 
      * @return void
      */
-     
-     public static function redirectIfNotAdmin()
-     {
-         //déjà s'il est pas connecté on le redirige
-         self::redirectIfNotConnected();
-         
-         //s'il est connecté mais pas admin, on le déconnect
-         if ($_SESSION['user']['Admin']!=1) {
-             \Http::redirect(WWW_URL."index.php?controller=user&task=out");
-         }
-     }
-     
 
+    public static function redirectIfNotAdmin()
+    {
+        //déjà s'il est pas connecté on le redirige
+        self::redirectIfNotConnected();
 
-     
+        //s'il est connecté mais pas admin, on le déconnect
+        if ($_SESSION['user']['Admin'] != 1) {
+            \Http::redirect(WWW_URL . "index.php?controller=user&task=out");
+        }
+    }
+
     /**
      * Permet de mettre en place la session pour un utilisateur donné
      *
@@ -49,9 +45,6 @@ class Session
     {
         $_SESSION['user'] = $user;
     }
-    
-
-
 
     /**
      * Permet de supprimer les infos de connexion dans la session
@@ -62,7 +55,7 @@ class Session
     {
         $_SESSION['user'] = null;
     }
-    
+
     /**
      * Permet de savoir si l'utilisateur est connecté ou non
      *
@@ -72,7 +65,7 @@ class Session
     {
         return !empty($_SESSION['user']);
     }
-    
+
     /**
      * Permet de savoir si l'utilisateur est Admin
      *
@@ -80,38 +73,43 @@ class Session
      */
     public static function isAdmin(): bool
     {
-        if($_SESSION['user']['Admin']==1) {
+        if ($_SESSION['user']['Admin'] == 1) {
             return true;
         }
-        
+
         return false;
     }
-    
+
     /**
      * renvoie le prénom
      *
      * @return string
      */
-     public static function getFirstName(): string
+    public static function getFirstName(): string
     {
         return htmlspecialchars($_SESSION['user']['Pseudo']);
     }
 
-
-
-     public static function getAvatar(): string
+    /**
+     * renvoie l'url de l'Avatar de l'utilisateur
+     *
+     *@return string
+     */
+    public static function getAvatar(): string
     {
         return htmlspecialchars($_SESSION['user']['Avatar_Id']);
     }
-    
 
-    
-    
+    /**
+     * renvoie l'id de l'utilisateur
+     *
+     *@return int
+     */
     public static function getId(): int
     {
         return intval($_SESSION['user']['Id']);
     }
-    
+
     /**
      * Permet d'ajouter un message Flash
      *
@@ -122,7 +120,7 @@ class Session
     public static function addFlash(string $type, string $message)
     {
         if (empty($_SESSION['messages'])) {
-            $_SESSION['messages'] = [       
+            $_SESSION['messages'] = [
                 'error' => [],
                 'success' => [],
             ];
@@ -163,26 +161,4 @@ class Session
 
         return !empty($_SESSION['messages'][$type]);
     }
-    
-    public static function setToken($token)
-    {
-        $_SESSION['token'] = $token;
-    }
-    
-    public static function getToken()
-    {
-        if (isset($_SESSION['token']))
-        {
-          return $_SESSION['token'];  
-        }
-        
-        return false;
-        
-    }
-    
-    public static function deleteToken()
-    {
-        unset($_SESSION['token']);
-    }
-
 }
