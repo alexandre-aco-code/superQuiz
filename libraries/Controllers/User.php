@@ -158,4 +158,53 @@ class User extends Controller
             \Http::redirectBack();
         }
     }
+
+    public function updateInfosUser()
+    {
+
+        var_dump($_POST);
+
+        //vérifier la présence des champs obligatoire
+        if (empty($_POST['pseudo']) || empty($_POST['email']) || empty($_POST['avatar'])) {
+            //au moins un des champs obligatoires non rempli
+            \Session::addFlash('error', 'au moins un des champs obligatoires non rempli !');
+            //rediriger l'utilisateur vers le formulaire
+            \Http::redirectBack();
+        }
+
+        //test pseudo non numérique
+        if (ctype_digit($_POST['pseudo'])) {
+            //au moins le nom ou le prénom est numérique
+            \Session::addFlash('error', 'Le pseudo ne peut pas être que numérique !');
+            //rediriger l'utilisateur vers le formulaire
+            \Http::redirectBack();
+        }
+
+        //vérifier le format de l'email
+        //on utilise filter_var('bob@example.com', FILTER_VALIDATE_EMAIL)
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            //l'email n'est pas au bon format
+            \Session::addFlash('error', 'l\'email n\'est pas au bon format !');
+            //rediriger l'utilisateur vers le formulaire
+            \Http::redirectBack();
+        }
+
+        //si on arrive ici on va pouvoir mettre a jour notre utilisateur
+        if ($this
+            ->model
+            ->updateUser($_POST)
+        ) {
+            //le compte a bien été mis a jour
+            \Session::addFlash('success', 'Modification du compte réussie !');
+            //rediriger l'utilisateur vers la page d'accueil
+            \Http::redirect(WWW_URL);
+        } else {
+            //l'update a échouée
+            \Session::addFlash('error', 'la modification du compte a échouée !');
+            //rediriger l'utilisateur vers le formulaire
+            \Http::redirectBack();
+        }
+    }
+
+
 }

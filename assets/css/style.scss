@@ -453,8 +453,12 @@ main {
         }
     }
 
-    /* Les Modales */
-    .modal-bg {
+
+/* *****************************************************************
+MODALS
+***************************************************************** */
+
+    .modal {
         position: fixed;
         background-color: rgba(grey, 0.6);
         top: 0;
@@ -462,16 +466,19 @@ main {
         bottom: 0;
         right: 0;
         display: none;
+        overflow-y: initial
     }
 
     .modal-content {
         background-color: rgb(255, 255, 255);
-        width: 80%;
+        width: 85vh;
         padding: 2em;
         border: 1px solid #888;
         margin: auto;
         box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
         animation: slidein 0.5s ease;
+        height: 85vh;
+        overflow-y: auto;
 
         p {
             margin-bottom: 4rem;
@@ -503,7 +510,7 @@ main {
     /* Close Button */
     .close {
         float: right;
-        color: #aaa;
+        color: rgb(255, 0, 0);
         float: right;
         font-size: 52px;
         font-weight: bold;
@@ -519,10 +526,8 @@ main {
     /* Formulaire */
     form {
         img {
-            width: 2000px;
             display: block;
             text-align: center;
-            margin: 1rem 0.2rem 0rem;
             overflow: auto;
         }
     }

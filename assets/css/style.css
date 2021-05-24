@@ -403,7 +403,9 @@ MAIN
 ***************************************************************** */
 main {
   background-color: #ca9d6777;
-  /* Les Modales */
+  /* *****************************************************************
+MODALS
+***************************************************************** */
   /* Close Button */
   /* Formulaire */
   /* modal SignUp */
@@ -661,7 +663,7 @@ main .navigation__questions i {
   color: #e71d73;
 }
 
-main .modal-bg {
+main .modal {
   position: fixed;
   background-color: rgba(128, 128, 128, 0.6);
   top: 0;
@@ -669,11 +671,12 @@ main .modal-bg {
   bottom: 0;
   right: 0;
   display: none;
+  overflow-y: initial;
 }
 
 main .modal-content {
   background-color: white;
-  width: 80%;
+  width: 85vh;
   padding: 2em;
   border: 1px solid #888;
   margin: auto;
@@ -681,6 +684,8 @@ main .modal-content {
           box-shadow: 0 1em 2em rgba(0, 0, 0, 0.5);
   -webkit-animation: slidein 0.5s ease;
           animation: slidein 0.5s ease;
+  height: 85vh;
+  overflow-y: auto;
 }
 
 main .modal-content p {
@@ -711,7 +716,7 @@ main textarea {
 
 main .close {
   float: right;
-  color: #aaa;
+  color: red;
   float: right;
   font-size: 52px;
   font-weight: bold;
@@ -725,10 +730,8 @@ main .close:focus {
 }
 
 main form img {
-  width: 2000px;
   display: block;
   text-align: center;
-  margin: 1rem 0.2rem 0rem;
   overflow: auto;
 }
 
