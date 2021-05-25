@@ -416,6 +416,9 @@ MODALS
   /* Formulaire */
   /* modal SignUp */
   /* modal Login */
+  /* *****************************************************************
+VICTORY BOX ( quand l'utilisateur atteint 100% de Niveau )
+***************************************************************** */
 }
 
 main .alert-section {
@@ -775,6 +778,12 @@ main #modalLogin:target {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+main .victory-box {
+  width: 70%;
+  margin: 0 auto;
+  background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
 }
 
 /* *****************************************************************

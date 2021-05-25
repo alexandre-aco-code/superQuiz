@@ -81,8 +81,7 @@ abstract class Controller
         $progressionUser = number_format(($totalPoints / ($numberOfQuestions)) * 100);
 
         // Condition si le score dépasse 100% quelquesoit la raison, alors il reste à 100%.
-        if ( $progressionUser > 100 )
-        {
+        if ($progressionUser > 100) {
             $progressionUser = 100;
         }
 

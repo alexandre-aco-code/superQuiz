@@ -4,13 +4,19 @@ namespace Controllers;
 
 class User extends Controller
 {
-    //contruction du nom du modele à utiliser
+    //contruction du nom du modele User à utiliser
     protected $modelName = \Models\User::class;
 
     public function loginForm()
     {
         // affiche directement la modale login
-        \Http::redirect($this->tplVars['WWW_URL'] . "index.php?controller=user&task=login&topic=1&indexQuestion=1#modalLogin");
+        \Http::redirect($this->tplVars['WWW_URL'] . "index.php#modalLogin");
+    }
+
+    public function signUpForm()
+    {
+        // affiche directement la modale sign up 
+        \Http::redirect($this->tplVars['WWW_URL'] . "index.php#modalSignUp");
     }
 
     public function out()
@@ -81,6 +87,13 @@ class User extends Controller
             \Http::redirectBack();
         }
 
+        //test mot de passe trop court
+        if (strlen($_POST['password']) < 5) {
+            //au moins le nom ou le prénom est numérique
+            \Session::addFlash('error', 'Le mot de passe doit contenir au moins 5 caractères !');
+            //rediriger l'utilisateur vers le formulaire
+            \Http::redirectBack();
+        }
         //vérifier le format de l'email
         //on utilise filter_var('bob@example.com', FILTER_VALIDATE_EMAIL)
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -107,9 +120,13 @@ class User extends Controller
             ->create($_POST)
         ) {
             //le compte a bien été créé
-            \Session::addFlash('success', 'Création du compte réussie !');
+            \Session::addFlash('success', 'Super! Votre compte a bien été créé ! Maintenant merci de vous connecter avec vos identifiants.');
+
+            // ca log l'utilisateur qui vient de créer son compte.
+            $this->loginForm();
+
             //rediriger l'utilisateur vers la page d'accueil
-            \Http::redirect(WWW_URL);
+            // \Http::redirect(WWW_URL);
         } else {
             //l'insertion a échouée
             \Session::addFlash('error', 'la création du compte a échouée !');

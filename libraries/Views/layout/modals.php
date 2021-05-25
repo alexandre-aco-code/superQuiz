@@ -3,14 +3,13 @@
     <div class="modal-content">
         <a href="index.php" class="close">&times;</a>
         <p>Inscrivez vous pour profiter au maximum du super <span class="golden-text">Q</span>ui<span class="purple-text">Z</span>!</p>
-        
+
         <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create" method="POST">
             <label for="email"><i class="fas fa-envelope"></i> Email (aucun spam garanti)</label>
             <input type="email" name="email" id="email" placeholder="email" />
             <label for="pseudo"><i class="fas fa-male"></i> Pseudo</label>
             <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" />
-            <label for="password"><i class="fas fa-lock"></i> Mot de passe (sera crypté en interne pour une
-                bonne sécurité)</label>
+            <label for="password"><i class="fas fa-lock"></i> Mot de passe (5 caractères minimum)</label>
             <input type="password" name="password" id="password" placeholder="password" />
             <label for="email"><i class="fas fa-camera-retro"></i> Votre Avatar (pour vous reconnaître)</label>
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>QuiZ By ACo</title>
 </head>
+
 <body>
 
     <!-- HEADER -->
@@ -18,6 +20,14 @@
     <main class="main">
         <!-- Faire apparaitre les notifications success/echec -->
         <?php include('layout/notifications.php'); ?>
+
+        <!-- BOX Victory.php qui apparait quand l'utilisateur a fini le site à 100% -->
+        <?php
+        if ( (intval($tplVars['progressionUser']) === 100)) {
+            include('layout/victory.php');
+        }
+        ?>
+
         <!-- Partie principale du main qui contient l'aside et la box principale -->
         <div class="container display__main">
             <!-- ASIDE qui contient BOX 1 PROFIL et BOX 2 COMMENTAIRES -->
@@ -37,4 +47,5 @@
     <script src="assets/js/answers.js"></script>
     <script src="assets/js/notifications.js"></script>
 </body>
+
 </html>

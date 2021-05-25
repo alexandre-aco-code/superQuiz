@@ -15,8 +15,8 @@
                     <ul>
                         <li><a href="<?= $tplVars['WWW_URL']; ?>index.php"><i class="fab fa-wpexplorer"></i>Mode
                                 d'emploi</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index"><i class="fab fa-wpexplorer"></i>Livre d'Or</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about"><i class="fab fa-wpexplorer"></i>A propos de Quiz by ACo</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index"><i class="fas fa-book"></i>Livre d'Or</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about"><i class="far fa-address-card"></i>A propos de Quiz by ACo</a></li>
                     </ul>
                 </li>
                 <!-- MENU DE NAVIGATION : TOPICS -->
@@ -46,8 +46,8 @@
                         <i class="fas fa-user-circle"></i><br>
                         Mon Compte</a>
                     <ul>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create&topic=1&indexQuestion=1#modalSignUp"><i class="fas fa-user-circle"></i>S'inscrire</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login&topic=1&indexQuestion=1#modalLogin"><i class="fas fa-user-circle"></i>Se Connecter</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=signUpForm"><i class="fas fa-user-circle"></i>S'inscrire</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=loginForm"><i class="fas fa-user-circle"></i>Se Connecter</a></li>
                         <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser"><i class="fas fa-user-circle"></i>Mes informations</a></li>
                         <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank"><i class="fas fa-puzzle-piece"></i>Administration BackOffice</a>
                         </li>
