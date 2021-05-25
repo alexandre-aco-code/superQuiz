@@ -2,26 +2,10 @@
 FONTS
 ***************************************************************** */
 
-// @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,100,200,500,600,700,800,900);
 @import url(https://fonts.googleapis.com/css?family=Exo:400,400italic,500,600,700,800,900,300,200,100);
-// @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-// @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap');
 
-/*
-	font-family: 'PT Sans', sans-serif;
-	font-family: 'Lato', sans-serif;
-	font-family: 'Raleway', sans-serif;
-	font-family: 'Exo',
-	sans-serif;
-	font-family: 'Roboto',
-	sans-serif;
-	font-family: 'Fira Code',
-	'Ubuntu Monospace',
-	monospace;
-	
-*/
 
 /* *****************************************************************
 VARS
@@ -49,12 +33,11 @@ $color-title-2: #e71d73;
 $color-title-3: #e71d73;
 $color-title: #333;
 $color-text: #555;
-$color-header:#92801a;
+$color-header:#92801a; // color-footer = color-header
 $color-header-text: #e2f7ff;
 $color-header-link: #fff;
 $color-header-link-hover: #ca9e67;
 $color-header-link-selected: #e71d73;
-//#063768;
 $color-header-link-extended-menu: $color-header;
 $color-body: #fff;
 $color-main:#ca9d6777;
@@ -76,7 +59,6 @@ $color-menu: #e2f7ff;
 $color-menu-link: #e71d73;
 $color-bad-answer: red;
 $color-good-answer: green;
-// #92B901
 $color-footer:$color-header;
 $color-footer-title: black;
 $color-footer-text: black;
