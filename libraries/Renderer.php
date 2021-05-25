@@ -17,8 +17,6 @@ class Renderer {
         $pageContent = ob_get_clean();
 
         require('libraries/Views/layout.phtml');
-
-
     }
 
     /**
@@ -51,6 +49,4 @@ class Renderer {
         require("libraries/Views/templates/error.phtml");
 
     }
-
-
 }

@@ -5,7 +5,6 @@ class Session
     /**
      * Rediriger l'utilisateur s'il n'est pas connecté
      *
-     *
      * @return void
      */
 
@@ -91,7 +90,7 @@ class Session
     }
 
     /**
-     * renvoie l'url de l'Avatar de l'utilisateur
+     * renvoie l'Avatar de l'utilisateur
      *
      *@return string
      */

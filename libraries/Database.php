@@ -1,12 +1,6 @@
 <?php
 
-
 //L'instance PDO qui sert partout ou y a besoin.
-
-// Classe abstraite = peut pas etre instancié
-// Function static = function dispo sans avoir besoin d'instancier la classe.
-
-
 
 abstract class Database {
 

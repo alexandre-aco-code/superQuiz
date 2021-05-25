@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,244 +9,32 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>QuiZ By ACo</title>
 </head>
-
 <body>
+
     <!-- HEADER -->
-    <header class="header">
-        <div class="container display">
-            <!-- Logo -->
-            <a href="<?= $tplVars['WWW_URL']; ?>index.php">
-                <img src="assets/images/quiz-logo-made-by-me.svg" alt="quiz-logo-made-by-me" />
-            </a>
-            <!-- MENU DE NAVIGATION -->
-            <nav>
-                <ul>
-                    <!-- MENU DE NAVIGATION : EXPLORER -->
-                    <li>
-                        <a href="<?= $tplVars['WWW_URL']; ?>index.php">
-                            <i class="fab fa-wpexplorer"></i><br>
-                            Explorer</a>
-                        <ul>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php"><i class="fab fa-wpexplorer"></i>Mode
-                                    d'emploi</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index"><i class="fab fa-wpexplorer"></i>Livre d'Or</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about"><i class="fab fa-wpexplorer"></i>A propos de Quiz by ACo</a></li>
-                        </ul>
-                    </li>
-                    <!-- MENU DE NAVIGATION : TOPICS -->
-                    <li>
-                        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1">
-                            <i class="fas fa-seedling"></i><br>
-                            Topics
-                        </a>
-                        <ul>
-                            <?php foreach ($tplVars['topics'] as $topic) : ?>
-                                <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><i class="fas fa-seedling"></i> <?= $topic['Name']; ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </li>
-                    <!-- MENU DE NAVIGATION : CLASSEMENT -->
-                    <li>
-                        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings">
-                            <i class="fas fa-poll-h"></i><br>
-                            Classement</a>
-                        <ul>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings"><i class="fas fa-poll-h"></i>Classement ( Mondial bien sûr )</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><i class="fas fa-poll-h"></i>Mes résultats par Topic</a></li>
-                        </ul>
-                    </li>
-                    <!-- MENU DE NAVIGATION : MON COMPTE -->
-                    <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser">
-                            <i class="fas fa-user-circle"></i><br>
-                            Mon Compte</a>
-                        <ul>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create&topic=1&indexQuestion=1#modalSignUp"><i class="fas fa-user-circle"></i>S'inscrire</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login&topic=1&indexQuestion=1#modalLogin"><i class="fas fa-user-circle"></i>Se Connecter</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser"><i class="fas fa-user-circle"></i>Mes informations</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank"><i class="fas fa-puzzle-piece"></i>Administration BackOffice</a>
-                            </li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php"><i class="fas fa-power-off"></i>Déconnexion</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <?php include('layout/header.php'); ?>
 
     <!-- MAIN -->
     <main class="main">
-        <!-- Faire apparaitre les flashs -->
-        <div class="alert-section" id="zonedenotification">
-            <?php if (\Session::hasFlashes('error')) : ?>
-                <div class="alert alert-element alert-danger is-active">
-                    <div class="text">
-                        <?php foreach (\Session::getFlashes('error') as $message) : ?>
-                            <p><?= $message ?></p>
-                        <?php endforeach ?>
-                    </div>
-                </div>
-            <?php endif ?>
-            <?php if (\Session::hasFlashes('success')) : ?>
-                <div class="alert alert-element alert-success is-active">
-                    <div class="text">
-                        <?php foreach (\Session::getFlashes('success') as $message) : ?>
-                            <p><?= $message ?></p>
-                        <?php endforeach ?>
-                    </div>
-                </div>
-            <?php endif ?>
-        </div>
-
-        <!-- Partie principale du main -->
+        <!-- Faire apparaitre les notifications success/echec -->
+        <?php include('layout/notifications.php'); ?>
+        <!-- Partie principale du main qui contient l'aside et la box principale -->
         <div class="container display__main">
-            <aside>
-                <!-- ASIDE BOX 1 POUR LE PROFIL DE l'USER -->
-                <div class="identification box">
-                    <h2>Profil</h2>
-                    <?php
-                    //si je suis connecté, j'affiche image + pseudo + score
-                    //sinon j'affiche pas connecté
-                    if (\Session::isConnected()) :
-                    ?>
-
-
-                        <!-- image de l'utilisateur -->
-                        <img src="<?= $_SESSION['user']['AvatarURL']; ?>" alt="profil picture">
-
-                        <!-- phrase aléatoire de bienvenue -->
-                        <?php
-                        $text1 = "Je vois que l'on se porte bien, bienvenue";
-                        $text2 = "Je vois qu'on pousse à la salle, bienvenue";
-                        $text3 = "Très belle dégaine, bienvenue";
-                        $text4 = "Quel regard, bienvenue";
-                        $text5 = "Votre mine est radieuse, bienvenue";
-                        $variable = rand(1, 5);
-                        switch ($variable) {
-                            case 1:
-                                $text = $text1;
-                                break;
-                            case 2:
-                                $text = $text2;
-                                break;
-                            case 3:
-                                $text = $text3;
-                                break;
-                            case 4:
-                                $text = $text4;
-                                break;
-                            case 5:
-                                $text = $text5;
-                                break;
-                        }
-                        ?>
-                        <h3><?= $text ?><span class="golden-text"><?= $_SESSION['user']['Pseudo']; ?></span></h3>
-                        <!-- AVANCEMENT DE L'UTILISATEUR -->
-                        <p><span class="golden-text">A</span>vancement dans le sit<span class="purple-text">e</span> (mis à
-                            jour à la fin d'un topic) :</p>
-                        <p class="avancement"><?= $tplVars['progressionUser']; ?> %</p>
-                        <!-- sinon si l'utilisateur n'est pas connecté j'affiche ce message -->
-                    <?php
-                    else :
-                    ?>
-                        <p>Utilisateur non connecté :(</p>
-                    <?php
-                    endif;
-                    ?>
-                </div>
-                <!-- ASIDE BOX 2 POUR LES COMMENTAIRES  -->
-                <div class="commentary_box box">
-                    <h2>Commentaires</h2>
-                    <p>Aidez moi à améliorer le site, mettez votre avis dans l'espace Explorer/Livre d'Or ;)</p>
-                    <div class="commentary_box_quotes">
-                        <?php foreach ($tplVars['commentaries'] as $key => $commentary) : ?>
-                            <blockquote>
-                                <cite>"<?= $commentary["Content"]; ?>"</cite>
-                                <!-- permet de choper la date, en enlevant l'heure -->
-                                <?php $date = explode(" ", $commentary['Created_at']); ?>
-                                <p class="commentary__author">le <?= $date[0]; ?> par
-                                    <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
-                            </blockquote>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- LE PAGE CONTENT -->
+            <!-- ASIDE qui contient BOX 1 PROFIL et BOX 2 COMMENTAIRES -->
+            <?php include('layout/aside.php'); ?>
+            <!-- PAGE CONTENT - BOX PRINCIPALE QUI CONTIENT LE TEMPLATE -->
             <?= $pageContent ?>
         </div>
-
-        <!-- LES MODALES-->
-        <!-- Modale pour s'inscrire' -->
-        <div class="modal" id="modalSignUp">
-            <div class="modal-content">
-                <a href="index.php" class="close">&times;</a>
-                <p>Inscrivez vous pour profiter au maximum du super <span class="golden-text">Q</span>ui<span class="purple-text">Z</span>!</p>
-                <!-- <?php if (!empty($message)) : ?>
-                    <?= var_dump($_SESSION) ?>
-                    <p><?= $message; ?></p>
-                <?php endif; ?> -->
-                <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create" method="POST">
-                    <label for="email"><i class="fas fa-envelope"></i> Email (aucun spam garanti)</label>
-                    <input type="email" name="email" id="email" placeholder="email" />
-                    <label for="pseudo"><i class="fas fa-male"></i> Pseudo</label>
-                    <input type="text" name="pseudo" id="pseudo" placeholder="pseudo" />
-                    <label for="password"><i class="fas fa-lock"></i> Mot de passe (sera crypté en interne pour une
-                        bonne sécurité)</label>
-                    <input type="password" name="password" id="password" placeholder="password" />
-                    <label for="email"><i class="fas fa-camera-retro"></i> Votre Avatar (pour vous reconnaître)</label>
-
-                    <!-- Choix de l'Avatar -->
-                    <div class="display_flex">
-                        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNTczMzk1MjU1MV5BMl5BanBnXkFtZTcwNDk2MzAyMg@@._V1_UY256_CR2,0,172,256_AL_.jpg" alt="WillSmith">
-                        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjUzZTJmZDItODRjYS00ZGRhLTg2NWQtOGE0YjJhNWVlMjNjXkEyXkFqcGdeQXVyMTg4NDI0NDM@._V1_UY256_CR42,0,172,256_AL_.jpg" alt="GalGadot">
-                        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOWViYjUzOWMtMzRkZi00MjNkLTk4M2ItMTVkMDg5MzE2ZDYyXkEyXkFqcGdeQXVyODQwNjM3NDA@._V1_UY256_CR36,0,172,256_AL_.jpg" alt="AdamDriver">
-                        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNjk5NjE5NTczMV5BMl5BanBnXkFtZTcwODI0OTM0NA@@._V1_UY256_CR4,0,172,256_AL_.jpg" alt="Effy">
-                        <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOTU2MTI0NTIyNV5BMl5BanBnXkFtZTcwMTA4Nzc3OA@@._V1_UX172_CR0,0,172,256_AL_.jpg" alt="ChrisHemsworth">
-                    </div>
-                    <div class="display_flex">
-                        <input type="radio" name="avatar" value="1" id="avatar1" />
-                        <input type="radio" name="avatar" value="2" id="avatar2" />
-                        <input type="radio" name="avatar" value="3" id="avatar3" />
-                        <input type="radio" name="avatar" value="4" id="avatar4" />
-                        <input type="radio" name="avatar" value="5" id="avatar5" />
-                    </div>
-
-                    <button type="submit">S'inscrire!</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Modale pour login -->
-        <div class="modal" id="modalLogin">
-            <div class="modal-content">
-                <a href="index.php" class="close">&times;</a>
-                <p>Merci de renseigner vos identifiants <span class="golden-text">Q</span>ui<span class="purple-text">Z</span>!</p>
-                <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=login" method="POST">
-                    <label for="emaillogin"><i class="fas fa-envelope"></i> Email</label>
-                    <input type="email" name="emaillogin" id="emaillogin" placeholder="email" />
-                    <label for="passwordlogin"><i class="fas fa-lock"></i> Mot de passe</label>
-                    <input type="password" name="passwordlogin" id="passwordlogin" placeholder="password" />
-                    <button type="submit">Se Connecter</button>
-                </form>
-            </div>
-        </div>
+        <!-- LES 2 MODALES LOGIN ET SIGNUP -->
+        <?php include('layout/modals.php'); ?>
     </main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container signature">
-            <p>Projet réalisé par : <a href="https://www.linkedin.com/in/alexandre-connangle-6221a558/">Alexandre
-                    Code</a>.</p>
-            <p>En POO en respectant la structure MVC.</p>
-            <p>Technologies utilisées : HTML, CSS, SASS, JAVASCRIPT, PHP, MYSQL.</p>
-            <p><small>Mentions légales ACo ©</small><small> - 2021.</small></p>
-        </div>
-    </footer>
+    <?php include('layout/footer.php'); ?>
 
     <!-- SCRIPTS -->
     <script src="assets/js/scoreColorisation.js"></script>
     <script src="assets/js/answers.js"></script>
     <script src="assets/js/notifications.js"></script>
 </body>
-
 </html>
