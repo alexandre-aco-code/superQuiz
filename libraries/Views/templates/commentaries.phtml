@@ -2,12 +2,12 @@
     <h1>Livre d'Or</h1>
     <div>
         <?php foreach ($tplVars['commentaries'] as $key => $commentary) : ?>
-            <blockquote>
-                <cite>"<?= $commentary["Content"]; ?>"</cite>
-                <p>écrit le <?= $commentary['Created_at']; ?> par <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
-            </blockquote>
+        <blockquote>
+            <cite>"<?= $commentary["Content"]; ?>"</cite>
+            <p>écrit le <?= $commentary['Created_at']; ?> par <?= $tplVars['commentaryCreatedBy'][$key] ?></p>
+        </blockquote>
         <?php endforeach; ?>
-        
+
         <!-- Section pour mettre un ocmmentaire -->
         <form method="post" action="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=commentarySent">
             <textarea name="commentary" id="commentary" cols="30" rows="10"></textarea>

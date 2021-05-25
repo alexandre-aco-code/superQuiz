@@ -97,7 +97,6 @@ class User extends Model
         //vérifier le mot de passe
         //https://www.php.net/manual/fr/function.openssl-decrypt
 
-
         if ($pass === openssl_decrypt($pass_hash, "AES-128-ECB", SECRETKEY)) {
             return true;
         }
@@ -123,7 +122,7 @@ class User extends Model
         $insertUser['Pseudo'] = $u['pseudo'];
         $insertUser['Password'] = $this->cryptPassword($u['password']); //crypter le mot de passe
         $insertUser['Email'] = $u['email'];
-        // Choper que le numéro de l'avatar la ! je crois c'est bon
+        // Récupérer que le numéro de l'avatar 
         $insertUser['Avatar_Id'] = intval($u['avatar']);
 
 

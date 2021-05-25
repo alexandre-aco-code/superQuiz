@@ -233,7 +233,7 @@ body h3 {
 
 body h3 span {
   display: block;
-  margin: 2rem;
+  margin: 2rem auto;
   font-size: 3rem;
 }
 
@@ -708,6 +708,10 @@ main textarea {
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 0.5em;
+}
+
+main input[type=radio] {
+  height: 1.5em;
 }
 
 main select,

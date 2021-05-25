@@ -37,6 +37,22 @@ class Score extends Model {
         return true;
     }
 
+    public function getScoreByUserAndByTopic(int $id, int $topic)
+    {
+
+        $query = $this->db->prepare("SELECT ScoreByTopic FROM $this->table WHERE Id_User = :id AND Id_Topic = :topic");
+
+        $query->execute([':id' => $id, ':topic' => $topic]);
+
+        $score = $query->fetch(\PDO::FETCH_ASSOC);
+
+        if (!$score) {
+            return null;
+        } else {
+            return intval($score["ScoreByTopic"]);
+        }
+
+    }
     public function findScores(int $id, int $topic)
     {
 

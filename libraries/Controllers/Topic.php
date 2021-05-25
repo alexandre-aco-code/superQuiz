@@ -2,44 +2,59 @@
 
 namespace Controllers;
 
-class Topic extends Controller 
+class Topic extends Controller
 {
     protected $modelName = \Models\Topic::class;
-    
-    public function index() {
-                
+
+    public function index()
+    {
         //controler que $_GET['id'] existe bien 
         if (isset($_GET['topic']) && ctype_digit($_GET['topic'])) {
-                
-            $topics = $this->model->findAll();
 
+            // On récupère tous les topics
+            $topics = $this->model->findAll();
+            $topicslength = count($topics);
+
+            // On récupère les utilisateurs ici pour ensuite indiquer quel utilisateur a créé quel topic.
             $userModel = new \Models\User();
             $userList = [];
 
-            // Pour compter le nombre de questions par topic pour afficher le score pour chaque
+            // On récupère le nombre de questions par topic pour afficher le score pour chaque topic ensuite
             $questionList = new \Models\Question();
             $questionsCountByTopic = [];
 
 
-            foreach ($topics as $topic) {
-                
-                //chope l'utilisateur qui a créé le topic
-                array_push($userList, $userModel->getUser($topic['Created_by'])['Pseudo']);
-
-                //Chope le nombre de question pour chaque topic
-                array_push($questionsCountByTopic, count($questionList->findAllQuestionsByTopic($topic['Id'])));
-
-            }
-
             // AJOUT DU SCORE
-            $modelName = new \Models\Score;
+
+            $scoresByTopic = [];
+            // $scoresByTopic = array_fill(0, $topicslength, null);
+
+            $modelScore = new \Models\Score;
             if (\Session::isConnected()) {
                 $id = \Session::getId();
-                $scoresByTopic = $modelName->findScoreByUser($id);
-            } else {
-                $scoresByTopic = [];
+                // $scoresByTopic = $modelScore->findScoreByUser($id);
+                // var_dump($scoresByTopic);
             }
-                
+
+            // var_dump($scoresByTopic);
+
+            foreach ($topics as $topic) 
+            {
+
+                // echo "<pre>";
+                // var_dump($topic);
+                // echo "</pre>";
+
+                //pour chaque topic on push le pseudo du créateur
+                array_push($userList, $userModel->getUser($topic['Created_by'])['Pseudo']);
+
+                //pour chaque topic on push le nombre de question
+                array_push($questionsCountByTopic, count($questionList->findAllQuestionsByTopic($topic['Id'])));
+
+                // pour chaque topic on push le score de l'utilisateur
+                array_push($scoresByTopic, $modelScore->getScoreByUserAndByTopic(\Session::getId(),$topic['Id'] ));
+
+            }
 
             //rajout des infos dans $this->tplVars
             $this->tplVars = $this->tplVars + [
@@ -47,14 +62,11 @@ class Topic extends Controller
                 'scoresByTopic' => $scoresByTopic,
                 'questionsCountByTopic' => $questionsCountByTopic
             ];
-            
+
             //affichage
-            \Renderer::show("topic",$this->tplVars);
-        }
-        else {
+            \Renderer::show("topic", $this->tplVars);
+        } else {
             throw new \Exception('Impossible d\'afficher la page Topic !');
         }
-
-        
     }
 }

@@ -1,22 +1,31 @@
 <section class="quiz box topic">
     <h1>Liste des Topics</h1>
     <ul>
+        <?php 
+        // echo ("<pre>");
+        // var_dump($tplVars);
+        // var_dump($tplVars['scoresByTopic'][0]);
+        // var_dump($tplVars['scoresByTopic'][0]['Id_Topic']);
+        // echo ("</pre>");
+        ?>
         <?php foreach ($tplVars['topics'] as $key => $topic) : ?>
             <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><button><i class="fas fa-sun"></i> <?= $topic['Name']; ?></button></a></li>
 
-            <!-- Calcul PHP, permet de choper la date, en enlevant l'heure -->
+            <!-- Permet de récupérer la date, en enlevant l'heure -->
             <?php $date = explode(" ", $topic['CreatedAt']); ?>
 
             <!-- Affichage des détails du topic, date et créateur -->
             <p><cite>Topic créé le <?= $date[0]; ?> par <?= $tplVars['topicCreatedBy'][$key] ?> </cite></p>
 
 
-            <!-- Si le score est pâs défini dans la bdd, ca affiche que "ca n'a pas été joué" et non 0 -->
+            <!-- Si le score est pas défini dans la bdd, ca affiche que "ca n'a pas été joué" et non 0 -->
             <?php
-            if (!isset($tplVars['scoresByTopic'][$key]['ScoreByTopic']))
+
+            if (!isset($tplVars['scoresByTopic'][$key]))
                 $score = 'Topic pas encore joué';
             else
-                $score = $tplVars['scoresByTopic'][$key]['ScoreByTopic'];
+                $score = $tplVars['scoresByTopic'][$key];
+
             ?>
 
             <!-- Affichage du score par topic  -->
