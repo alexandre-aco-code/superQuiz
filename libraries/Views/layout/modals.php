@@ -3,10 +3,7 @@
     <div class="modal-content">
         <a href="index.php" class="close">&times;</a>
         <p>Inscrivez vous pour profiter au maximum du super <span class="golden-text">Q</span>ui<span class="purple-text">Z</span>!</p>
-        <!-- <?php if (!empty($message)) : ?>
-                    <?= var_dump($_SESSION) ?>
-                    <p><?= $message; ?></p>
-                <?php endif; ?> -->
+        
         <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=create" method="POST">
             <label for="email"><i class="fas fa-envelope"></i> Email (aucun spam garanti)</label>
             <input type="email" name="email" id="email" placeholder="email" />

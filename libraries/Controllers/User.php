@@ -162,8 +162,6 @@ class User extends Controller
     public function updateInfosUser()
     {
 
-        var_dump($_POST);
-
         //vérifier la présence des champs obligatoire
         if (empty($_POST['pseudo']) || empty($_POST['email']) || empty($_POST['avatar'])) {
             //au moins un des champs obligatoires non rempli
@@ -189,16 +187,20 @@ class User extends Controller
             \Http::redirectBack();
         }
 
+        // var_dump($_POST);
+
         //si on arrive ici on va pouvoir mettre a jour notre utilisateur
         if ($this
             ->model
             ->updateUser($_POST)
         ) {
+            var_dump("ca marche gros");
             //le compte a bien été mis a jour
             \Session::addFlash('success', 'Modification du compte réussie !');
             //rediriger l'utilisateur vers la page d'accueil
             \Http::redirect(WWW_URL);
         } else {
+            var_dump("ca marche pas chef");
             //l'update a échouée
             \Session::addFlash('error', 'la modification du compte a échouée !');
             //rediriger l'utilisateur vers le formulaire

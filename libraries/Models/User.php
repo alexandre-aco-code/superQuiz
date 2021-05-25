@@ -145,11 +145,23 @@ class User extends Model
         $updateUser['Id'] = \Session::getId();
         $updateUser['Pseudo'] = $u['pseudo'];
         $updateUser['Email'] = $u['email'];
-        // Choper que le numéro de l'avatar la ! je crois c'est bon
         $updateUser['Avatar_Id'] = intval($u['avatar']);
 
         // utilise la méthode UPDATE du model
-        if ($this->update($updateUser) > 0) {
+        if ($this->update($updateUser)) {
+
+            // je vais chercher l'avatar de l'user
+            $avatar = new Avatar();
+            $avatarURL = $avatar->getAvatar($updateUser['Avatar_Id']);
+
+            //création d'un session utilisateur
+            \Session::connect([
+                'Id' => intval($updateUser['Id']),
+                'Pseudo' => htmlspecialchars($updateUser['Pseudo']),
+                'Admin' => intval($updateUser['Admin']),
+                'AvatarURL' => $avatarURL['Image'],
+            ]);
+
             return true;
         } else {
             //on a eu une erreur

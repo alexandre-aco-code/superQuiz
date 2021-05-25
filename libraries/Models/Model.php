@@ -59,10 +59,6 @@ abstract class Model
 
         $sql .= implode(",", $sqlColumns);
 
-
-        var_dump($sql);
-        // die();
-
         $query = $this->db->prepare($sql);
 
         $query->execute($data);
@@ -75,9 +71,9 @@ abstract class Model
      * Permet de mettre à jour un enregistrement
      *
      * @param array $data
-     * @return void
+     * @return bool
      */
-    public function update(array $data)
+    public function update(array $data) : bool
     {
         if (!array_key_exists('Id', $data)) {
             throw new \Exception("Vous ne pouvez pas appeler la fonction update sans préciser dans votre tableau un champ `id` !");
@@ -101,6 +97,8 @@ abstract class Model
         $query = $this->db->prepare($sql);
 
         $query->execute($data);
+
+        return true;
     }
 
 

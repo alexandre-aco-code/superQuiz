@@ -2,12 +2,12 @@
 
 namespace Controllers;
 
-// use Session;
 /*
  * LES PROPRIETES :
  * ---------------------
  * $model représente l'objet Model à utiliser pour nos requêtes
  * $modelName représente le nom de l'objet Model à créer avant toute action sur un controller
+ * $tplVars représente la variable qui permet de stocker toutes les données nécessaires à afficher ensuite dans les templates phtml.
  *
  * LES METHODES :
  * ----------------------
@@ -61,7 +61,7 @@ abstract class Controller
 
         $this->tplVars = $this->tplVars + ['commentaries' => $commentaries];
 
-        // PARTIE POUR AJOUTER LAVANCEMENT EN % DANS LA ZONE PROFIL
+        // PARTIE POUR AJOUTER LE NIVEAU EN % DANS LA ZONE PROFIL
         $score = new \Models\Score();
 
         if (\Session::isConnected()) {

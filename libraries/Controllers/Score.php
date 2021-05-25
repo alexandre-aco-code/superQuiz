@@ -12,25 +12,14 @@ class Score extends Controller
         if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
 
 
-            // recupération du titre du rayon
+            // recupération du titre du topic
             $score = $this->model->findScoreByTopic(intval($_GET['id']));
 
-            // $userModel = new \Models\User();
-
-            // $userName = $userModel->findAll
-
-            // var_dump($score);
-
-
-
-
             //rajout des topics dans $this->tplVars
-
             $this->tplVars = $this->tplVars + [
                 'scoreByTopic' => $score
                 // 'topicCreatedAt' => $topics
             ];
-            
             
             //affichage
             \Renderer::show("score",$this->tplVars);
@@ -39,9 +28,6 @@ class Score extends Controller
             throw new \Exception('Impossible d\'afficher la page Score !');
         }
 
-        
     }
-
-
 
 }
