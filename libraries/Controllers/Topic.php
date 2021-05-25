@@ -2,12 +2,23 @@
 
 namespace Controllers;
 
+use Session;
+
 class Topic extends Controller
 {
     protected $modelName = \Models\Topic::class;
 
     public function index()
     {
+        if (!\Session::getId()) {
+
+            // throw new \Exception('Utilisateur non enregistré !');
+
+            //l'email n'est pas au bon format
+            \Session::addFlash('error', 'Pour accéder aux topics merci de vous enregistrer !');
+            //rediriger l'utilisateur vers le formulaire
+            \Http::redirectBack();
+        }
         //controler que $_GET['id'] existe bien 
         if (isset($_GET['topic']) && ctype_digit($_GET['topic'])) {
 

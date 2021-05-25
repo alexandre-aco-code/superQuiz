@@ -37,8 +37,8 @@
                         <i class="fas fa-poll-h"></i><br>
                         Classement</a>
                     <ul>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings"><i class="fas fa-poll-h"></i>Classement ( Mondial bien sûr )</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><i class="fas fa-poll-h"></i>Mes résultats par Topic</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings"><i class="fas fa-globe-africa"></i>Classement Mondial (bien sûr)</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><i class="fas fa-trophy"></i>Mes résultats par Topic</a></li>
                     </ul>
                 </li>
                 <!-- MENU DE NAVIGATION : MON COMPTE -->
@@ -46,12 +46,26 @@
                         <i class="fas fa-user-circle"></i><br>
                         Mon Compte</a>
                     <ul>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=signUpForm"><i class="fas fa-user-circle"></i>S'inscrire</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=loginForm"><i class="fas fa-user-circle"></i>Se Connecter</a></li>
+                        <!-- Si personne n'est loggé alors les commandes S'inscrire et Se Connecter son disponibles, sinon elles se masquent -->
+                        <?php if (!\Session::isConnected()) :
+                        ?>
+
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=signUpForm"><i class="fas fa-user-circle"></i>S'inscrire</a></li>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=loginForm"><i class="fas fa-user-circle"></i>Se Connecter</a></li>
+
+                        <?php endif ?>
+
                         <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser"><i class="fas fa-user-circle"></i>Mes informations</a></li>
+
                         <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank"><i class="fas fa-puzzle-piece"></i>Administration BackOffice</a>
                         </li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php"><i class="fas fa-power-off"></i>Déconnexion</a></li>
+
+                        <!-- Si l'utilisateur est connecté, alors on affiche la possibilité de se déconnecter. -->
+                        <?php if (\Session::isConnected()) :
+                        ?>
+                            <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php"><i class="fas fa-power-off"></i>Déconnexion</a></li>
+
+                        <?php endif ?>
                     </ul>
                 </li>
             </ul>
