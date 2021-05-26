@@ -9,9 +9,6 @@ class About extends Controller
     public function index()
     {
 
-
-
-
         //affichage
 
         \Renderer::show("about", $this->tplVars);

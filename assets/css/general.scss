@@ -33,14 +33,15 @@ $color-title-2: #e71d73;
 $color-title-3: #e71d73;
 $color-title: #333;
 $color-text: #555;
-$color-header:#92801a; // color-footer = color-header
+$color-header: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,0.5190009109112395) 100%);
 $color-header-text: #e2f7ff;
 $color-header-link: #fff;
 $color-header-link-hover: #ca9e67;
 $color-header-link-selected: #e71d73;
-$color-header-link-extended-menu: $color-header;
+$color-header-link-extended-menu: #e71d73;
+// $color-header-link-extended-menu: #631b95;
 $color-body: #fff;
-$color-main:#ca9d6777;
+$color-main:#0000007a; // #000000a8 black - #ca9d6777 gold
 $color-quiz:#eee;
 $color-article:#eee;
 $color-aside:#eee;
@@ -70,7 +71,7 @@ $border-lg: 2px solid #ccc;
 $shadow-sm: 0 0 1px rgba(0, 0, 0, 0.2);
 $shadow-md: 0 0 3px rgba(0, 0, 0, 0.3);
 $shadow-lg: 0 0 5px rgba(0, 0, 0, 0.4);
-$shadow-xl: 0 10px 20px rgba(0, 0, 0, 0.5);
+$shadow-xl: 0 5px 10px rgba(0, 0, 0, 0.5);
 
 
 /* *****************************************************************
