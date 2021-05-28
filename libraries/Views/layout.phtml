@@ -18,26 +18,33 @@
 
     <!-- MAIN -->
     <main class="main">
-        <!-- Faire apparaitre les notifications success/echec -->
-        <?php include('layout/notifications.php'); ?>
 
-        <!-- BOX Victory.php qui apparait quand l'utilisateur a fini le site à 100% -->
-        <?php
-        if ((intval($tplVars['progressionUser']) === 100)) {
-            include('layout/victory.php');
-        }
-        ?>
+        <div class="container">
+            <!-- Faire apparaitre les notifications success/echec -->
+            <?php include('layout/notifications.php'); ?>
 
-        <!-- Partie principale du main qui contient l'aside et la box principale -->
-        <div class="container display__main">
+            <!-- BOX Victory.php qui apparait quand l'utilisateur a fini le site à 100% -->
+            <?php
+            if ((intval($tplVars['progressionUser']) === 100)) {
+                include('layout/victory.php');
+            }
+            ?>
+            <!-- Partie principale du main qui contient l'aside et la box principale -->
+            <div class="display__main">
 
-            <!-- ASIDE qui contient BOX 1 PROFIL et BOX 2 COMMENTAIRES -->
-            <?php include('layout/aside.php'); ?>
-            <!-- PAGE CONTENT - BOX PRINCIPALE QUI CONTIENT LE TEMPLATE -->
-            <?= $pageContent ?>
+                <!-- ASIDE qui contient BOX 1 PROFIL et BOX 2 COMMENTAIRES -->
+                <?php include('layout/aside.php'); ?>
+                <!-- PAGE CONTENT - BOX PRINCIPALE QUI CONTIENT LE TEMPLATE -->
+                <?= $pageContent ?>
+                <!-- LES 2 MODALES LOGIN ET SIGNUP -->
+                <?php include('layout/modals.php'); ?>
+
+
+            </div>
+
         </div>
-        <!-- LES 2 MODALES LOGIN ET SIGNUP -->
-        <?php include('layout/modals.php'); ?>
+
+
     </main>
 
     <!-- FOOTER -->

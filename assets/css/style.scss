@@ -240,7 +240,7 @@ main {
         background-color: green;
     }
 
-    // Display principal
+    // Display principal qui met d'un coté la box principale, et de l'autre le aside
     .display__main {
         display: flex;
         flex-direction: row-reverse;
@@ -379,7 +379,7 @@ QUIZ
         display: inline-block;
         padding: 0.5em;
         margin: 1rem;
-        width: 500px;
+        width: 80%;
         height: 75px;
         border-radius: 5px;
         color: $color-button-text;
@@ -885,16 +885,13 @@ $littlephoneToPhone: 700px;
         button {
             width: 250px;
         }
+
     }
 }
 
 // PHONE -> TABLET
 @media screen and (max-width: $phoneToTablet) {
     header {
-        img {
-            min-width: 250px;
-            margin-left: 2rem;
-        }
 
         nav {
             flex-direction: column;
@@ -905,12 +902,22 @@ $littlephoneToPhone: 700px;
             }
         }
     }
+    
+    .ceintures {
+        flex-direction: column;
+    }
 }
 
 // LITTLE PHONE -> PHONE ( NOT NECESSARY )
 @media screen and (max-width: $littlephoneToPhone) {
     header {
-        height: 150px;
+
+        height:200px;
+
+        img {
+            margin: 2rem 0;
+        }
+
 
         .display {
             flex-direction: column;

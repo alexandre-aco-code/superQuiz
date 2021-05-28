@@ -569,7 +569,7 @@ main .button-like {
   display: inline-block;
   padding: 0.5em;
   margin: 1rem;
-  width: 500px;
+  width: 80%;
   height: 75px;
   border-radius: 5px;
   color: #fff;
@@ -1037,10 +1037,6 @@ RESPONSIVE
 }
 
 @media screen and (max-width: 800px) {
-  header img {
-    min-width: 250px;
-    margin-left: 2rem;
-  }
   header nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1051,11 +1047,20 @@ RESPONSIVE
     min-width: 5em;
     padding: 1em 1em;
   }
+  .ceintures {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 700px) {
   header {
-    height: 150px;
+    height: 200px;
+  }
+  header img {
+    margin: 2rem 0;
   }
   header .display {
     -webkit-box-orient: vertical;
