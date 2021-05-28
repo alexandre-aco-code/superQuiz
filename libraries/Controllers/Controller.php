@@ -26,7 +26,7 @@ abstract class Controller
     public function __construct()
     {
 
-        //vérification que le model a bien été renseigné
+        //vérification que le model a bien été renseigné par le développeur.
         if (!empty($this->modelName)) {
 
             //Vérification que le model existe
@@ -40,54 +40,47 @@ abstract class Controller
             $this->model = new $this->modelName();
         }
 
-        /** Initialisation des données par défaut */
-
-        $topics = new \Models\Topic();
-
-        $this->tplVars = $this->tplVars + ['topics' => $topics->findAll()];
+        /** 
+         * Initialisation des données par défaut, on incrémente les valeurs dans la variable $tplVars
+         * */
 
         //chemin absolu du projet
         $this->tplVars = $this->tplVars + ['WWW_URL' => WWW_URL];
 
-        //rajout des commentaries dans $this->tplVars
+        // Ajout de la liste des Topics
+        $topics = new \Models\Topic();
+        $this->tplVars = $this->tplVars + ['topics' => $topics->findAll()];
+
+
+        //Ajout des commentaires et de l'auteur du commentaire
         $commentariesModel = new \Models\Commentary();
         $commentaries = $commentariesModel->findAllAuthorizedCommentaries();
-        
         $userModel = new \Models\User();
         $userList = [];
-
         foreach ($commentaries as $commentary) {
             array_push($userList, $userModel->getUser($commentary['User_Id'])['Pseudo']);
         }
-
         $this->tplVars = $this->tplVars + ['commentaryCreatedBy' => $userList];
-
         $this->tplVars = $this->tplVars + ['commentaries' => $commentaries];
 
-        // PARTIE POUR AJOUTER LE NIVEAU EN % DANS LA ZONE PROFIL
+        //Ajout du score de l'utilisateur
         $score = new \Models\Score();
-
         if (\Session::isConnected()) {
             $scoresOfUser = $score->findScoreByUser(\Session::getId());
         } else {
             $scoresOfUser = [];
         }
-
         $totalPoints = 0;
         foreach ($scoresOfUser as $score) {
             $totalPoints = $totalPoints + intval($score["ScoreByTopic"]);
         }
-
         $questionList = new \Models\Question();
         $numberOfQuestions = count($questionList->findAll());
-
         $progressionUser = number_format(($totalPoints / ($numberOfQuestions)) * 100);
-
         // Condition si le score dépasse 100% quelquesoit la raison, alors il reste à 100%.
         if ($progressionUser > 100) {
             $progressionUser = 100;
         }
-
         $this->tplVars = $this->tplVars + ['progressionUser' => $progressionUser];
     }
 }

@@ -509,7 +509,7 @@ main .commentary_box .commentary__author {
 main .commentary_box .commentary_box_quotes {
   overflow: auto;
   text-align: left;
-  max-height: 200px;
+  max-height: 300px;
 }
 
 main .commentary_box blockquote {

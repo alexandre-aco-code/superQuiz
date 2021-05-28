@@ -312,7 +312,7 @@ ASIDE = PROFIL + COMMENTAIRES ( 2 boxes à droite )
         .commentary_box_quotes {
             overflow: auto;
             text-align: left;
-            max-height: 200px;
+            max-height: 300px;
         }
 
         blockquote {
@@ -394,7 +394,6 @@ QUIZ
             color: black;
             transform: translateY(-5px);
             transition: 0.05s ease;
-            // background: $color-button-hover;
         }
 
         &:active {

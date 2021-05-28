@@ -10,7 +10,6 @@ class About extends Controller
     {
 
         //affichage
-
         \Renderer::show("about", $this->tplVars);
     }
 }
