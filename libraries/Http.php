@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CLASSE QUI PERMET DE GERER LE PROTOCOLE HTTP
  * ------------------------------
@@ -25,11 +26,24 @@ class Http
      */
     public static function redirectBack()
     {
-        if (empty($_SERVER['HTTP_REFERER']))
-        {
-            self::redirect(WWW_URL); 
+        if (empty($_SERVER['HTTP_REFERER'])) {
+            self::redirect(WWW_URL);
         }
         self::redirect($_SERVER['HTTP_REFERER']);
+    }
+
+
+    /**
+     * Permet d'afficher les pages du Site
+     * 
+     * @param string 
+     * @param array
+     * @return void
+     */
+    public static function redirectWithtplVars(string $url, array $tplVars = [])
+    {
+        header("Location: $url");
+        exit();
     }
 
 }

@@ -2,7 +2,8 @@
 
 namespace Models;
 
-class Score extends Model {
+class Score extends Model
+{
 
     public $table = T_SCORE;
 
@@ -51,8 +52,8 @@ class Score extends Model {
         } else {
             return intval($score["ScoreByTopic"]);
         }
-
     }
+
     public function findScores(int $id, int $topic)
     {
 
@@ -62,5 +63,4 @@ class Score extends Model {
 
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
-
 }

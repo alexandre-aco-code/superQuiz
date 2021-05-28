@@ -2,9 +2,8 @@
 
 namespace Models;
 
-class Avatar extends Model {
-
-
+class Avatar extends Model
+{
     protected $table = T_AVATARS;
 
     //renvoie l'avatar de l'utilisateur
@@ -18,6 +17,4 @@ class Avatar extends Model {
 
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
-
-
 }

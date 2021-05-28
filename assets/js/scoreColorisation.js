@@ -1,4 +1,4 @@
-// Colorisation de l'avancement suivant le score
+// Colorisation de l'avancement suivant la valeur du score
 function AvancementColorisation() {
     const $avancement = document.querySelectorAll(".avancement");
     $avancement.forEach((element) => {

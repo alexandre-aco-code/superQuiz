@@ -38,9 +38,6 @@ class User extends Model
 
 
 
-
-
-
     //renvoie les coordonnées de l'utilisateur
     public function getAllInfoOfAnUser(int $id): array
     {
@@ -52,9 +49,6 @@ class User extends Model
 
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
-
-
-
 
 
     //choper le nom de l'user a partir d'un ID 
@@ -70,14 +64,6 @@ class User extends Model
 
 
 
-
-
-
-
-
-
-
-
     //tester si un email est déjà présent dans la table Users
     public function is_exist_user(string $email)
     {
@@ -88,8 +74,6 @@ class User extends Model
 
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
-
-
 
     //méthode pour vérifier le mot de passe
     private function verifPassword($pass, $pass_hash)
@@ -130,7 +114,6 @@ class User extends Model
         if ($this->insert($insertUser) > 0) {
 
             return true;
-
         } else {
             //on a eu une erreur
             return false;
@@ -199,11 +182,9 @@ class User extends Model
         $query->execute(['Id' => $myUser['Id']]);
 
 
-
         // je vais chercher l'avatar de l'user
         $avatar = new Avatar();
         $avatarURL = $avatar->getAvatar($myUser['Avatar_Id']);
-
 
         //création d'un session utilisateur
         \Session::connect([
@@ -212,8 +193,6 @@ class User extends Model
             'Admin' => intval($myUser['Admin']),
             'AvatarURL' => $avatarURL['Image'],
         ]);
-
-
 
         //identification réussie
         return true;
@@ -229,7 +208,7 @@ class User extends Model
             LEFT JOIN score AS s ON u.Id = s.Id_User 
             INNER JOIN avatars AS a ON u.Avatar_Id = a.Id 
             GROUP BY u.Id
-            ORDER BY TotalScore DESC, u.LastConnectedDate ASC"
+            ORDER BY TotalScore DESC, u.LastConnectedDate DESC"
         );
 
         $query->execute();

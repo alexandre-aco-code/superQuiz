@@ -1,37 +1,29 @@
 <section class="quiz box topic">
     <h1>Liste des Topics</h1>
-    <ul>
-        <?php 
-        // echo ("<pre>");
-        // var_dump($tplVars);
-        // var_dump($tplVars['scoresByTopic'][0]);
-        // var_dump($tplVars['scoresByTopic'][0]['Id_Topic']);
-        // echo ("</pre>");
-        ?>
-        <?php foreach ($tplVars['topics'] as $key => $topic) : ?>
-            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><button><i class="fas fa-sun"></i> <?= $topic['Name']; ?></button></a></li>
 
-            <!-- Permet de récupérer la date, en enlevant l'heure -->
-            <?php $date = explode(" ", $topic['CreatedAt']); ?>
+    <?php foreach ($tplVars['topics'] as $key => $topic) : ?>
+    <div>
+        <p><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"
+                class="button-like"><i class="fas fa-sun"></i> <?= $topic['Name']; ?></a></p>
 
-            <!-- Affichage des détails du topic, date et créateur -->
-            <p><cite>Topic créé le <?= $date[0]; ?> par <?= $tplVars['topicCreatedBy'][$key] ?> </cite></p>
+        <!-- Permet de récupérer la date, en enlevant l'heure -->
+        <?php $date = explode(" ", $topic['CreatedAt']); ?>
+        <!-- Affichage des détails du topic, date et créateur -->
+        <p><cite>Topic créé le <?= $date[0]; ?> par <?= $tplVars['topicCreatedBy'][$key] ?> </cite></p>
 
-
-            <!-- Si le score est pas défini dans la bdd, ca affiche que "ca n'a pas été joué" et non 0 -->
-            <?php
-
+        <!-- Si le score est pas défini dans la bdd, ca affiche que "ca n'a pas été joué" et non 0 -->
+        <?php
             if (!isset($tplVars['scoresByTopic'][$key]))
                 $score = 'Topic pas encore joué';
             else
                 $score = $tplVars['scoresByTopic'][$key];
-
             ?>
 
-            <!-- Affichage du score par topic  -->
-            <p class="results">Score : <span class="golden-text"><?= $score; ?></span> / <span class="purple-text"><?= $tplVars['questionsCountByTopic'][$key] ?></span> points</p>
-        <?php endforeach; ?>
+        <!-- Affichage du score par topic  -->
+        <p class="results">Votre Score : <span class="golden-text"><?= $score; ?></span> / <span
+                class="purple-text"><?= $tplVars['questionsCountByTopic'][$key] ?></span> points</p>
+    </div>
+    <?php endforeach; ?>
 
-    </ul>
-    <p>De futurs topics seront à venir... :)</p>
+    <p>De futurs topics appaitront bientôt... :)</p>
 </section>

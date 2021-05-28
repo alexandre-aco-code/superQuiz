@@ -2,30 +2,27 @@
 <html lang="fr">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>QuiZ by ACo - error message :(</title>
-	<link rel="icon" type="image/svg+xml" href="https://media.gettyimages.com/vectors/error-symbol-red-cross-icon-vector-id1257617142?s=612x612">
-	<link rel="stylesheet" href="assets/css/normalize.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QuiZ by ACo - error message :(</title>
+    <link rel="icon" type="image/svg+xml" href="https://media.gettyimages.com/vectors/error-symbol-red-cross-icon-vector-id1257617142?s=612x612">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-
-	<!-- 
-	<link rel="stylesheet" href="../../../assets/css/style.css"> -->
 </head>
 
 <body>
-	<main class="main container error-message">
-		<section class="quiz box">
-			<p>Oups les Amis, une erreur est survenue !</p>
-			<p>Vous pouvez envoyer un screenshot de ce message à l'administrateur aconnaone@gmail.com</p>
-			<p>--- Détails ---</p>
-			<p><em>Code d'erreur : </em><strong><?= $tplVars["code"]; ?></strong></p>
-			<p><em>Message d'erreur : </em><strong><?= $tplVars["message"]; ?></strong></p>
-			<a href="index.php"><button>Retour à l'accueil du site</button></a>
-		</section>
-	</main>
+    <main class="error-message">
+        <section class="box">
+            <h2>Une erreur est survenue !</h2>
+            <p>Vous pouvez envoyer un screenshot de ce message à l'administrateur.</p>
+            <p>--- Détails ---</p>
+            <p><em>Code d'erreur : </em><strong><?= $tplVars["code"]; ?></strong></p>
+            <p><em>Message d'erreur : </em><strong><?= $tplVars["message"]; ?></strong></p>
+            <a href="index.php" class="button-like">Retour à l'accueil du site</a>
+        </section>
+    </main>
 </body>
 
 </html>

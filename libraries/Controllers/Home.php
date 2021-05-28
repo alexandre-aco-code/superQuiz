@@ -2,13 +2,13 @@
 
 namespace Controllers;
 
-class Home extends Controller {
+class Home extends Controller
+{
 
-    public function index() {
-        
+    public function index()
+    {
+
         //affichage
-        \Renderer::show("home",$this->tplVars);
-
+        \Renderer::show("home", $this->tplVars);
     }
-
 }

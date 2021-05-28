@@ -41,7 +41,7 @@ class User extends \Controllers\Admin
 
             $data['Id'] = intval($_GET['id']);
 
-            
+
 
 
 

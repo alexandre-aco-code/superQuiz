@@ -39,7 +39,7 @@ class Question extends \Controllers\Admin
             empty($_POST['Question']) ||
             empty($_POST['Answers']) ||
             empty($_POST['IndexGoodAnswer']) ||
-            empty($_POST['Image']) 
+            empty($_POST['Image'])
             // empty($_POST['product_price_eco']) ||
             // empty($_POST['product_desc_0']) ||
             // empty($_FILES['product_visuel']['name'])
@@ -100,20 +100,18 @@ class Question extends \Controllers\Admin
 
 
         parent::update($data);
-
     }
 
     //init list productline, tag, brand
     private function initSelectList()
     {
-        //récupérer la liste des rayons (productlines)
+        //récupérer la liste des questions 
         $questionModel = new \Models\Question();
         $this->tplVars = $this->tplVars + ['questions' => $questionModel->findAll()];
 
         //récupérer la liste des marques
         $topicModel = new \Models\Topic();
         $this->tplVars = $this->tplVars + ['topics' => $topicModel->findAll()];
-
     }
 
     public function newForm()
@@ -147,14 +145,13 @@ class Question extends \Controllers\Admin
     public function update(array $data = [])
     {
         //tester les champs
-        if
-        (
+        if (
             empty($_POST['Topic_Id']) ||
             empty($_POST['IndexQuestion']) ||
             empty($_POST['Question']) ||
             empty($_POST['Answers']) ||
             empty($_POST['IndexGoodAnswer']) ||
-            empty($_POST['Image']) 
+            empty($_POST['Image'])
         ) {
             //au moins un des champs est vide
             \Session::addFlash('error', 'champ(s) obligatoire(s) non rempli(s) !');
@@ -192,44 +189,5 @@ class Question extends \Controllers\Admin
 
 
         parent::update($data);
-    }
-
-    private function supDiapo(array $list)
-    {
-        $DiapoModel = new \Models\Diap();
-
-        foreach ($list as $value) {
-            $DiapoModel->delete(intval($value));
-
-            //détuire le fichier dans uploads
-            unlink('uploads/diaporamas/' . $value . '_min.png');
-            unlink('uploads/diaporamas/' . $value . '_max.png');
-        }
-    }
-
-    private function uploadFile(string $name_input, string $name_file)
-    {
-        //test sur le format du fichier
-        $allowed_file_types = ['image/png'];
-
-        //dossier d'upload
-        $uploaddir = 'uploads/' . strtolower($this->nameCrud) . '/';
-
-        if (!in_array($_FILES[$name_input]['type'], $allowed_file_types)) {
-            \Session::addFlash('error', 'mauvais format de fichier !');
-            \Http::redirectBack();
-        }
-
-        //finalisation de l'upload
-        $uploadfile = $uploaddir . $name_file;
-
-
-
-        if (!move_uploaded_file($_FILES[$name_input]['tmp_name'], $uploadfile)) {
-            \Session::addFlash('error', 'upload non valide !');
-            \Http::redirectBack();
-        }
-
-        return true;
     }
 }

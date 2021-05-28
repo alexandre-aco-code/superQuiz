@@ -11,10 +11,6 @@ class Topic extends \Controllers\Admin
     protected $pageTitle = "Gestion des topics";
 
 
-
-
-    
-
     public function create(array $data = [])
     {
         //tester les champs
@@ -69,9 +65,7 @@ class Topic extends \Controllers\Admin
         $data['Description'] = $_POST['Description'];
         $data['Id'] = intval($_GET['id']);
 
-        // var_dump($data);
-        // die();
-        //si on arrive ici on va pouvoir insérer notre nouveau rayon
+        //si on arrive ici on va pouvoir insérer notre nouveau topic
         parent::update($data);
     }
 }

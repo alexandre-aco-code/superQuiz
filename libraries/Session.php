@@ -11,6 +11,8 @@ class Session
     public static function redirectIfNotConnected()
     {
         if (!self::isConnected()) {
+            \Session::addFlash('error', 'Pour accéder à cette partie du site, merci de vous connecter !');
+
             \Http::redirect(
                 WWW_URL . "index.php?controller=user&task=loginForm"
             );
@@ -160,4 +162,5 @@ class Session
 
         return !empty($_SESSION['messages'][$type]);
     }
+
 }

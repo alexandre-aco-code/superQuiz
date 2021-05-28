@@ -1,28 +1,24 @@
 <section class="quiz box rankings">
-
-    <h1>Les classements</h1>
-
-    <!-- <p>L'avancement en % du site correspond au <code>( questions répondues justes par l'utilisateur / nombre de questions totales ) * 100</code>.</p> -->
-
+    <h1>Le Classement ( Mondial ) <i class="fas fa-trophy"></i></h1>
     <table>
         <thead>
             <tr>
                 <th>Rang</th>
-                <th>Avancement dans le site</th>
+                <th>Score</th>
                 <th>Pseudo</th>
                 <th>Avatar</th>
-                <th>LastConnectedDate</th>
+                <th>Dernière connexion le</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($tplVars['userAndScoreList'] as $key => $user) : ?>
-                <tr>
-                    <td><?= $key + 1; ?></td>
-                    <td class="avancement"><?= number_format(($user['TotalScore'] / (($tplVars['numberOfQuestions'])) * 100)); ?> %</td>
-                    <td><?= $user['Pseudo']; ?></td>
-                    <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
-                    <td><?= $user['LastConnectedDate']; ?></td>
-                </tr>
+            <tr>
+                <td><?= $key + 1; ?></td>
+                <td class="avancement"><?= number_format(($user['TotalScore'] / (($tplVars['numberOfQuestions'])) * 100)); ?> %</td>
+                <td><?= $user['Pseudo']; ?></td>
+                <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
+                <td><?= $user['LastConnectedDate']; ?></td>
+            </tr>
             <?php endforeach; ?>
         </tbody>
     </table>

@@ -8,5 +8,3 @@ class Topic extends Model {
     protected $table = T_TOPICS;
     
 }
-
-?>

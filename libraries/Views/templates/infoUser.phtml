@@ -2,35 +2,29 @@
     <h1>Informations de votre Compte</h1>
     <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=updateInfosUser" method="POST">
         <label for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo" value="<?= $tplVars['infosUser']['Pseudo']; ?>">
+        <input type="text" id="pseudo" name="pseudo" value="<?= $tplVars['infosUser']['Pseudo']; ?>">
+
         <label for="email">Email</label>
-        <input type="text" name="email" value="<?= $tplVars['infosUser']['Email']; ?>">
-        <label for="avatar">Avatar</label>
+        <input type="text" id="email" name="email" value="<?= $tplVars['infosUser']['Email']; ?>">
+
         <div class="display_flex">
-            <img
-                src="https://images-na.ssl-images-amazon.com/images/M/MV5BNTczMzk1MjU1MV5BMl5BanBnXkFtZTcwNDk2MzAyMg@@._V1_UY256_CR2,0,172,256_AL_.jpg"
-                alt="WillSmith">
-            <img
-                src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjUzZTJmZDItODRjYS00ZGRhLTg2NWQtOGE0YjJhNWVlMjNjXkEyXkFqcGdeQXVyMTg4NDI0NDM@._V1_UY256_CR42,0,172,256_AL_.jpg"
-                alt="GalGadot">
-            <img
-                src="https://images-na.ssl-images-amazon.com/images/M/MV5BOWViYjUzOWMtMzRkZi00MjNkLTk4M2ItMTVkMDg5MzE2ZDYyXkEyXkFqcGdeQXVyODQwNjM3NDA@._V1_UY256_CR36,0,172,256_AL_.jpg"
-                alt="AdamDriver">
-            <img
-                src="https://images-na.ssl-images-amazon.com/images/M/MV5BNjk5NjE5NTczMV5BMl5BanBnXkFtZTcwODI0OTM0NA@@._V1_UY256_CR4,0,172,256_AL_.jpg"
-                alt="Effy">
-            <img
-                src="https://images-na.ssl-images-amazon.com/images/M/MV5BOTU2MTI0NTIyNV5BMl5BanBnXkFtZTcwMTA4Nzc3OA@@._V1_UX172_CR0,0,172,256_AL_.jpg"
-                alt="ChrisHemsworth">
+            <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNTczMzk1MjU1MV5BMl5BanBnXkFtZTcwNDk2MzAyMg@@._V1_UY256_CR2,0,172,256_AL_.jpg" alt="WillSmith">
+            <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjUzZTJmZDItODRjYS00ZGRhLTg2NWQtOGE0YjJhNWVlMjNjXkEyXkFqcGdeQXVyMTg4NDI0NDM@._V1_UY256_CR42,0,172,256_AL_.jpg" alt="GalGadot">
+            <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOWViYjUzOWMtMzRkZi00MjNkLTk4M2ItMTVkMDg5MzE2ZDYyXkEyXkFqcGdeQXVyODQwNjM3NDA@._V1_UY256_CR36,0,172,256_AL_.jpg" alt="AdamDriver">
+            <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BNjk5NjE5NTczMV5BMl5BanBnXkFtZTcwODI0OTM0NA@@._V1_UY256_CR4,0,172,256_AL_.jpg" alt="Effy">
+            <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BOTU2MTI0NTIyNV5BMl5BanBnXkFtZTcwMTA4Nzc3OA@@._V1_UX172_CR0,0,172,256_AL_.jpg" alt="ChrisHemsworth">
         </div>
+
+        <label>Avatar</label>
         <div class="display_flex">
             <input type="radio" name="avatar" value="1" id="avatar1" />
-            <input type="radio" name="avatar" value="2" id="avatar2" />
+            <input type="radio" name="avatar" value="2" id="avatar2"/>
             <input type="radio" name="avatar" value="3" id="avatar3" />
             <input type="radio" name="avatar" value="4" id="avatar4" />
             <input type="radio" name="avatar" value="5" id="avatar5" />
         </div>
-        <label for="">Compte créé le <?= $tplVars['infosUser']['CreatedAt']; ?></label>
+
+        <p>Compte créé le <?= $tplVars['infosUser']['CreatedAt']; ?></p>
         <button type="submit">Modifier</button>
     </form>
 </section>

@@ -1,9 +1,12 @@
 <?php
 
-class Application {
+class Application
+{
 
-    public static function process() {
+    public static function process()
+    {
 
+        //valeurs par défault du controller et de la task
         if (\Session::isConnected()) {
             $controllerName = "Main";
         } else {
@@ -11,36 +14,22 @@ class Application {
         }
 
         $task = "index";
-        // $topic = "1";
-        // $indexQuestion = "1";
-
 
         if (!empty($_GET["controller"])) {
-
-            
-
             $controllerName = htmlspecialchars(ucfirst($_GET["controller"]));
-
         }
 
         if (!empty($_GET["task"])) {
-
             $task = htmlspecialchars($_GET["task"]);
-
         }
 
         // construction du nom du controller
+        $controllerName = "\Controllers\\" . $controllerName;
 
-
-        $controllerName = "\Controllers\\".$controllerName;
-
+        // création de l'instance
         $controller = new $controllerName();
 
+        // appel de la méthode
         $controller->$task();
-
-
-
-
-
     }
 }

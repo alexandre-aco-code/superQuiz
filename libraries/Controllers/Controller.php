@@ -26,9 +26,10 @@ abstract class Controller
     public function __construct()
     {
 
-        //vérification qu'il existe, sinon erreur et on la throw
+        //vérification que le model a bien été renseigné
         if (!empty($this->modelName)) {
 
+            //Vérification que le model existe
             $path = str_replace("\\", "/", "libraries/{$this->modelName}.php");
 
             if (!file_exists($path)) {
@@ -45,11 +46,13 @@ abstract class Controller
 
         $this->tplVars = $this->tplVars + ['topics' => $topics->findAll()];
 
+        //chemin absolu du projet
         $this->tplVars = $this->tplVars + ['WWW_URL' => WWW_URL];
 
         //rajout des commentaries dans $this->tplVars
         $commentariesModel = new \Models\Commentary();
         $commentaries = $commentariesModel->findAllAuthorizedCommentaries();
+        
         $userModel = new \Models\User();
         $userList = [];
 

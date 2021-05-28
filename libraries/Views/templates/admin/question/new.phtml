@@ -1,6 +1,8 @@
 <form action="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=create" method="POST">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-4">
-        <a class="btn btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=index"><i class="fa fa-times"></i> Annuler les modifications</a>
+        <a class="btn btn-outline-secondary"
+            href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=index"><i
+                class="fa fa-times"></i> Annuler les modifications</a>
         <button class="btn btn-primary"><i class="fa fa-check"></i> Valider et enregistrer</button>
     </div>
 
@@ -10,13 +12,14 @@
             <div>
                 <select id="inputState" class="form-select" name="Topic_Id">
                     <?php foreach ($tplVars['topics'] as $topic) : ?>
-                        <option value="<?= $topic['Id'] ?>"><?= $topic['Id'] . ". " . $topic['Name']; ?></option>
+                    <option value="<?= $topic['Id'] ?>"><?= $topic['Id'] . ". " . $topic['Name']; ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
         </div>
         <div class="form-group mb-2">
-            <label for="IndexQuestion" class="col-form-label">IndexQuestion - n° de la Question dans le topic : indiquer "1" ou "2" ou "3" ou "4" ou "5" etc.</label>
+            <label for="IndexQuestion" class="col-form-label">IndexQuestion - n° de la Question dans le topic : indiquer
+                "1" ou "2" ou "3" ou "4" ou "5" etc.</label>
             <div>
                 <input type="text" class="form-control" name="IndexQuestion" value="">
             </div>
@@ -28,19 +31,23 @@
             </div>
         </div>
         <div class="form-group mb-2">
-            <label for="Answers" class="col-form-label">Answers - écrire les réponses de la sorte (LA SYNTAXE EST IMPORTANTE): "A. Mettre ici la réponse A - B. Mettre ici la réponse B - C. Mettre ici la réponse C - D. Mettre ici la réponse D"</label>
+            <label for="Answers" class="col-form-label">Answers - écrire les réponses de la sorte (LA SYNTAXE EST
+                IMPORTANTE): "A. Mettre ici la réponse A - B. Mettre ici la réponse B - C. Mettre ici la réponse C - D.
+                Mettre ici la réponse D"</label>
             <div>
                 <input type="text" class="form-control" name="Answers" value="">
             </div>
         </div>
         <div class="form-group mb-2">
-            <label for="IndexGoodAnswer" class="col-form-label">IndexGoodAnswer - indiquez qu'elle réponse est la bonne : "1" ou "2" ou "3" ou "4".</label>
+            <label for="IndexGoodAnswer" class="col-form-label">IndexGoodAnswer - indiquez qu'elle réponse est la bonne
+                : "1" ou "2" ou "3" ou "4".</label>
             <div>
                 <input type="text" class="form-control" name="IndexGoodAnswer" value="">
             </div>
         </div>
         <div class="form-group mb-2">
-            <label for="Image" class="col-form-label">URL de l'image - mettre le lien directement d'une image en lien avec la question</label>
+            <label for="Image" class="col-form-label">URL de l'image - mettre le lien directement d'une image en lien
+                avec la question</label>
             <div>
                 <input type="text" class="form-control" name="Image" value="">
             </div>

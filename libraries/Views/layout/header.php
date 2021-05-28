@@ -10,13 +10,13 @@
                 <!-- MENU DE NAVIGATION : EXPLORER -->
                 <li>
                     <a href="<?= $tplVars['WWW_URL']; ?>index.php">
-                        <i class="fab fa-wpexplorer"></i><br>
-                        Explorer</a>
+                        <i class="fas fa-igloo"></i><br>
+                        Accueil</a>
                     <ul>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php"><i class="fab fa-wpexplorer"></i>Mode
-                                d'emploi</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index"><i class="fas fa-book"></i>Livre d'Or</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about"><i class="far fa-address-card"></i>A propos de Quiz by ACo</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=commentary&task=index"><i
+                                    class="fas fa-book"></i>Livre d'Or</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=about"><i
+                                    class="far fa-address-card"></i>A propos de Quiz by ACo</a></li>
                     </ul>
                 </li>
                 <!-- MENU DE NAVIGATION : TOPICS -->
@@ -27,19 +27,17 @@
                     </a>
                     <ul>
                         <?php foreach ($tplVars['topics'] as $topic) : ?>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><i class="fas fa-seedling"></i> <?= $topic['Name']; ?></a></li>
+                        <li><a
+                                href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"><i
+                                    class="fas fa-seedling"></i> <?= $topic['Name']; ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </li>
                 <!-- MENU DE NAVIGATION : CLASSEMENT -->
                 <li>
                     <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings">
-                        <i class="fas fa-poll-h"></i><br>
+                        <i class="fas fa-globe-africa"></i><br>
                         Classement</a>
-                    <ul>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=rankings"><i class="fas fa-globe-africa"></i>Classement Mondial (bien sûr)</a></li>
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><i class="fas fa-trophy"></i>Mes résultats par Topic</a></li>
-                    </ul>
                 </li>
                 <!-- MENU DE NAVIGATION : MON COMPTE -->
                 <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser">
@@ -49,23 +47,28 @@
                         <!-- Si personne n'est loggé alors les commandes S'inscrire et Se Connecter son disponibles, sinon elles se masquent -->
                         <?php if (!\Session::isConnected()) :
                         ?>
-
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=signUpForm"><i class="fas fa-user-circle"></i>S'inscrire</a></li>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=loginForm"><i class="fas fa-user-circle"></i>Se Connecter</a></li>
-
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=signUpForm"><i
+                                    class="fas fa-user-circle"></i>S'inscrire</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=loginForm"><i
+                                    class="fas fa-user-circle"></i>Se Connecter</a></li>
                         <?php endif ?>
-
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser"><i class="fas fa-user-circle"></i>Mes informations</a></li>
-
-                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index" target="_blank"><i class="fas fa-puzzle-piece"></i>Administration BackOffice</a>
-                        </li>
 
                         <!-- Si l'utilisateur est connecté, alors on affiche la possibilité de se déconnecter. -->
                         <?php if (\Session::isConnected()) :
                         ?>
-                            <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php"><i class="fas fa-power-off"></i>Déconnexion</a></li>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser"><i
+                                    class="fas fa-user-circle"></i>Mes informations</a></li>
 
+                        <?php if (\Session::isAdmin()) : ?>
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\Dashboard&task=index"
+                                target="_blank"><i class="fas fa-puzzle-piece"></i>Administration BackOffice</a>
+                        </li>
                         <?php endif ?>
+
+                        <li><a href="<?= $tplVars['WWW_URL']; ?>libraries/Out.php"><i
+                                    class="fas fa-power-off"></i>Déconnexion</a></li>
+                        <?php endif ?>
+
                     </ul>
                 </li>
             </ul>

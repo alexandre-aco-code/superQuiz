@@ -9,8 +9,7 @@ class Commentary extends \Controllers\Admin
     protected $nameCrud = "Commentary";
 
     protected $pageTitle = "Gestion des commentaires";
-
-
+    
     public function index()
     {
 
@@ -45,15 +44,11 @@ class Commentary extends \Controllers\Admin
 
             $data['Id'] = intval($_GET['id']);
 
-            
+
 
             parent::update($data);
         } else {
             throw new \Exception('Impossible de changer le rôle !');
         }
     }
-
-
-
-
 }

@@ -30,8 +30,6 @@ abstract class Model
     }
 
 
-
-
     public function findAll(): array
     {
 
@@ -41,8 +39,6 @@ abstract class Model
 
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
-
-
 
 
 
@@ -73,7 +69,7 @@ abstract class Model
      * @param array $data
      * @return bool
      */
-    public function update(array $data) : bool
+    public function update(array $data): bool
     {
         if (!array_key_exists('Id', $data)) {
             throw new \Exception("Vous ne pouvez pas appeler la fonction update sans préciser dans votre tableau un champ `id` !");
@@ -100,7 +96,6 @@ abstract class Model
 
         return true;
     }
-
 
 
     /**

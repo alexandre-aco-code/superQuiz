@@ -1,6 +1,8 @@
 <!-- list des topics -->
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center my-4">
-    <a class="btn btn-primary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=newForm"><i class="fa fa-plus"></i> Ajouter un Topic</a>
+    <a class="btn btn-primary"
+        href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=newForm"><i
+            class="fa fa-plus"></i> Ajouter un Topic</a>
 </div>
 <div class="table-responsive">
     <table class="table table-bordered table-striped">
@@ -17,18 +19,20 @@
 
             <!-- boucle sur les topics -->
             <?php foreach ($tplVars['list'] as $item) : ?>
-                <tr>
-                    <td><?= htmlspecialchars($item['Id']); ?></td>
-                    <td><?= htmlspecialchars($item['Name']); ?></td>
-                    <td><?= htmlspecialchars($item['Description']); ?></td>
-                    <td class="text-right">
-                        <!-- <a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Retirer</a> -->
-                        <a class="btn btn-sm btn-outline-secondary" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=editForm&id=<?= intval($item['Id']); ?>"><i class="fa fa-pencil"></i> Modifier</a>
-                    </td>
-                    <td><a class="btn btn-sm btn-outline-danger" href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i class="fa fa-archive"></i> Supprimer</a></td>
-                </tr>
+            <tr>
+                <td><?= htmlspecialchars($item['Id']); ?></td>
+                <td><?= htmlspecialchars($item['Name']); ?></td>
+                <td><?= htmlspecialchars($item['Description']); ?></td>
+                <td class="text-right">
+                    <a class="btn btn-sm btn-outline-secondary"
+                        href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=editForm&id=<?= intval($item['Id']); ?>"><i
+                            class="fa fa-pencil"></i> Modifier</a>
+                </td>
+                <td><a class="btn btn-sm btn-outline-danger"
+                        href="<?= $tplVars['WWW_URL']; ?>index.php?controller=Admin\<?= $tplVars['crud']; ?>&task=delete&id=<?= intval($item['Id']); ?>"><i
+                            class="fa fa-archive"></i> Supprimer</a></td>
+            </tr>
             <?php endforeach; ?>
-            <!-- boucle sur les topics -->
 
         </tbody>
     </table>

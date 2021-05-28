@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-class Renderer {
+class Renderer
+{
 
     /**
      * Permet d'afficher les pages du Site
@@ -9,7 +10,8 @@ class Renderer {
      * @param array
      * @return void
      */
-    public static function show(string $template, array $tplVars = []) {
+    public static function show(string $template, array $tplVars = [])
+    {
 
         ob_start();
 
@@ -26,7 +28,8 @@ class Renderer {
      * @param array
      * @return void
      */
-    public static function showAdmin(string $template, array $tplVars = []) {
+    public static function showAdmin(string $template, array $tplVars = [])
+    {
 
         ob_start();
 
@@ -34,7 +37,6 @@ class Renderer {
         $pageContent = ob_get_clean();
 
         require("libraries/Views/layoutAdmin.phtml");
-        
     }
 
     /**
@@ -47,6 +49,5 @@ class Renderer {
     {
 
         require("libraries/Views/templates/error.phtml");
-
     }
 }

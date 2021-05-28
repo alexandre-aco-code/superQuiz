@@ -1,20 +1,13 @@
 <section class="quiz box score">
 
     <h1>Résultats</h1>
-    <ul>
+    <div>
         <p>Bravo ! Vous avez fini la catégorie : <span class="golden-text"><?= $tplVars['topic']["Name"]; ?></span></p>
-        <p class="results">Votre score final dans cette catégorie est de : <span class="golden-text"><?= $tplVars['scoreByTopic']; ?></span> / <span class="purple-text"><?= count($tplVars['allQuestionsInTheTopic']); ?></span> points</p>
+        <p class="results">Votre score final dans cette catégorie est de : <span
+                class="golden-text"><?= $tplVars['scoreByTopic']; ?></span> / <span
+                class="purple-text"><?= count($tplVars['allQuestionsInTheTopic']); ?></span> points</p>
         <p>Sauvegarde des scores... Veuillez ne pas éteindre la console s'il vous plait...</p>
         <p>Non je plaisante. <?= $tplVars['scoreStateMessage']; ?></p>
-
-
-
-
-
-
-
-
-
 
 
         <!-- PHP PAGINATION TOPIC -->
@@ -29,13 +22,15 @@
         } else {
             $topic_suivant = $topic_courant + 1;
         }
-
         ?>
 
         <!-- LIENS RETOUR LISTE TOPICS & TOPIC SUIVANT -->
-        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=<?= $task ?>&topic=<?= $topic_suivant ?>&indexQuestion=1"><button>Topic Suivant</button></a>
-        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant ?>&indexQuestion=1&s=0"><button>Recommencer</button></a>
-        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1"><button>Retour à la liste des Topics</button></a>
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=<?= $task ?>&topic=<?= $topic_suivant ?>&indexQuestion=1"
+            class="button-like">Topic Suivant</a>
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=topic&task=index&topic=1" class="button-like">Retour à
+            la liste des Topics</a>
+        <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic_courant ?>&indexQuestion=1&s=0"
+            class="button-like">Recommencer</a>
 
-    </ul>
+    </div>
 </section>

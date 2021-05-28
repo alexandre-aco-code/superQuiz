@@ -46,7 +46,7 @@ class Admin extends Controller
             'page_title' => $this->pageTitle
         ];
 
-        //afficher la liste des rayons
+        //afficher la liste 
         \Renderer::showAdmin(strtolower($this->nameCrud) . "/new", $this->tplVars);
     }
 
@@ -56,12 +56,9 @@ class Admin extends Controller
         if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
 
             //transmettre à $this->tplVars ces informations
-
             $this->tplVars = $this->tplVars + [
                 'form' => $this->model->find(intval($_GET['id']))
             ];
-
-
 
             //titre de la page
             $this->tplVars = $this->tplVars + [
@@ -103,6 +100,8 @@ class Admin extends Controller
         \Http::redirect(WWW_URL . "index.php?controller=admin\\" . $this->nameCrud . "&task=index");
     }
 
+
+
     public function delete()
     {
 
@@ -110,11 +109,6 @@ class Admin extends Controller
         if (isset($_GET['id']) && ctype_digit($_GET['id'])) {
 
             $this->model->delete(intval($_GET['id']));
-
-            //si fichier dans uploads, on le supprime
-            if (file_exists("uploads/" . strtolower($this->nameCrud) . "/" . intval($_GET['id']) . ".png")) {
-                unlink("uploads/" . strtolower($this->nameCrud) . "/" . intval($_GET['id']) . ".png");
-            }
 
             \Session::addFlash('success', 'Suppression réussie !');
 
