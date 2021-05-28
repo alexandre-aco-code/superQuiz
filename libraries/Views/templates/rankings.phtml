@@ -14,7 +14,10 @@
             <?php foreach ($tplVars['userAndScoreList'] as $key => $user) : ?>
             <tr>
                 <td><?= $key + 1; ?></td>
-                <td class="avancement"><?= number_format(($user['TotalScore'] / (($tplVars['numberOfQuestions'])) * 100)); ?> %</td>
+
+                <?php $scoreUser = number_format(($user['TotalScore'] / (($tplVars['numberOfQuestions'])) * 100));?>
+                <!-- si pour une raison ou une autre le score dépasse 100 alors on affiche 100, sinon on affiche le score normalement -->
+                <td class="avancement"><?= $scoreUser > 100 ? 100 : $scoreUser ?> %</td>
                 <td><?= $user['Pseudo']; ?></td>
                 <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
                 <td><?= $user['LastConnectedDate']; ?></td>

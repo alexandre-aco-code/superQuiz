@@ -2,27 +2,25 @@
     <h1>Liste des Topics</h1>
 
     <?php foreach ($tplVars['topics'] as $key => $topic) : ?>
-    <div>
-        <p><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1"
-                class="button-like"><i class="fas fa-sun"></i> <?= $topic['Name']; ?></a></p>
+        <div>
+            <a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=question&task=index&topic=<?= $topic['Id']; ?>&indexQuestion=1" class="button-like"><i class="fas fa-sun"></i> <?= $topic['Name']; ?></a>
 
-        <!-- Permet de récupérer la date, en enlevant l'heure -->
-        <?php $date = explode(" ", $topic['CreatedAt']); ?>
-        <!-- Affichage des détails du topic, date et créateur -->
-        <p><cite>Topic créé le <?= $date[0]; ?> par <?= $tplVars['topicCreatedBy'][$key] ?> </cite></p>
+            <!-- Permet de récupérer la date, en enlevant l'heure -->
+            <?php $date = explode(" ", $topic['CreatedAt']); ?>
+            <!-- Affichage des détails du topic, date et créateur -->
+            <p><cite>Topic créé le <?= $date[0]; ?> par <?= $tplVars['topicCreatedBy'][$key] ?> </cite></p>
 
-        <!-- Si le score est pas défini dans la bdd, ca affiche que "ca n'a pas été joué" et non 0 -->
-        <?php
+            <!-- Si le score est pas défini dans la bdd, ca affiche que "ca n'a pas été joué" et non 0 -->
+            <?php
             if (!isset($tplVars['scoresByTopic'][$key]))
                 $score = 'Topic pas encore joué';
             else
                 $score = $tplVars['scoresByTopic'][$key];
             ?>
 
-        <!-- Affichage du score par topic  -->
-        <p class="results">Votre Score : <span class="golden-text"><?= $score; ?></span> / <span
-                class="purple-text"><?= $tplVars['questionsCountByTopic'][$key] ?></span> points</p>
-    </div>
+            <!-- Affichage du score par topic  -->
+            <p class="results">Votre Score : <span class="golden-text"><?= $score; ?></span> / <span class="purple-text"><?= $tplVars['questionsCountByTopic'][$key] ?></span> points</p>
+        </div>
     <?php endforeach; ?>
 
     <p>De futurs topics appaitront bientôt... :)</p>

@@ -42,7 +42,7 @@
                 <!-- MENU DE NAVIGATION : MON COMPTE -->
                 <li><a href="<?= $tplVars['WWW_URL']; ?>index.php?controller=user&task=infosUser">
                         <i class="fas fa-user-circle"></i><br>
-                        Mon Compte</a>
+                        Compte</a>
                     <ul>
                         <!-- Si personne n'est loggé alors les commandes S'inscrire et Se Connecter son disponibles, sinon elles se masquent -->
                         <?php if (!\Session::isConnected()) :

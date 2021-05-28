@@ -392,6 +392,10 @@ main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   /* *****************************************************************
 ASIDE = PROFIL + COMMENTAIRES ( 2 boxes à droite )
 ***************************************************************** */
@@ -434,7 +438,6 @@ main .display__main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem 0;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
@@ -779,8 +782,8 @@ main #modalLogin:target {
 }
 
 main .victory-box {
-  width: 70%;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 1rem auto 0;
   background: linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
 }
 
@@ -917,7 +920,7 @@ blockquote cite {
 }
 
 .results {
-  margin: 3rem 0;
+  margin: 0 0 3rem;
   font-size: 2rem;
 }
 
