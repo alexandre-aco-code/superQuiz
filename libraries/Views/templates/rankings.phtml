@@ -7,21 +7,21 @@
                 <th>Score</th>
                 <th>Pseudo</th>
                 <th>Avatar</th>
-                <th>Dernière connexion le</th>
+                <th class="inactiveWhenMobileView">Dernière connexion le</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($tplVars['userAndScoreList'] as $key => $user) : ?>
-            <tr>
-                <td><?= $key + 1; ?></td>
+                <tr>
+                    <td><?= $key + 1; ?></td>
 
-                <?php $scoreUser = number_format(($user['TotalScore'] / (($tplVars['numberOfQuestions'])) * 100));?>
-                <!-- si pour une raison ou une autre le score dépasse 100 alors on affiche 100, sinon on affiche le score normalement -->
-                <td class="avancement"><?= $scoreUser > 100 ? 100 : $scoreUser ?> %</td>
-                <td><?= $user['Pseudo']; ?></td>
-                <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
-                <td><?= $user['LastConnectedDate']; ?></td>
-            </tr>
+                    <?php $scoreUser = number_format(($user['TotalScore'] / (($tplVars['numberOfQuestions'])) * 100)); ?>
+                    <!-- si pour une raison ou une autre le score dépasse 100 alors on affiche 100, sinon on affiche le score normalement -->
+                    <td class="avancement"><?= $scoreUser > 100 ? 100 : $scoreUser ?> %</td>
+                    <td><?= $user['Pseudo']; ?></td>
+                    <td><img src="<?= $user['Image']; ?>" alt="image de l'utilisateur"></td>
+                    <td class="inactiveWhenMobileView"><?= $user['LastConnectedDate']; ?></td>
+                </tr>
             <?php endforeach; ?>
         </tbody>
     </table>

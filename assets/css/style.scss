@@ -30,10 +30,10 @@ body {
     h3,
     h4 {
         font-family: $font-titles;
-        line-height:4rem;
     }
 
     h1 {
+        line-height:4rem;
         vertical-align: middle;
         font-size: $size-title-1;
         color: $color-title-1;
@@ -906,6 +906,10 @@ $littlephoneToPhone: 700px;
     
     .ceintures {
         flex-direction: column;
+    }
+    
+    .inactiveWhenMobileView{
+        display:none;
     }
 }
 
