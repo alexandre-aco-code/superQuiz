@@ -902,14 +902,19 @@ $littlephoneToPhone: 700px;
                 padding: 1em 1em;
             }
         }
+        
     }
-    
+
     .ceintures {
         flex-direction: column;
     }
     
     .inactiveWhenMobileView{
         display:none;
+    } 
+    
+    .container {
+            margin:0;
     }
 }
 
