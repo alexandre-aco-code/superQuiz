@@ -18,4 +18,4 @@ Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des
 
 Front : HTML 5 , CSS 3, Javascript 
 
-Back : PHP, MyQL
+Back : PHP, MySQL
