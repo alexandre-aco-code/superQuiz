@@ -1030,8 +1030,8 @@ RESPONSIVE
   main .quiz {
     width: 95%;
   }
-  main button {
-    width: 250px;
+  main button, main .button-like {
+    width: 95%;
   }
 }
 

@@ -45,4 +45,10 @@ class Question extends Controller
             throw new \Exception('Impossible d\'afficher la page questions');
         }
     }
+
+    public function endGame()
+    {
+
+        \Renderer::show("endGame", $this->tplVars);
+    }
 }
