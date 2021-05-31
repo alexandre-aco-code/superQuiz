@@ -2,7 +2,9 @@
 
 Le résultat final est hébergé sur le lien suivant : https://quizbyaco.alwaysdata.net/
 
-Ceci est mon projet de fin de formation Développeur Web Full Stack équivalent BAC+2 à la 3W Academy, réalisé en 2021.
+Ceci est mon projet de fin de formation Développeur Web Full Stack équivalent BAC+2 à la 3W Academy.
+
+Le projet a été rendu le 31/05/2021.
 
 ## Utilisation
 
