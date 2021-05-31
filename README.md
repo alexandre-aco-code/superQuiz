@@ -10,7 +10,7 @@ Le projet a été rendu le 31/05/2021.
 
 Un utilisateur peut s'inscrire et répondre aux Questions en participant aux Topics et ainsi faire monter son Niveau.
 
-Il ensuite comparer son Niveau avec celui de ses amis dans la rubrique Classement.
+Il peut ensuite comparer son Niveau avec celui de ses amis dans la rubrique Classement.
 
 Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires et des Utilisateurs.
 
