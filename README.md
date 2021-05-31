@@ -1,5 +1,3 @@
-#superQuiz
-
 ## Présentation
 
 Le résultat final est hébergé sur le lien suivant : https://quizbyaco.alwaysdata.net/
@@ -14,7 +12,4 @@ Vous pouvez ensuite comparer votre niveau avec celui de vos amis dans la rubriqu
 
 Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires, des Utilisateurs.
 
-## Technologies utilisées
-
-Front : HTML 5, SCSS CSS 3, JAVASCRIPT
-Back : PHP 7.4, MYSQL
+## Technologi
