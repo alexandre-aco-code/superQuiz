@@ -89,7 +89,6 @@ body {
 HEADER
 ***************************************************************** */
 header {
-    // background: $color-header;
     box-shadow: $shadow-xl;
     height: $height-header;
 
@@ -339,7 +338,6 @@ ASIDE = PROFIL + COMMENTAIRES ( 2 boxes à droite )
             background-image: url(../images/quote.png);
             background-repeat: no-repeat;
             display: block;
-            // color: #00748D;
             color: $color-purple-text;
             font-size: 1.4rem;
             padding-left: 40px;
@@ -750,7 +748,6 @@ blockquote cite {
     background-image: url(../images/quote.png);
     background-repeat: no-repeat;
     display: block;
-    // color: #00748D;
     color: $color-purple-text;
     padding-left: 40px;
     font-weight: bold;
