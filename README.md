@@ -12,7 +12,7 @@ N'importe quel utilisateur peut s'inscrire et répondre aux Questions en partici
 
 Il peut ensuite comparer son Niveau avec celui de ses amis dans la rubrique Classement.
 
-Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires et des Utilisateurs.
+Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires et des Utilisateurs grâce au Back Office.
 
 ## Technologies utilisées
 
