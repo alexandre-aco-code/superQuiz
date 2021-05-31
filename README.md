@@ -10,7 +10,7 @@ Un utilisateur peut s'inscrire et répondre aux questions en participant aux Top
 
 Il ensuite comparer son niveau avec celui de ses amis dans la rubrique Classement.
 
-Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires, des Utilisateurs.
+Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires et des Utilisateurs.
 
 ## Technologies utilisées
 
