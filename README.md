@@ -2,7 +2,7 @@
 
 Le résultat final est hébergé sur le lien suivant : https://quizbyaco.alwaysdata.net/
 
-Mon projet de fin de formation Développeur Web Full Stack 400 heures à la 3W Academy est un QuiZ online.
+Ceci est mon projet de fin de formation Développeur Web Full Stack équivalent BAC+2 à la 3W Academy.
 
 ## Utilisation
 
