@@ -1,10 +1,8 @@
 <?php
 
 //L'instance PDO qui sert partout ou y a besoin.
-
 abstract class Database
 {
-
     private static $pdo;
 
     public static function getInstance(): PDO

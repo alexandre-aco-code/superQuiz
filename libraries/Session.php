@@ -159,8 +159,6 @@ class Session
         if (empty($_SESSION['messages'])) {
             return false;
         }
-
         return !empty($_SESSION['messages'][$type]);
     }
-
 }

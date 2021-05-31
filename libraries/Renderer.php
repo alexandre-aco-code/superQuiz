@@ -2,7 +2,6 @@
 
 class Renderer
 {
-
     /**
      * Permet d'afficher les pages du Site
      * 

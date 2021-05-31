@@ -32,7 +32,6 @@ class Http
         self::redirect($_SERVER['HTTP_REFERER']);
     }
 
-
     /**
      * Permet d'afficher les pages du Site
      * 
@@ -45,5 +44,4 @@ class Http
         header("Location: $url");
         exit();
     }
-
 }

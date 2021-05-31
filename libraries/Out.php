@@ -6,6 +6,5 @@ $_SESSION = [];
 
 session_destroy();
 
-
 //redirection
 header('Location: ../index.php');
