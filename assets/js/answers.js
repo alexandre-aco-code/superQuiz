@@ -5,8 +5,6 @@ function onSelected() {
     const $animatedDiv = document.querySelector(".animated_div");
     const $linkNextQuestion = document.getElementById("nextQuestion");
 
-    console.log($linkNextQuestion.href);
-
     let index = parseInt($indexQuestion.innerHTML);
     let score;
 
