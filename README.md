@@ -12,6 +12,8 @@ Un utilisateur peut s'inscrire et répondre aux Questions en participant aux Top
 
 Il peut ensuite comparer son Niveau avec celui de ses amis dans la rubrique Classement.
 
+Il peut également laisser un message sur le Livre d'Or, et modifier ses Informations personnelles facilement si besoin.
+
 Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires et des Utilisateurs sur le Back Office.
 
 ## Technologies utilisées
