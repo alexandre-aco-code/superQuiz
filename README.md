@@ -2,7 +2,7 @@
 
 Le résultat final est hébergé sur le lien suivant : https://quizbyaco.alwaysdata.net/
 
-Ceci est mon projet de fin de formation Développeur Web Full Stack équivalent BAC+2 à la 3W Academy.
+Ceci est mon projet de fin de formation Développeur Web Full Stack équivalent BAC+2 à la 3W Academy, réalisé en 2021.
 
 ## Utilisation
 
@@ -15,4 +15,5 @@ Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des
 ## Technologies utilisées
 
 Front : HTML 5 , CSS 3, Javascript 
+
 Back : PHP, MyQL
