@@ -6,9 +6,11 @@ Ceci est mon projet de fin de formation Développeur Web Full Stack équivalent 
 
 ## Utilisation
 
-N'importe qui peut s'inscrire et répondre aux questions en participant aux Topics et ainsi faire monter son niveau.
+Un utilisateur peut s'inscrire et répondre aux questions en participant aux Topics et ainsi faire monter son niveau.
 
-Vous pouvez ensuite comparer votre niveau avec celui de vos amis dans la rubrique Classement.
+Il ensuite comparer son niveau avec celui de vos amis dans la rubrique Classement.
+
+Il peut également écrire un commentaire dans le livre d'Or.
 
 Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires, des Utilisateurs.
 
