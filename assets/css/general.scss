@@ -28,24 +28,19 @@ $size-fontawesome-header-extended-menu: 2rem;
 $height-header: 92px;
 $height-footer: 92px;
 
+$color-background-body: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
 $color-title-1: #e71d73;
 $color-title-span: yellow;
 $color-title-2: #e71d73;
 $color-title-3: #e71d73;
 $color-title: #333;
 $color-text: #555;
-$color-header: linear-gradient(
-    90deg,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 107, 0.5190009109112395) 100%
-);
 $color-header-text: #e2f7ff;
 $color-header-link: #fff;
 $color-header-link-hover: #ca9e67;
 $color-header-link-selected: #e71d73;
 $color-header-link-extended-menu: #e71d73;
-$color-body: #fff;
-$color-main: #0000007a; 
+$color-main: #0000007a;
 $color-quiz: #eee;
 $color-article: #eee;
 $color-aside: #eee;
@@ -56,19 +51,11 @@ $color-link-bg: green;
 $color-link-hover: red;
 $color-button-text: #fff;
 $color-button-bg: #e71d73;
-$color-button-hover: linear-gradient(
-        217deg,
-        rgba(255, 0, 0, 0.8),
-        rgba(255, 0, 0, 0) 70.71%
-    ),
-    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
-    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
 $color-button-active: #ca9e67;
 $color-menu: #e2f7ff;
 $color-menu-link: #e71d73;
 $color-bad-answer: red;
 $color-good-answer: green;
-$color-footer: $color-header;
 $color-footer-title: black;
 $color-footer-text: black;
 $color-footer-link: yellow;
@@ -106,5 +93,5 @@ img {
 
 .container {
     max-width: $max-width;
-    margin:0 auto;
+    margin: 0 auto;
 }

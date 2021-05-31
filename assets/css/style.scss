@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    background-image: $color-background-body;
     padding: 0;
     text-align: center;
     margin: 0;
