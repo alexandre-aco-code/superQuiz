@@ -12,4 +12,7 @@ Vous pouvez ensuite comparer votre niveau avec celui de vos amis dans la rubriqu
 
 Un administrateur peut ajouter/modifier/supprimer des Topics, des Questions, des Commentaires, des Utilisateurs.
 
-## Technologi
+## Technologies utilisés
+
+Front : HTML 5 , CSS 3, Javascript 
+Back : PHP, MyQL
