@@ -4,6 +4,7 @@ namespace Models;
 
 class Commentary extends Model
 {
+    //pour utiliser Model, on définit une propriété protected $table qui contient le nom de la table principale
     protected $table = T_COMMENTARIES;
 
     public function findAllByAuthor(): array

@@ -4,7 +4,7 @@ namespace Models;
 
 class Score extends Model
 {
-
+    //pour utiliser Model, on définit une propriété protected $table qui contient le nom de la table principale
     public $table = T_SCORE;
 
     public function findScoreByTopic(int $id)

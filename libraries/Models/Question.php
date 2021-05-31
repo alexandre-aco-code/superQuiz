@@ -4,7 +4,7 @@ namespace Models;
 
 class Question extends Model
 {
-
+    //pour utiliser Model, on définit une propriété protected $table qui contient le nom de la table principale
     protected $table = T_QUESTIONS;
 
     public function findQuestionById(int $id)
