@@ -346,6 +346,14 @@ header nav > ul > li {
   border-right: 1px solid grey;
 }
 
+header nav > ul > li .principalHeaderLinks {
+  display: block;
+}
+
+header nav > ul > li .principalHeaderLinks > i {
+  display: block;
+}
+
 header nav > ul > li:hover {
   -webkit-transform: translateY(5px);
           transform: translateY(5px);
