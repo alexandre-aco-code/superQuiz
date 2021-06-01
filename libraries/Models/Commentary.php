@@ -37,7 +37,7 @@ class Commentary extends Model
     public function findAllAuthorizedCommentaries(): array
     {
 
-        $query = $this->db->prepare("SELECT * FROM $this->table WHERE `Status` = 1");
+        $query = $this->db->prepare("SELECT * FROM commentary WHERE `Status` = 1 ORDER BY `Created_at` DESC ");
 
         $query->execute();
 
